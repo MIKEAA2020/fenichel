@@ -1,0 +1,34 @@
+guiding principle: main text must stand alone as a complete, compelling, and self-contained story, while the supplement is a resource for verification, depth, and reproducibility.
+
+main text should satisfy the "general reader," whereas the Supplementary Information (SI) serves the "specialist reader" who wants to delve deeper into specific findings. Anything essential to understanding the paper's core conclusion belongs in the main text; anything that is truly *supplementary*—supportive, detailed, or tangential—belongs in the SI.
+
+### 📊 Main Manuscript vs. Supplementary: A Comparison
+
+Here is a practical breakdown of where typical manuscript elements usually belong.
+
+| Element | Typically Main Manuscript | Typically Supplementary |
+| :--- | :--- | :--- |
+| **Figures & Tables** | The **key figures** (typically 4-8) that directly drive the narrative and support the central conclusion. | **Supporting figures/tables** that provide additional controls, replicate data, or validation but are not central to the main story. |
+| **Methods** | A **concise overview** of the methods, sufficient for a reader to understand the general experimental design. | **Full, detailed protocols** and comprehensive descriptions of materials (e.g., primer lists, plasmid details, software algorithms) required for exact replication. |
+| **Results & Discussion** | The **complete narrative** of results and discussion that directly supports the paper's main claims. | Generally **not permitted**. The SI should not contain new results or extended discussions that are separate from the main narrative. |
+| **Data & Media** | Summarized data and the most critical, representative images or videos. | **Large datasets** (e.g., raw data tables, genomic sequences), **uncropped/raw images** (like full gels), and **non-printable media** (e.g., long videos, 3D models). |
+
+### 🧭 How to Decide: Key Decision Criteria
+
+When you are unsure about a specific piece of content, ask yourself these questions:
+
+1.  **Is it Essential to the Core Conclusion?** If removing the item would leave a gap in the logical argument for your main finding, it belongs in the main text. If it merely adds support, nuance, or detail, it can go in the SI.
+2.  **Is it for the General Reader or the Specialist?** The main text should be understandable to a broad audience in your field. If a figure or data table is only of interest to a small group of specialists, it is a strong candidate for the SI.
+3.  **Is it a Matter of Practicality (Size or Format)?** If a figure is exceptionally large, a table is too long to fit on a journal page, or a video file cannot be embedded, it must go in the SI due to practical constraints.
+4.  **Is it a "Tangential" or "Premature" Experiment?** Data that is interesting but not directly pertinent to the central focus of the study should be placed in the SI, or perhaps omitted entirely to avoid making the supplement a "dump" for less-reliable data.
+
+### ⚠️ Common Pitfalls to Avoid
+
+Be wary of these common traps when preparing your SI:
+
+*   **The "Data Dump":** Do not use the SI to publish every experiment you have ever performed. It should be a curated collection of materials that directly enrich the paper, not a repository for tangential or low-quality data.
+*   **Burying Key Findings:** Conversely, do not hide crucial data that is necessary for the main conclusion in the supplement. This can frustrate readers and reviewers who may feel the paper is incomplete.
+*   **An Unlinked Supplement:** Every single item in the SI (e.g., "Supplementary Figure S1") **must be explicitly cited** in the main manuscript at a relevant point. The SI should not exist as a disconnected document.
+
+Using the "essential vs. supportive" framework and prioritizing the clarity of your main narrative will guide you to the right choices.
+
