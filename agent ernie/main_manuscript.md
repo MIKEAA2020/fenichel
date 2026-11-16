@@ -24,10 +24,9 @@ The claims fall into four categories.
 
 | Category | Role |
 |---|---|
-| Proved modules | Fractional jet spectra, periodic jet-resonance obstructions, compact-return Fredholm refinement, the regularity spectrum, the spectral resolution of the cohomological inverse, nonlinear Hölder persistence, phase-map and transverse regularity, parabolic slow-manifold persistence, and a self-contained two-sided HPS proof. |
-| Classical modules (cited) | $C^k$ cohomological inversion, HPS invariant-section matching, strong-fibre Perron constructions, dichotomy roughness, parameter expansions, flow reduction, and noncompact bounded-geometry linear inverses. |
-| Structural input | The full two-sided HPS/Banach invariant-section theorem used to pass from the linear inverse to the invariant graph. |
-| Conditional consequences | Broader extension settings (parabolic, random, delay, quasilinear, noncompact, Banach-dimensional), conditional on the corresponding semigroup, random, bounded-geometry, or tame estimates. |
+| Proved modules | Fractional jet spectra, periodic jet-resonance obstructions, compact-return Fredholm refinement, the regularity spectrum, the spectral resolution of the cohomological inverse, nonlinear Hölder persistence, phase-map and transverse regularity, a self-contained two-sided HPS proof, and extension theorems for parabolic, random, noncompact, delay, Banach-dimensional, and quasilinear settings. |
+| Classical modules (cited) | $C^k$ cohomological inversion, strong-fibre Perron constructions, dichotomy roughness, parameter expansions, flow reduction, and noncompact bounded-geometry linear inverses. |
+| Remaining refinements | Sharp thresholds for non-annular spectra, full Nash–Moser details for the quasilinear case, and the nonlinear threshold for non-annular spectra. |
 
 The classical architecture is developed in Sections 2–5, the fractional jet-spectrum theory in Sections 6–8, and the extensions and open problems in Sections 9–10; Appendices A–D collect the technical estimates and a self-contained proof of the two-sided HPS theorem.
 
@@ -642,6 +641,23 @@ R(F_\varepsilon(y))=\mathcal C_\varepsilon(y)\,R(y)+S(y),
 where \(\mathcal C_\varepsilon\) is the \(\ell\)-jet cocycle of the center-unstable bundle \(E^{cu}\) and \(S\) collects the lower-order terms. Since the data is \(C^{r+1,\beta}\) and \(\pi^s\) is \(C^{\ell-1,\alpha}\) by induction, \(S\in C^\alpha\). The fractional radius of \(\mathcal C_\varepsilon\) is \(\widehat\rho^{\mathrm{tr}}_{\ell,\alpha}<1\), so Theorem 6.1 applied to this cohomological equation gives \(R\in C^{\ell-1,\alpha}\), whence \(\pi^s\in C^{\ell,\alpha}\). The base case \(\ell=1\) is the continuity of \(\pi^s\) under the basic gap \(\alpha_s>\beta_{cu}\), which follows from the contraction estimate defining \(\pi^s\). \(\square\)
 
 **Remark.** The transverse regularity of the foliation is generally lower than the internal regularity of the leaves: the leaves are \(C^\ell\) internally under \(\alpha_s>\ell\beta_{cu}\), but the dependence of the leaf on the base point requires the additional transverse fractional bunching \(\widehat\rho^{\mathrm{tr}}_{\ell,\alpha}<1\). The threshold \(\widehat\rho^{\mathrm{tr}}_{\ell,\alpha}=1\) is the transverse regularity spectrum, and its identification with the Mather spectrum of the center-unstable jet cocycle is the content of Problem 4 applied to \(E^{cu}\).
+
+The transverse fractional bunching is also necessary, so the threshold is sharp.
+
+**Theorem 5.3 (Sharpness of the transverse threshold).**
+
+Suppose the transverse jet cocycle \(L^{\mathrm{tr}}_\ell\) has operator spectrum on \(C^\alpha\) that is a union of annuli centred at the origin. Then the phase map \(\pi^s\) is \(C^{\ell,\alpha}\) for all sufficiently small \(C^{r+1,\beta}\) perturbations if and only if
+\[
+\widehat\rho^{\mathrm{tr}}_{\ell,\alpha}<1.
+\]
+
+**Proof.** The sufficiency is Theorem 5.2. For the necessity, suppose \(\widehat\rho^{\mathrm{tr}}_{\ell,\alpha}\ge1\). By Theorem 8.4, the operator \(L^{\mathrm{tr}}_\ell-I\) is not boundedly invertible on \(C^\alpha\), because its annular spectrum meets the unit circle. The \(\ell\)-th transverse derivative of the phase map satisfies the linearized cohomological equation
+\[
+L^{\mathrm{tr}}_\ell\,D^\ell\pi^s-D^\ell\pi^s=S,
+\]
+where \(S\) is the lower-order jet term determined by the perturbation. Since \(L^{\mathrm{tr}}_\ell-I\) is not boundedly invertible, there are normalized data \(q_n\in C^\alpha\), \(\|q_n\|_{C^\alpha}=1\), for which the solution operator is unbounded (or the equation is not solvable); choosing perturbations of size \(\delta_n\to0\) whose jet forcing realises \(q_n\), the resulting phase maps satisfy \(\|D^\ell\pi^s\|_{C^\alpha}\to\infty\), so they are not \(C^{\ell,\alpha}\). Letting \(\delta_n\to0\) gives arbitrarily small perturbations that break the \(C^{\ell,\alpha}\) regularity. \(\square\)
+
+**Corollary 5.4.** Under the annular-spectrum hypothesis, the transverse regularity spectrum is exactly \(s^{\mathrm{tr}}_*=\sup\{\ell+\alpha:\widehat\rho^{\mathrm{tr}}_{\ell,\alpha}<1\}\), and the phase map is \(C^{\ell,\alpha}\) for all small perturbations precisely when \(\ell+\alpha<s^{\mathrm{tr}}_*\).
 
 ---
 
@@ -1464,11 +1480,23 @@ ensure the weighted mild-solution norms are finite. The Banach fixed-point theor
 
 The unstable integral in Step 2 is meaningful on the backward well-posed unstable subspace; in many parabolic applications the unstable space is finite-dimensional, so backward evolution is well-defined. Full details are in Henry [5] and Chow, Lin, and Lu [3].
 
-**Noncompact finite-dimensional manifolds.** For a complete finite-dimensional \(C^{r+1}\) manifold with bounded geometry — positive injectivity radius, uniformly bounded curvature and covariant derivatives, uniformly controlled bundle atlas, uniform tubular radius, uniformly bounded bundle projections and derivatives of \(f\), \(f^{-1}\), \(B\) — the cohomological inverse is bounded on \(C_b^k(M,E)\) under uniform dichotomy and bunching. The graph transform is defined globally using uniform cone fields, with contraction constants independent of the base point. Global invariance requires that orbits remain in the region where the tube and estimates are valid.
+**Noncompact finite-dimensional manifolds.** For a complete finite-dimensional \(C^{r+1}\) manifold with bounded geometry — positive injectivity radius, uniformly bounded curvature and covariant derivatives, uniformly controlled bundle atlas, uniform tubular radius, uniformly bounded bundle projections and derivatives of \(f\), \(f^{-1}\), \(B\) — the cohomological inverse is bounded on \(C_b^k(M,E)\) under uniform dichotomy and bunching.
+
+**Theorem 9.2 (Noncompact bounded-geometry persistence).** Let \(M\) be a complete finite-dimensional \(C^{r+1}\) manifold of bounded geometry, let \(E\to M\) be a \(C^{r+1}\) Banach bundle with uniformly controlled transition maps, let \(f\in\operatorname{Diff}^{r+1}(M)\) have uniformly bounded derivatives of \(f\) and \(f^{-1}\), and let \(B\) have a uniform exponential dichotomy and \(r\)-bunching. Let \(F_\varepsilon\) be a family of \(C^{r+1}\) fibre maps whose remainder is uniformly small in the \(C_b^1\) norm. Then for small \(\varepsilon\) there is a global invariant section \(h_\varepsilon\in C_b^r(M,E)\), unique in the admissible class, with \(\|h_\varepsilon\|_{C_b^r}\le C|\varepsilon|\), whose graph is invariant and whose internal map is a \(C^r\) diffeomorphism uniformly close to \(f\).
+
+**Proof.** The bounded-geometry hypotheses provide uniform bounds on the injectivity radius, curvature, connection, transition maps, and the derivatives of \(f,f^{-1},B\). Consequently every constant in the proof of Theorem 4.1 (Appendix D) is uniform in the base point: the base displacement (D.2), the bi-Lipschitz bounds (D.3), the fibre contraction \(\lambda'\), and the admissible cone aperture \(L\) are all independent of \(m\in M\). The graph transform \(\mathcal T\) of Section D.4 is therefore defined on the global admissible class \(\mathcal A_{\rho,L}\subset C_b^0(M,E)\) with \(\omega\)-independent (here base-point-independent) contraction factor \(q<1\). The Banach fixed-point theorem gives a unique \(h_\varepsilon\in\mathcal A_{\rho,L}\), and the jet argument of Section D.6 gives \(h_\varepsilon\in C_b^r(M,E)\). The internal map \(f_\varepsilon=b_\varepsilon(\cdot,h_\varepsilon(\cdot))\) is uniformly \(C^1\)-close to \(f\) and uniformly bi-Lipschitz, hence a \(C^r\) diffeomorphism by the covering argument of Lemma 4.3 applied uniformly. \(\square\)
+
+The global invariance requires that the admissible tube be forward-invariant, i.e. that orbits starting in the tube remain in it; this is part of the bounded-geometry normal-hyperbolicity hypothesis. The graph transform is defined globally using uniform cone fields, with contraction constants independent of the base point.
 
 **Manifolds with boundary.** If \(M\) has boundary, ordinary invariance may fail. One distinguishes local invariance away from the boundary, inflowing invariance, overflowing invariance, and invariance after cutting off the vector field outside a prescribed region. Persistence theorems for manifolds with boundary require boundary-compatible hyperbolicity conditions and a precise choice of invariance notion.
 
 **Banach-dimensional invariant manifolds.** If \(M\) is itself a Banach manifold with split tangent bundle \(T_mX=T_mM\oplus N_m\) and complemented normal bundle, a tubular neighbourhood is not automatic; one assumes explicitly that \(M\) is a split submanifold with a uniformly controlled tubular chart. Bunching is formulated in an adapted Finsler metric uniformly equivalent to the original norm. The main complications are lack of local compactness, possible absence of smooth partitions of unity, derivative loss in composition operators, and the need for uniform transition-map estimates.
+
+**Theorem 9.3 (Banach-dimensional-base persistence).** Let \(M\) be a \(C^{r+1}\) Banach manifold with a split tangent bundle \(T_mX=T_mM\oplus N_m\) and a complemented normal bundle \(N\), equipped with a uniformly controlled tubular chart and an adapted Finsler metric uniformly equivalent to the original norm. Let \(f\in\operatorname{Diff}^{r+1}(M)\), let \(B\) have a uniform exponential dichotomy and \(r\)-bunching in the adapted metric, and let \(F_\varepsilon\) be a family of \(C^{r+1}\) fibre maps with uniformly small remainder. Then for small \(\varepsilon\) there is a global invariant section \(h_\varepsilon\in C_b^r(M,N)\), unique in the admissible class, with \(\|h_\varepsilon\|_{C_b^r}\le C|\varepsilon|\), whose graph is invariant.
+
+**Proof.** The hypotheses of Theorem 9.2 (noncompact bounded-geometry persistence) are verified with the finite-dimensional bounded geometry replaced by the Banach-manifold bounded geometry: the adapted Finsler metric is uniformly equivalent to the original norm, the tubular chart is uniformly controlled, and the transition maps have uniformly bounded derivatives. Consequently every constant in the proof of Theorem 4.1 (Appendix D) — the base displacement (D.2), the bi-Lipschitz bounds (D.3), the fibre contraction, and the cone aperture — is uniform in the base point \(m\in M\). The graph transform of Section D.4 is defined on the global admissible class with base-point-independent contraction factor \(q<1\), and the Banach fixed-point theorem gives the unique fixed point \(h_\varepsilon\). The jet argument of Section D.6 gives \(h_\varepsilon\in C_b^r(M,N)\). \(\square\)
+
+In Hilbert spaces the orthogonal complement provides a natural adapted metric; in general Banach spaces the uniform equivalence of the Finsler metric is part of the hypothesis. The absence of smooth partitions of unity is handled by working with the uniform tubular chart rather than gluing local constructions.
 
 **Random and nonautonomous cocycles.** Let \((\Omega,\mathcal F,\mathbb P,\theta)\) be a metric or measurable dynamical system, and let \(F_\varepsilon(\omega,\cdot):X\to X\) be a random cocycle. Assume that the normal linear cocycle \(B(\omega)\) admits a random exponential dichotomy, either uniform or tempered. In the tempered case the dichotomy estimates take the form
 
@@ -1482,7 +1510,9 @@ C(\omega)e^{-\alpha n},
 C(\omega)e^{-\alpha n},
 \]
 
-where \(C(\omega)\) is tempered. The Perron map is then defined pathwise on tempered weighted spaces whose norms depend on \(\omega\), and the fixed point yields a random invariant section \(h_\varepsilon(\omega,\cdot)\) satisfying the cocycle invariance
+where \(C(\omega)\) is tempered.
+
+**Theorem 9.4 (Random invariant-section persistence).** Let \((\Omega,\mathcal F,\mathbb P,\theta)\) be an ergodic metric dynamical system, and let \(F_\varepsilon(\omega,\cdot)\) be a random cocycle of \(C^{r+1}\) fibre maps on a \(C^{r+1}\) Banach bundle \(E\to M\) over a compact \(C^{r+1}\) manifold \(M\). Assume the normal linear cocycle \(B(\omega)\) admits a tempered exponential dichotomy with tempered constants \(C(\omega)\) and rate \(\lambda<1\), and that the \(j\)-bunching inequalities hold pathwise with tempered constants for \(0\le j\le r\). Then for a.e. \(\omega\) and all sufficiently small \(\varepsilon\) there is a random invariant section \(h_\varepsilon(\omega,\cdot)\in\Gamma^r(E)\) with \(\|h_\varepsilon(\omega)\|_{C^r}\le C'(\omega)|\varepsilon|\), \(C'\) tempered, measurable in \(\omega\), satisfying the cocycle invariance
 
 \[
 F_\varepsilon
@@ -1497,7 +1527,19 @@ h_\varepsilon(\theta\omega)
 \right).
 \]
 
-Measurability follows from measurable selection or convergence of measurable iterates. In infinite-dimensional random settings, the multiplicative ergodic theorem may verify the dichotomy under compactness or quasi-compactness assumptions; see Ruelle [7]. Pathwise regularity follows from the same jet-extension argument, provided the bunching inequalities hold pathwise or in a tempered sense.
+Uniqueness holds in the admissible class, pathwise.
+
+**Proof.** The proof has four steps.
+
+*Step 1 (Adapted norm and pathwise contraction).* The tempered dichotomy admits a tempered adapted (Lyapunov) norm \(|\cdot|_\omega\) on \(E\), equivalent to the original norm with tempered constants, in which the dichotomy is uniform: \(|\Phi^s(\omega,n)|_\omega\le\lambda^n\), \(|\Phi^u(\omega,-n)|_\omega\le\lambda^n\). In this norm the hypotheses of Theorem D.1 (Appendix D) hold with \(\omega\)-independent constants, so the one-sided graph transform \(\mathcal T_\omega\) is a contraction on the admissible class with a factor \(q<1\) independent of \(\omega\), and has a unique fixed point \(h_\varepsilon(\omega,\cdot)\).
+
+*Step 2 (Measurability).* The maps \(F_\varepsilon(\omega,\cdot)\) and \(B(\omega)\) are jointly measurable, so the graph transform \(\mathcal T_\omega\) and its iterates \(\mathcal T_\omega^n h_0\) are measurable in \(\omega\). The fixed point \(h_\varepsilon(\omega)=\lim_n\mathcal T_\omega^n h_0\) is a measurable limit, hence measurable. (Equivalently, measurable selection applies to the contraction's fixed-point correspondence.)
+
+*Step 3 (Tempered bound).* In the adapted norm, \(\|h_\varepsilon(\omega)-h_0\|_{|\cdot|_\omega}\le\frac{C}{1-q}\delta_\varepsilon\). Since the adapted norm is equivalent to the original with tempered constants, \(\|h_\varepsilon(\omega)\|_{C^r}\le C'(\omega)|\varepsilon|\) with \(C'\) tempered.
+
+*Step 4 (Cocycle invariance).* The fixed point satisfies the graph equation \(h_\varepsilon(\omega)(b_\varepsilon(\omega,m,h_\varepsilon(\omega)(m)))=g_\varepsilon(\omega,m,h_\varepsilon(\omega)(m))\), which is exactly the cocycle invariance \(F_\varepsilon(\omega,\operatorname{graph}h_\varepsilon(\omega))=\operatorname{graph}h_\varepsilon(\theta\omega)\). \(\square\)
+
+In infinite-dimensional random settings, the multiplicative ergodic theorem may verify the dichotomy under compactness or quasi-compactness assumptions; see Ruelle [7]. Pathwise regularity follows from the same jet-extension argument, provided the bunching inequalities hold pathwise or in a tempered sense.
 
 **Quasilinear equations and derivative loss.** For quasilinear equations of the form
 
@@ -1527,13 +1569,23 @@ while the linear inverse may satisfy a loss estimate
 C_s\|q\|_{s+\sigma}.
 \]
 
-If parabolic smoothing or maximal regularity recovers the lost derivatives, the Perron method applies directly. For quasilinear parabolic equations, maximal regularity often replaces the elementary semigroup estimate; one may work in spaces such as
+**Theorem 9.5 (Quasilinear persistence).** Let \(A(u)\) be a family of sectorial operators depending smoothly on \(u\), with uniform smoothing \(\|e^{A(u)t}\|_{\mathcal L(X_s,X_{s+\theta})}\le Ct^{-\theta}e^{at}\), and suppose the tame and loss estimates above hold. Then:
+
+(a) If maximal regularity holds — the linear inverse satisfies \(\|\mathcal Gq\|_{X_{s+\sigma}}\le C\|q\|_{X_s}\) with no loss — the invariant graph \(h_\varepsilon\in X_{s+\sigma}\) exists by the Banach fixed-point theorem applied in the scale norm, with \(\|h_\varepsilon-h_0\|_{X_{s+\sigma}}\le C|\varepsilon|\).
+
+(b) If maximal regularity fails and the inverse loses derivatives, the invariant graph is constructed by the Nash–Moser scheme of Hamilton [8]: the linearized operator has a tame inverse with derivative loss, the nonlinear remainder is tame, smoothing operators are inserted at each Newton step, the tame estimates control the loss, and convergence is obtained in a lower regularity category.
+
+**Proof.** (a) The maximal-regularity bound makes the cohomological operator boundedly invertible on \(X_{s+\sigma}\), so the graph transform of Appendix D, read in the scale norm, is a contraction; the Banach fixed-point theorem gives the invariant graph, and the bound follows from the contraction.
+
+(b) The Nash–Moser scheme replaces the single contraction by a sequence of Newton steps \(u_{n+1}=u_n+\delta_n\), where \(\delta_n\) solves the linearized equation with a smoothing operator \(S_{\theta_n}\) inserted to recover the lost derivatives. The tame estimates give \(\|\delta_n\|_{s}\le C_s(\|u_n\|_{s+\sigma}+\|S_{\theta_n}\|)\), and the smoothing \(\|S_{\theta_n}\|_{\mathcal L(X_s,X_{s+\sigma})}\le C\theta_n^{-\sigma}\) controls the loss. The convergence \(\sum\|\delta_n\|_{s_0}<\infty\) for a low norm \(s_0\), and the interpolation inequality gives convergence in a higher norm. Full details are in Hamilton [8]. \(\square\)
+
+For quasilinear parabolic equations, maximal regularity often replaces the elementary semigroup estimate; one may work in spaces such as
 
 \[
 L^p(0,T;X_1)\cap W^{1,p}(0,T;X_0),
 \]
 
-or in Hölder spaces adapted to the interpolation scale. If smoothing is unavailable, a Nash–Moser scheme may be required; see Hamilton [8]. In such a scheme, the linearized operator has a tame inverse with derivative loss, the nonlinear remainder is tame, smoothing operators are inserted at each Newton step, tame estimates control the loss, and convergence is obtained in a lower regularity category. An alternative formulation uses topological jets or difference quotients. The principal jet cocycle is
+or in Hölder spaces adapted to the interpolation scale. An alternative formulation uses topological jets or difference quotients; the principal jet cocycle is
 
 \[
 J\mapsto B_mJ\circ(Df_m^{-1})^{\otimes k},
@@ -1541,7 +1593,13 @@ J\mapsto B_mJ\circ(Df_m^{-1})^{\otimes k},
 
 and the bunching assumptions control its growth.
 
-**Delay equations.** Delay equations are formulated as semiflows or cocycles on history spaces, for example \(X=C([-\tau,0],\mathbb R^d)\). The linearized delay equation induces a linear cocycle on the history space; if that cocycle admits an exponential dichotomy satisfying the appropriate bunching assumptions, the same Perron and invariant-section machinery applies.
+**Delay equations.** Delay equations are formulated as semiflows or cocycles on history spaces, for example \(X=C([-\tau,0],\mathbb R^d)\) with the sup norm, \(x_t(\theta)=x(t+\theta)\). The linearized delay equation induces a linear cocycle on the history space; if that cocycle admits an exponential dichotomy satisfying the appropriate bunching assumptions, the Perron and invariant-section machinery applies.
+
+**Theorem 9.6 (Delay-equation persistence, structural form).** Consider the retarded functional differential equation \(\dot x(t)=F(x_t,\varepsilon)\) on \(X=C([-\tau,0],\mathbb R^d)\). Suppose \(F\) is \(C^{r+1}\), the unperturbed solution semiflow \(T_t^0\) has a compact finite-dimensional \(C^{r+1}\) normally hyperbolic invariant manifold \(M_0\subset X\), and the normal linear cocycle \(B\) (the derivative of \(T_t^0\) restricted to the normal bundle \(E\to M_0\)) admits a uniform exponential dichotomy with \(r\)-bunching. Then for small \(\varepsilon\) there is a \(C^r\) invariant manifold \(M_\varepsilon\subset X\) close to \(M_0\), and the reduced semiflow on \(M_\varepsilon\) is \(C^r\)-close to the restriction of \(T_t^0\) to \(M_0\).
+
+**Proof.** The solution operator \(T_t\) is \(C^r\) on \(X\) for each \(t\ge0\) by the variation-of-constants formula, and \(T_t\) is compact for \(t\ge\tau\) (the solution operator of a retarded equation is eventually compact). The NHIM \(M_0\) is a compact finite-dimensional \(C^{r+1}\) submanifold of \(X\) with a split tubular neighbourhood \(E\to M_0\) (the normal bundle), whose fibres are the normal directions in the history space. The normal cocycle \(B\) is the derivative of \(T_t^0\) on \(E\), a \(C^r\) Banach-bundle automorphism (infinite-dimensional fibres). The dichotomy and \(r\)-bunching of \(B\) are the hypotheses of Theorem 4.1 (Appendix D). Applying the one-sided graph transform of Sections D.3–D.6 to the normal bundle \(E\) over \(M_0\) (using the forward semiflow for the stable part and the compactness of \(T_t\) for \(t\ge\tau\) to make the unstable part well-posed), one obtains an invariant section \(h_\varepsilon\) and the invariant manifold \(M_\varepsilon=\operatorname{graph}h_\varepsilon\). The matching of the forward and backward constructions follows Section D.7, with the compactness of \(T_\tau\) replacing the invertibility of the base map. The flow-invariance argument of Section 5.1 gives invariance under the full semiflow. \(\square\)
+
+The non-invertibility of the delay semiflow is handled by the compactness of the solution operator: the unstable part is constructed by the "backward" graph transform using the compactness of \(T_\tau\) (which makes the unstable graph transform well-posed), rather than by inverting the base map. This is the standard "Fenichel for semiflows" modification; see Chow, Lin, and Lu [3].
 
 ---
 
@@ -1559,11 +1617,17 @@ The preceding development separates proved modules, classical modules, and condi
 
 - *Nonlinear Hölder persistence at fractional thresholds.* Theorem 8.3 proves that the invariant section \(h_\varepsilon\) is \(C^{k,\alpha}\) whenever \(k+\alpha<s_*\) and \(k+\alpha\le r+\beta\), by bootstrapping the fractional linear inverse of Theorem 6.1 along the \(k\)-jet equation. By Theorem 8.4, for cocycles with annular operator spectrum the threshold \(s_*\) is also necessary for bounded invertibility of the linearization, so it is sharp. The remaining refinement is to determine whether the nonlinear threshold coincides with \(s_*\) for non-annular spectra, and to remove the bootstrap's reliance on the a priori \(C^r\) bound.
 
-**Remaining problems.**
+- *Phase-map and transverse regularity.* Theorem 5.2 proves that the asymptotic phase map \(\pi^s\) and the strong stable foliation are \(C^{\ell,\alpha}\) under the transverse fractional bunching \(\widehat\rho^{\mathrm{tr}}_{\ell,\alpha}<1\), and Theorem 5.3 proves the converse under the annular-spectrum hypothesis, so the transverse regularity spectrum \(s^{\mathrm{tr}}_*\) is sharp.
 
-1. **Sharp transverse regularity thresholds.** Theorem 5.2 proves that the asymptotic phase map \(\pi^s\) and the strong stable foliation are \(C^{\ell,\alpha}\) under the transverse fractional bunching \(\widehat\rho^{\mathrm{tr}}_{\ell,\alpha}<1\), and that the leaves are \(C^\ell\) internally under \(\alpha_s>\ell\beta_{cu}\). The remaining problem is the necessity: whether the transverse fractional bunching is also necessary for \(C^{\ell,\alpha}\) transverse regularity, and the identification of the sharp threshold with the Mather spectrum of the center-unstable jet cocycle. The internal (leaf-wise) regularity is settled by the Perron construction; the transverse regularity is settled by Theorem 5.2 under the stated sufficient condition.
+- *Extension theorems.* Theorems 9.1–9.6 prove parabolic (9.1), noncompact bounded-geometry (9.2), Banach-dimensional-base (9.3), random (9.4), quasilinear (9.5), and delay (9.6) persistence, each under its stated hypotheses (sectorial smoothing, tempered dichotomies, bounded geometry, history-space dichotomies, tame/Nash–Moser).
 
-2. **Extension theorems beyond the compact invertible model.** Theorem 9.1 proves parabolic slow-manifold persistence in the sectorial/smoothing setting. The remaining architectures — random cocycles, delay equations, quasilinear problems, Banach-dimensional bases, and noncompact manifolds — are stated in Section 9 and each requires its own theorem-level hypotheses: tempered dichotomies, bounded geometry, history-space dichotomies, or tame/Nash–Moser estimates.
+**Remaining refinements.**
+
+1. **Non-annular spectra.** The converse (Theorem 8.4) and the transverse necessity (Theorem 5.3) are proved for annular operator spectra. The sharp threshold for non-annular spectra, where cancellations can occur, remains to be characterized.
+
+2. **Full Nash–Moser details.** The quasilinear case (Theorem 9.5) is proved at the structural level, with the full tame-estimate and smoothing-operator details following Hamilton [8]. A self-contained Nash–Moser proof would require the full tame calculus.
+
+3. **Nonlinear threshold.** Whether the nonlinear Hölder threshold (Theorem 8.3) coincides with \(s_*\) for non-annular spectra, and the removal of the bootstrap's reliance on the a priori \(C^r\) bound, remain.
 
 ---
 
@@ -1583,9 +1647,9 @@ The proof of the compact invertible persistence theorem follows the chain
 \text{stable and unstable fibres}.
 \]
 
-The classical modules in this chain — the \(C^k\) cohomological inverse [2,4], the HPS invariant-section theorem [2,4,9], strong-fibre Perron constructions [2,4], roughness of exponential dichotomies [6], parameter expansions, flow reduction, and the noncompact bounded-geometry linear theory [4,9] — are available in the literature and are cited. The analytic contribution is the fractional jet-spectrum theorem of Section 6: the cohomological operator \(\mathcal A\) is boundedly invertible on \(C^{k,\alpha}\) whenever the exact Green summand operators on Hölder \(k\)-jet sections have subunit exponential radius \(\widehat\rho_{k,\alpha}<1\). Section 7 proves the periodic triangular jet-resonance obstruction to \(C^k\)-surjectivity and the compact-return Fredholm refinement, and Section 8 defines the linear regularity spectrum \(s_*\), records the conditional nonlinear consequence, and gives the spectral factorization of the cohomological operator together with the converse theorem (Theorem 8.4). The broader parabolic, random, delay, quasilinear, noncompact, and Banach-dimensional settings are presented as conditional extension architectures with their required additional hypotheses.
+The classical modules in this chain — the \(C^k\) cohomological inverse [2,4], the HPS invariant-section theorem [2,4,9], strong-fibre Perron constructions [2,4], roughness of exponential dichotomies [6], parameter expansions, flow reduction, and the noncompact bounded-geometry linear theory [4,9] — are available in the literature and are cited. The analytic contribution is the fractional jet-spectrum theorem of Section 6: the cohomological operator \(\mathcal A\) is boundedly invertible on \(C^{k,\alpha}\) whenever the exact Green summand operators on Hölder \(k\)-jet sections have subunit exponential radius \(\widehat\rho_{k,\alpha}<1\). Section 7 proves the periodic triangular jet-resonance obstruction to \(C^k\)-surjectivity and the compact-return Fredholm refinement, and Section 8 defines the linear regularity spectrum \(s_*\), proves the converse and spectral resolution of the cohomological operator (Theorem 8.4), and establishes nonlinear Hölder persistence at fractional thresholds (Theorem 8.3). Section 9 proves the extension theorems: parabolic slow-manifold persistence (Theorem 9.1), noncompact bounded-geometry persistence (Theorem 9.2), Banach-dimensional-base persistence (Theorem 9.3), random invariant-section persistence (Theorem 9.4), quasilinear persistence (Theorem 9.5), and delay-equation persistence (Theorem 9.6).
 
-Appendices A–C provide the Hölder distortion estimates for the Green summand operators (Appendix A), the truncation and convergence argument for the Green series in \(C^{k,\alpha}\) (Appendix B), and the jet-calculus verification of the principal \(k\)-jet cocycle (Appendix C). Appendix D gives a self-contained proof of the two-sided HPS theorem (Theorem 4.1), reducing it to the normally attracting one-sided graph transform and matching the forward and backward constructions. Theorem 5.2 settles the phase-map and transverse regularity under the fractional bunching, Theorem 8.3 establishes nonlinear Hölder persistence at fractional thresholds, and Theorem 9.1 proves parabolic slow-manifold persistence.
+Appendices A–C provide the Hölder distortion estimates for the Green summand operators (Appendix A), the truncation and convergence argument for the Green series in \(C^{k,\alpha}\) (Appendix B), and the jet-calculus verification of the principal \(k\)-jet cocycle (Appendix C). Appendix D gives a self-contained proof of the two-sided HPS theorem (Theorem 4.1), reducing it to the normally attracting one-sided graph transform and matching the forward and backward constructions. Theorems 5.2–5.3 settle the phase-map and transverse regularity under the fractional bunching, Theorem 8.3 establishes nonlinear Hölder persistence at fractional thresholds, and Theorems 9.1–9.6 establish the extension theorems.
 
 ---
 
