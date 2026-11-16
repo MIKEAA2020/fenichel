@@ -1389,6 +1389,26 @@ a strict spectral gap of \(L_k\) at the unit circle.
 
 **Periodic orbits.** For a periodic orbit of prime period \(N\), the spectrum \(\sigma(L_k)\) is the set of eigenvalues of the return map \(\mathfrak R_k(p)\), and \(1\in\sigma(L_k)\) if and only if \(\mathfrak R_k(p)\) has eigenvalue \(1\). This recovers the resonance obstruction of Proposition 7.1 from the factorization, and shows that the periodic obstruction is precisely the failure of the spectral gap at \(z=1\).
 
+**Spectral picture.** The situation of Theorem 8.4 is visualised in the complex plane:
+
+```
+        Im
+         |        stable annulus (outside unit circle)
+         |      .-''''''-.
+         |    .'  shaded  '.
+         |   /   region     \
+         |  |   r1<=|z|<=r2  |
+    -----+--|----------------|------ Re
+         |  |    (unit circle  |
+         |   \    dashed)     /
+         |    '.           .'
+         |      '-.....-'
+         |         ^
+         |         | z=1 (resonance point)
+```
+
+The unit circle \(|z|=1\) is dashed; the annular Mather spectrum of \(L_k\) is the shaded region; the point \(z=1\) is the resonance. Theorem 8.4 says that \(\mathcal A\) is boundedly invertible iff \(1\) lies outside the spectrum. The strict gap \(\widehat\rho_{k,\alpha}<1\) means the stable annulus lies entirely outside the unit circle and the unstable annulus entirely inside, so \(1\) lies in the gap. If the annulus crosses the unit circle (as in the hyperbolic toral example at \(s=s_*\)), then \(1\) lies in the spectrum, and the cohomological operator is not invertible.
+
 ---
 
 ## 9. Extensions
