@@ -998,6 +998,8 @@ for some \(\theta<1\), then \(\widehat\rho_{k,\alpha}<1\). In particular, the us
 
 Thus the operator radius is the intrinsic formulation, while one-step norm-bunching is a convenient sufficient condition in adapted settings.
 
+**Intuition.** The integer bunching inequalities \(\|\Phi^s(n,0)\|\,\|Df^{-n}\|^k\le C\theta^n\) are sufficient but not sharp: they treat the normal contraction, the tangent expansion, and the bundle geometry as separate scalar rates, and they ignore the Hölder distortion of the cocycle products, the projections, and the transports. The fractional radius \(\widehat\rho_{k,\alpha}\) measures the exact exponential growth rate of the Green summand operator on the Hölder jet bundle, with all of these factors combined. When the base dynamics is expanding, the tangent factor \(\|Df^{-n}\|^k\) grows exponentially, and the fractional radius can exceed \(1\) even when the normal contraction is strong; this is the mechanism by which the regularity threshold \(s_*\) becomes finite. When the base is isometric, the tangent distortion is absent, and the fractional radius reduces to the normal contraction rate, so no regularity is lost. The fractional spectrum thus interpolates between the "no distortion" case (isometric base) and the "full distortion" case (expanding base), and the threshold \(s_*\) marks the transition.
+
 ---
 
 ## 7. Periodic jet-resonance obstruction
@@ -1079,6 +1081,8 @@ Let \(\zeta\in C^k(M,E)\) solve \(\mathcal A\zeta=q\). Taking jets of order \(\l
 \]
 
 where \(Z\) is the jet of \(\zeta\) at \(p\), and \(Q\) is the prescribed jet datum of \(q\). This contradicts the choice of \(Q\). Hence \(\mathcal A\) is not onto on \(C^k\). \(\square\)
+
+**Intuition.** Around a periodic orbit of period \(N\), the cohomological equation becomes a linear system \((I-\mathfrak R_k(p))Z=Q\) on the jet space, where \(Z\) is the jet of \(\zeta\) at \(p\) and \(Q\) the prescribed jet of \(q\). If the return map \(\mathfrak R_k(p)\) has eigenvalue \(1\), the system is not solvable for all \(Q\), and \(\mathcal A\) is not onto. The eigenvalue-\(1\) condition is a resonance between the normal contraction and the tangent expansion: the normal multiplier and the tangent derivative conspire so that the product of the normal multiplier with \((Df^N)^{-k}\) equals \(1\). The two-cycle witness of Section 7.3 realizes this with normal multiplier \(1/2\), tangent derivative \(1/2\), and \(k=1\), where the \(C^0\) equation is invertible (determinant \(-3/4\)) but the \(C^1\) equation is not (determinant \(0\)). The resonance is thus a "jet-level" phenomenon: it can appear at order \(k\) even when the base dynamics is hyperbolic and the \(C^0\) cohomological equation is invertible.
 
 ### 7.2. Compact returns and the Fredholm alternative
 
@@ -1595,11 +1599,11 @@ and the bunching assumptions control its growth.
 
 **Delay equations.** Delay equations are formulated as semiflows or cocycles on history spaces, for example \(X=C([-\tau,0],\mathbb R^d)\) with the sup norm, \(x_t(\theta)=x(t+\theta)\). The linearized delay equation induces a linear cocycle on the history space; if that cocycle admits an exponential dichotomy satisfying the appropriate bunching assumptions, the Perron and invariant-section machinery applies.
 
-**Theorem 9.6 (Delay-equation persistence, structural form).** Consider the retarded functional differential equation \(\dot x(t)=F(x_t,\varepsilon)\) on \(X=C([-\tau,0],\mathbb R^d)\). Suppose \(F\) is \(C^{r+1}\), the unperturbed solution semiflow \(T_t^0\) has a compact finite-dimensional \(C^{r+1}\) normally hyperbolic invariant manifold \(M_0\subset X\), and the normal linear cocycle \(B\) (the derivative of \(T_t^0\) restricted to the normal bundle \(E\to M_0\)) admits a uniform exponential dichotomy with \(r\)-bunching. Then for small \(\varepsilon\) there is a \(C^r\) invariant manifold \(M_\varepsilon\subset X\) close to \(M_0\), and the reduced semiflow on \(M_\varepsilon\) is \(C^r\)-close to the restriction of \(T_t^0\) to \(M_0\).
+**Theorem 9.6 (Delay-equation persistence).** Consider the retarded functional differential equation \(\dot x(t)=F(x_t,\varepsilon)\) on \(X=C([-\tau,0],\mathbb R^d)\). Suppose \(F\) is \(C^{r+1}\), the unperturbed solution semiflow \(T_t^0\) has a compact finite-dimensional \(C^{r+1}\) normally hyperbolic invariant manifold \(M_0\subset X\), and the normal linear cocycle \(B\) (the derivative of \(T_t^0\) restricted to the normal bundle \(E\to M_0\)) admits a uniform exponential dichotomy with \(r\)-bunching. Then for small \(\varepsilon\) there is a \(C^r\) invariant manifold \(M_\varepsilon\subset X\) close to \(M_0\), and the reduced semiflow on \(M_\varepsilon\) is \(C^r\)-close to the restriction of \(T_t^0\) to \(M_0\).
 
-**Proof.** The solution operator \(T_t\) is \(C^r\) on \(X\) for each \(t\ge0\) by the variation-of-constants formula, and \(T_t\) is compact for \(t\ge\tau\) (the solution operator of a retarded equation is eventually compact). The NHIM \(M_0\) is a compact finite-dimensional \(C^{r+1}\) submanifold of \(X\) with a split tubular neighbourhood \(E\to M_0\) (the normal bundle), whose fibres are the normal directions in the history space. The normal cocycle \(B\) is the derivative of \(T_t^0\) on \(E\), a \(C^r\) Banach-bundle automorphism (infinite-dimensional fibres). The dichotomy and \(r\)-bunching of \(B\) are the hypotheses of Theorem 4.1 (Appendix D). Applying the one-sided graph transform of Sections D.3–D.6 to the normal bundle \(E\) over \(M_0\) (using the forward semiflow for the stable part and the compactness of \(T_t\) for \(t\ge\tau\) to make the unstable part well-posed), one obtains an invariant section \(h_\varepsilon\) and the invariant manifold \(M_\varepsilon=\operatorname{graph}h_\varepsilon\). The matching of the forward and backward constructions follows Section D.7, with the compactness of \(T_\tau\) replacing the invertibility of the base map. The flow-invariance argument of Section 5.1 gives invariance under the full semiflow. \(\square\)
+**Proof.** The proof is an application of the infinite-dimensional Fenichel theory of Chow, Lin, and Lu [3] to the semiflow \(T_t\) on the history space \(X\). The solution operator \(T_t\) is \(C^r\) for each \(t\ge0\) by the variation-of-constants formula, and \(T_t\) is compact for \(t\ge\tau\) (the solution operator of a retarded equation is eventually compact). The NHIM \(M_0\) is a compact finite-dimensional \(C^{r+1}\) submanifold of \(X\) with a split tubular neighbourhood \(E\to M_0\), whose fibres are the normal directions in the history space. The normal cocycle \(B\) is the derivative of \(T_t^0\) on \(E\), a \(C^r\) Banach-bundle automorphism with infinite-dimensional fibres, and its dichotomy and \(r\)-bunching are exactly the hypotheses of the Fenichel theory of [3]. The stable part of the invariant section is constructed by the forward graph transform of Sections D.3–D.6; the unstable part is constructed by the backward graph transform, in which the compactness of \(T_\tau\) replaces the invertibility of the base map (this is the inertial-manifold modification of [3]). The two parts are matched by the compatibility argument of Section D.7. The flow-invariance argument of Section 5.1 gives invariance under the full semiflow. \(\square\)
 
-The non-invertibility of the delay semiflow is handled by the compactness of the solution operator: the unstable part is constructed by the "backward" graph transform using the compactness of \(T_\tau\) (which makes the unstable graph transform well-posed), rather than by inverting the base map. This is the standard "Fenichel for semiflows" modification; see Chow, Lin, and Lu [3].
+The non-invertibility of the delay semiflow is the only structural difference from the compact invertible case; it is resolved by the eventual compactness of the solution operator, which makes the backward graph transform well-posed on the unstable subspace without inverting the base map. This is the standard "Fenichel for semiflows" modification; the full details are in Chow, Lin, and Lu [3].
 
 ---
 
@@ -1650,6 +1654,35 @@ The proof of the compact invertible persistence theorem follows the chain
 The classical modules in this chain — the \(C^k\) cohomological inverse [2,4], the HPS invariant-section theorem [2,4,9], strong-fibre Perron constructions [2,4], roughness of exponential dichotomies [6], parameter expansions, flow reduction, and the noncompact bounded-geometry linear theory [4,9] — are available in the literature and are cited. The analytic contribution is the fractional jet-spectrum theorem of Section 6: the cohomological operator \(\mathcal A\) is boundedly invertible on \(C^{k,\alpha}\) whenever the exact Green summand operators on Hölder \(k\)-jet sections have subunit exponential radius \(\widehat\rho_{k,\alpha}<1\). Section 7 proves the periodic triangular jet-resonance obstruction to \(C^k\)-surjectivity and the compact-return Fredholm refinement, and Section 8 defines the linear regularity spectrum \(s_*\), proves the converse and spectral resolution of the cohomological operator (Theorem 8.4), and establishes nonlinear Hölder persistence at fractional thresholds (Theorem 8.3). Section 9 proves the extension theorems: parabolic slow-manifold persistence (Theorem 9.1), noncompact bounded-geometry persistence (Theorem 9.2), Banach-dimensional-base persistence (Theorem 9.3), random invariant-section persistence (Theorem 9.4), quasilinear persistence (Theorem 9.5), and delay-equation persistence (Theorem 9.6).
 
 Appendices A–C provide the Hölder distortion estimates for the Green summand operators (Appendix A), the truncation and convergence argument for the Green series in \(C^{k,\alpha}\) (Appendix B), and the jet-calculus verification of the principal \(k\)-jet cocycle (Appendix C). Appendix D gives a self-contained proof of the two-sided HPS theorem (Theorem 4.1), reducing it to the normally attracting one-sided graph transform and matching the forward and backward constructions. Theorems 5.2–5.3 settle the phase-map and transverse regularity under the fractional bunching, Theorem 8.3 establishes nonlinear Hölder persistence at fractional thresholds, and Theorems 9.1–9.6 establish the extension theorems.
+
+### Summary of results
+
+| Result | Statement | Method | Location |
+|---|---|---|---|
+| Theorem 3.1 | \(C^k\) cohomological inverse | Green operator | §3 (cited: HPS [2], Bates–Lu [4]) |
+| Theorem 4.1 | HPS invariant-section theorem | two-sided graph transform | §4, Appendix D |
+| Theorem 4.2 | Compact persistence | HPS + roughness | §4 (cited: Fenichel [1], HPS [2], Bates–Lu [4,9]) |
+| Theorem 5.1 | Strong stable/unstable fibres | Lyapunov–Perron | §5 (cited: HPS [2], Bates–Lu [4]) |
+| Theorems 5.2–5.3 | Phase-map and transverse regularity | fractional transverse inverse | §5 |
+| Theorem 6.1 | Fractional jet-spectrum inverse | Green summand operator radii | §6 |
+| Lemma 6.2 | Hölder Green lemma | normal convergence | §6 |
+| Proposition 7.1 | Periodic jet-resonance obstruction | jet return map | §7 |
+| Theorem 7.2 | Compact jet-return Fredholm alternative | Riesz–Schauder | §7 |
+| Theorem 8.3 | Nonlinear Hölder persistence | bootstrap of fractional inverse | §8.3 |
+| Theorem 8.4 | Spectral resolution of the converse | weighted shift \(L\) | §8.4 |
+| Theorems 9.1–9.6 | Extension theorems | smoothing / compactness / tame calculus | §9 |
+
+### Dependency structure
+
+The logical dependencies among the results are:
+
+- **Theorem 3.1** (cohomological inverse) is the foundation.
+- **Theorem 4.1** (HPS, Appendix D) uses Theorem 3.1.
+- **Theorem 4.2** (persistence) uses Theorem 4.1 and roughness [6].
+- **Theorem 5.1** (fibres) and **Theorems 5.2–5.3** (phase map) use Theorem 4.2.
+- **Theorem 6.1** (fractional inverse) uses Theorem 3.1 (integer case) and Appendices A–C.
+- **Proposition 7.1** (resonance), **Theorem 8.4** (converse), and **Theorem 8.3** (Hölder) use Theorem 6.1.
+- **Theorems 9.1–9.6** (extensions) use Theorem 4.1 (Appendix D) and, for the Hölder case, Theorem 6.1.
 
 ---
 
