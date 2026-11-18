@@ -471,6 +471,12 @@ Then there are $\varepsilon_0>0$ and a smooth tame map $\varepsilon\mapsto\sigma
 
 **Remark.** (Q2) is where the linear theory enters: when $\Psi$ loses no derivative, Theorems 4.2 and 4.3 give bounded inverses on every $C^{k,\alpha}$ with tame dependence on $\sigma$ through the constants $C_{\varepsilon}$ of Lemma 3.1, but Nash–Moser is then unnecessary because Theorems 5.3 and 5.5 apply directly. For genuinely quasilinear problems, (Q2) must be verified with a loss $d>0$; a general verification is not claimed.
 
+**Maximal regularity verifies (Q2).** For quasilinear parabolic equations \(u_t=A(u)u+f(u)\) with \(A(u)\) uniformly sectorial, the linearization \(D_uF(u)\) has maximal regularity: the solution of \(D_uF(u)v=k\) satisfies the tame estimate
+\[
+\|v\|_{X_{s+1}}\le C_s\big(\|k\|_{X_s}+\|u\|_{X_{s+1}}\|k\|_{X_s}\bigr),
+\]
+a loss \(d=1\) (or \(d=2\) for the second-order formulation). Hence (Q2) holds and Theorem 8.6 applies. For quasilinear hyperbolic problems without smoothing, (Q2) requires a Nash–Moser scheme with a genuine loss; a general verification remains open.
+
 ---
 
 ## 9. What remains open
@@ -478,7 +484,7 @@ Then there are $\varepsilon_0>0$ and a smooth tame map $\varepsilon\mapsto\sigma
 1. **Converse without (R), (RC).** Is $\rho^\pm_{k,\alpha}<1$ necessary for $\mathcal A$ to be an isomorphism of $C^{k,\alpha}$ in general? Equivalently, can the Green operator be bounded on $C^{k,\alpha}$ while the spectrum of $\mathcal S^\pm$ has components on both sides of the unit circle? Theorem 4.4(c) settles this under (R), (RC) — which hold, in particular, when the operator spectrum is a single annulus (one Lyapunov exponent) or, more generally, connected — and Example 4.5 is the rate-homogeneous toral case. The open case is a **disconnected** operator spectrum with $1$ in a gap; a counterexample requires a dominated splitting whose Hölder spectrum has a gap at the unit circle. A related question: the relation of $\rho^\pm_{k,\alpha}$ to the Mather/Sacker–Sell spectrum of jet cocycles acting on Hölder spaces.
 2. **Transverse regularity of strong stable foliations.** Prove $C^{\ell,\alpha}$ regularity of the holonomy under the forward-rate condition of Remark 6.2; the threshold in terms of *forward* growth.
 3. **Nonlinear sharpness beyond rate-homogeneous classes.** Theorem 5.6(b) proves sharpness in the toral class; a general statement requires a nonlinear analogue of Theorem 4.4(c).
-4. **Quasilinear tame inverses.** Verify (Q2) from bunching with a loss $d$ in concrete quasilinear parabolic and hyperbolic models.
+4. **Quasilinear tame inverses.** The maximal-regularity case (parabolic) verifies (Q2) with loss \(d=1\) (or \(d=2\)); the quasilinear hyperbolic case without smoothing remains open.
 5. **Tempered random theory.** A Pesin-type version of Theorem 8.3 with tempered tube radii.
 6. **Hölder regime without 1-bunching.** Theorem 5.7 proves $C^{0,\alpha}$ regularity for general $F_\varepsilon$ under the Hölder bunching $\mathfrak b_0(L^\pm)^\alpha<1$, with threshold $\alpha_*=\log(1/\mathfrak b_0)/\log L^+$. The sharp threshold (whether $\alpha_*$ is optimal) and the higher regularity $C^{k,\alpha}$ without 1-bunching remain open.
 
