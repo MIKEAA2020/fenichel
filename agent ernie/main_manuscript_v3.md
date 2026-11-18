@@ -30,7 +30,7 @@ and the regularity of the persistent manifold is governed by the regularity of $
 | Thm 4.3 | $\underline{\mathfrak b}\le\rho\le\bar{\mathfrak b}$; exactness | 4 |
 | Thm 4.4, Ex 4.5 | Spectral characterisation, sharp converse, counterexample to the principal-jet criterion | 4 |
 | Prop 5.2, Thm 5.3 | Two-sided invariant section, Lipschitz and $C^{k,\alpha}$ | 5 |
-| Thm 5.4, 5.5, 5.6 | Compact persistence and flows; parameter dependence; sharpness | 5 |
+| Thm 5.4, 5.5, 5.6, 5.7 | Compact persistence and flows; parameter dependence; sharpness; Hölder regime without 1-bunching | 5 |
 | Thm 6.1 | Strong stable fibres: existence, equivariance, $C^{r+1}$ leaves under the minimal gap | 6 |
 | Prop 7.1, Thm 7.3 | Periodic jet resonance | 7 |
 | Thm 8.1–8.6 | Extensions | 8 |
@@ -336,6 +336,34 @@ $D_\sigma\Psi(\varepsilon,\sigma_\varepsilon)D_h=-\partial_\varepsilon\Psi+O(|h|
 (b) *(Sharpness.)* In Example 4.5 take $F_\varepsilon(x,y)=(Ax,\lambda y+\varepsilon q(x))$ on $\mathbb T^2\times\mathbb R$, $q=\cos(2\pi\langle\nu,x\rangle)$. The invariant graph is $\sigma_\varepsilon=\varepsilon\,\mathcal Gq$, and by Example 4.5(ii) it lies in $C^s$ (non-integer $s$) iff $s<s_*=\log(1/\lambda)/\log\Lambda$, i.e. iff $\bar{\mathfrak b}_{k,\alpha}=\lambda\Lambda^{k+\alpha}<1$. So Theorems 5.3, 5.4, 5.5 are sharp: for every $s>s_*$ there are arbitrarily small smooth perturbations whose invariant section is not $C^s$.
 (c) *(Where 1-bunching matters.)* If $\mathfrak b_1^\pm<1$ fails the invariant set need not be a graph (it is a Hölder lamination in general); this is why Theorem 5.3 and Theorem 5.4 assume $\mathfrak b_1^\pm<1$, while (a) does not need it because the base map does not depend on the fibre variable.
 
+**Theorem 5.7 (Hölder regime for general $F_\varepsilon$).** Suppose (H0), (H1), $\mathfrak b_0^\pm<1$, and $\alpha\in(0,1)$ satisfies
+\[
+\mathfrak b_0^+\,(L^+)^\alpha<1,
+\qquad
+\mathfrak b_0^-\,(L^-)^\alpha<1,
+\]
+where $L^\pm=\lim_n(\ell^\pm_n)^{1/n}$ are the Lipschitz growth rates. Suppose $\widehat F_\varepsilon$ is $C^{r,\beta}$ with $\delta_\varepsilon$ small and coupling $K_*$ small (Lemma 3.4). Then for small $\varepsilon$ there is a unique $h_\varepsilon\in\Sigma_\alpha:=\{h\in\Gamma(E):\|h\|_0\le\rho,\ [h]_\alpha\le L\}$ with $\widehat F_\varepsilon(\mathrm{Gr}\,h_\varepsilon)=\mathrm{Gr}\,h_\varepsilon$ (as sets), and $h_\varepsilon\in C^{0,\alpha}$. This replaces the 1-bunching hypothesis of Theorem 5.3 by the Hölder bunching $\mathfrak b_0(L^\pm)^\alpha<1$; Theorem 5.6(a) is the special case $L^\pm=1$.
+
+*Proof.* **Step 0 (iteration).** By Lemma 2.2(d) choose $N$ with $\theta_0:=\max\{s_0,u_0,s_0(L^+)^\alpha,u_0(L^-)^\alpha\}<1$; replace $(f,B,\widehat F_\varepsilon)$ by the $N$-th iterate, so the new system has one-step quantities $s_0,u_0$ (zeroth) and $s_0(L^+)^\alpha,u_0(L^-)^\alpha$ (Hölder).
+
+**Step 1 (admissible class).** $\Sigma_\alpha$ with the $C^0$ metric is complete.
+
+**Step 2 ($C^0$ contraction).** For $h_1,h_2\in\Sigma_\alpha$ and $m'\in M$, with $m_i=\beta_{h_i}^{-1}(m')$,
+\[
+\|(\Gamma h_1)^s(m')-(\Gamma h_2)^s(m')\|
+\le\|D_\eta g\|\,\|h_1(m_1)-h_2(m_2)\|+[g]_\alpha\|m_1-m_2\|^\alpha,
+\]
+and $\|h_1(m_1)-h_2(m_2)\|\le\|h_1-h_2\|_0+[h_2]_\alpha\|m_1-m_2\|^\alpha$, $\|m_1-m_2\|\le CK_*\|h_1-h_2\|_0$ (base displacement). For $\|h_1-h_2\|_0\le2\rho$ this gives $\|(\Gamma h_1)^s-(\Gamma h_2)^s\|_0\le(s_0+C\tau)\|h_1-h_2\|_0$; the unstable part is symmetric. So $\Gamma$ is a $C^0$ contraction with factor $\theta=\max\{s_0,u_0\}+C\tau<1$.
+
+**Step 3 (Hölder preservation).** For $h\in\Sigma_\alpha$,
+\[
+[(\Gamma h)^s]_\alpha\le\|D_\eta g\|\,\mathrm{Lip}(\beta_h^{-1})^\alpha[h]_\alpha+[g]_\alpha\,\mathrm{Lip}(\beta_h^{-1})^\alpha,
+\]
+with $\mathrm{Lip}(\beta_h^{-1})\le\mathrm{Lip}(f^{-1})+C\tau\le L^++C\tau$ (the bi-Lipschitz bound). Hence $[(\Gamma h)^s]_\alpha\le(s_0(L^+)^\alpha+C\tau)[h]_\alpha+C(\delta_\varepsilon+\omega(\rho))$. For $s_0(L^+)^\alpha<1$ this preserves the Hölder class; the unstable part is symmetric.
+
+**Step 4 (fixed point).** The Banach fixed-point theorem gives a unique $h_\varepsilon\in\Sigma_\alpha$ with $\Gamma h_\varepsilon=h_\varepsilon$, and $h_\varepsilon\in C^{0,\alpha}$. \(\square\)
+
+The threshold is $\alpha_*=\log(1/\mathfrak b_0)/\log L^+$: for $\alpha<\alpha_*$ the Hölder bunching holds and the invariant section is $C^{0,\alpha}$, even when 1-bunching ($\mathfrak b_1\ge1$) fails.
 
 ---
 
@@ -452,7 +480,7 @@ Then there are $\varepsilon_0>0$ and a smooth tame map $\varepsilon\mapsto\sigma
 3. **Nonlinear sharpness beyond rate-homogeneous classes.** Theorem 5.6(b) proves sharpness in the toral class; a general statement requires a nonlinear analogue of Theorem 4.4(c).
 4. **Quasilinear tame inverses.** Verify (Q2) from bunching with a loss $d$ in concrete quasilinear parabolic and hyperbolic models.
 5. **Tempered random theory.** A Pesin-type version of Theorem 8.3 with tempered tube radii.
-6. **Hölder regime without 1-bunching for non-skew products.** Theorem 5.6(a) covers skew products; for general $F_\varepsilon$ with $\mathfrak b_1^\pm\ge1$ the invariant object is a lamination, and its sharp Hölder regularity is open.
+6. **Hölder regime without 1-bunching.** Theorem 5.7 proves $C^{0,\alpha}$ regularity for general $F_\varepsilon$ under the Hölder bunching $\mathfrak b_0(L^\pm)^\alpha<1$, with threshold $\alpha_*=\log(1/\mathfrak b_0)/\log L^+$. The sharp threshold (whether $\alpha_*$ is optimal) and the higher regularity $C^{k,\alpha}$ without 1-bunching remain open.
 
 ---
 
