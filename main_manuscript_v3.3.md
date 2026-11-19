@@ -526,6 +526,8 @@ $$\mathcal P(\xi;a)_n=\Phi^s_p(n,0)a+\sum_{k=0}^{n-1}\Phi^s_p(n,k{+}1)P^s_{p_{k+
 (c) If $\xi=\xi(a)$ then $\xi'_n:=\xi_{n+1}$ solves the problem for $(Fp,a'=P^s\xi_1)$ and $\|\xi'\|_\gamma\le e^{-\gamma}\|\xi\|_\gamma$.
 (d) The Nemytskii map $\xi\mapsto(R_n(\xi_n))_n$ satisfies $\|D^i\mathcal N(\xi)(\eta_1,\dots,\eta_i)\|_{\ell_{\max\{2,i\}\gamma}}\le C\prod\|\eta_j\|_\gamma$ ($i\le r+1$) with $D^{r+1}$ uniformly continuous, and the two convolution operators map $\ell_{2\gamma}\to\ell_\gamma$ boundedly (above). Hence $\mathcal P\in C^{r+1}$ in $(\xi,a)$, and the fixed point of a $C^{r+1}$ uniform contraction is $C^{r+1}$ in the parameter. $\square$
 
+**Remark 6.1′ (non-reflexive Perron construction).** The half-line Perron construction above uses only the completeness of the weighted Banach sequence space $\ell_\gamma$ and the uniform contraction estimates; it does **not** require reflexivity of the ambient Banach space $X$, nor weak compactness of bounded sets. The same remark applies to the fibre contraction theorem of §3 and to the mixed graph transform of §5. This concerns internal leaf construction and internal regularity; transverse regularity of the family of leaves and the phase projection remain separate questions requiring additional bunching (Remark 6.2).
+
 **Remark 6.2 (transverse regularity; conjectural threshold).** The regularity of $p\mapsto W^{ss}(p)$ (holonomy) is governed by *forward* separation rates of base orbits, not by the normal jet cocycle: differentiating the Perron operator $j$ times in $p$ produces weights $\gamma-j\mu$ with $\mu$ the forward growth rate of $\|DF^n\|$ along $M_\varepsilon$, so the natural conjecture is $C^\ell$ transversally under $\alpha_s>\ell\mu+\beta_{cu}$ (compare Pugh–Shub–Wilkinson for Hölder exponents). A rigorous proof requires comparing leaves through different base points in a common trivialisation and a scale version of the uniform contraction principle; this is Problem 2 of Section 9.
 
 ---
@@ -674,6 +676,7 @@ Persistence in the boundary case requires **boundary-compatible hyperbolicity**:
 5. **Tempered random theory.** A Pesin-type version of Theorem 8.3 with tempered tube radii.
 6. **Hölder regime without 1-bunching.** Theorem 5.7 proves $C^{0,\alpha}$ regularity for general $F_\varepsilon$ under the Hölder bunching $\mathfrak b_0(L^\pm)^\alpha<1$, with threshold $\alpha_*=\log(1/\mathfrak b_0)/\log L^+$. The sharp threshold (whether $\alpha_*$ is optimal) and the higher regularity $C^{k,\alpha}$ without 1-bunching remain open.
 7. **Manifolds with boundary.** Section 8.6 records the four invariance notions and the boundary-compatible hyperbolicity condition as a structural statement; a full proof requires the boundary-compatible tubular neighbourhood and the uniform estimates up to \(\partial M\). The sharp conditions on the boundary geometry and the choice of invariance notion remain to be worked out.
+8. **Self-contained two-sided Banach-bundle HPS theorem.** The two-sided invariant-section theorem of §5 and the full HPS structural input require, at present, the complete matching lemma, graph contraction, Lipschitz preservation, and jet/difference-quotient extension for general two-sided situations; a fully self-contained proof within the present Banach-bundle framework remains open (the imported structural input is quoted in §1.2).
 
 ---
 
