@@ -1,0 +1,670 @@
+# Cohomological Inverses and Fractional Jet Spectra in Banach-Space Normally Hyperbolic Persistence
+
+---
+
+## Abstract
+
+We study persistence of normally hyperbolic invariant manifolds in Banach spaces through the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$ of the normal cocycle $B$ over the tangential dynamics $f$. 
+
+```mermaid
+graph LR
+    M[Base Manifold M] -->|f| M
+    E[Banach Bundle E→M] -->|B| E
+    E -->|π_s,π_u| S[Stable Bundle E^s]
+    E -->|π_s,π_u| U[Unstable Bundle E^u]
+    style M fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+    style S fill:#cfc,stroke:#333,stroke-width:1px
+    style U fill:#ffc,stroke:#333,stroke-width:1px
+```
+
+1. We introduce **orbit-wise bunching numbers** $\mathfrak b^\pm_s$ and **mixed (Hölder) bunching numbers** $\bar{\mathfrak b}^\pm_{k,\alpha}$ (Fekete limits of explicit suprema) and prove that $\mathcal A$ is an isomorphism of $C^{k,\alpha}$ whenever $\bar{\mathfrak b}^\pm_{k,\alpha}<1$. No regularity of the dichotomy projections is assumed: it is *derived* from the same bunching condition by a fibre-contraction section theorem (Theorem 3.2, Lemma 3.3).
+
+2. We identify the function-space spectral radii $\rho^\pm_{k,\alpha}$ of the stable and unstable transfer operators, prove $\underline{\mathfrak b}^\pm_{k+\alpha}\le\rho^\pm_{k,\alpha}\le\bar{\mathfrak b}^\pm_{k,\alpha}$ (equality for integer orders and for rate-homogeneous bases), characterise invertibility spectrally, prove a sharp converse under a rotation-invariance hypothesis, and show by explicit counterexample that a criterion in terms of the *top-order principal jet operator alone* is false (the correct statement is graded).
+
+3. We prove a complete two-sided invariant-section theorem in Banach bundles (Lipschitz existence by a mixed graph transform which needs **no** invertibility of the stable part; $C^{k,\alpha}$ regularity by the fibre contraction theorem), compact persistence, flows, parameter dependence with linear-in-$\varepsilon$ bounds, sharpness in an explicit class, strong stable fibres under the minimal gap condition with $C^{r+1}$ leaves, the periodic jet-resonance obstruction, and corrected extension theorems (noncompact and Banach-dimensional bases, nonautonomous and uniformly hyperbolic random cocycles, parabolic slow manifolds, delay equations, quasilinear problems via Nash–Moser, and manifolds with boundary).
+
+**Keywords.** normally hyperbolic manifolds; cohomological equation; fractional bunching; Hölder regularity; jet cocycle; fibre contraction; invariant sections; exponential dichotomy.
+
+---
+
+## 1. Introduction
+
+### 1.1 Setting and results
+
+For a comprehensive survey of invariant manifold theory, see Treschev–Zubelevich [20]; the present section introduces the main results.
+
+Let $M$ be a manifold, $f$ a diffeomorphism of $M$, $E\to M$ a Banach bundle and $B_m:E_m\to E_{f(m)}$ a bundle map with a hyperbolic splitting $E=E^s\oplus E^u$. Persistence of $M$ as a normally hyperbolic invariant manifold of $C^{r+1}$ maps $F$ of a Banach space reduces to the linear problem
+$$\mathcal A\zeta(m)=\zeta(f(m))-B_m\zeta(m)=q(m),$$
+and the regularity of the persistent manifold is governed by the regularity of $\mathcal A^{-1}$ on $C^{k,\alpha}$.
+
+| Result | Content | Section |
+|---|---|---|
+| Thm 3.2 | $C^{k,\alpha}$ regularity of invariant sections of fibre contractions | 3 |
+| Lem 3.3, 3.4 | Splitting regularity; invariant complement to $TM$, from bunching alone | 3 |
+| Thm 4.2 | $\mathcal A$ is an isomorphism of $C^{k,\alpha}$ if $\bar{\mathfrak b}^\pm_{k,\alpha}<1$ | 4 |
+| Thm 4.3 | $\underline{\mathfrak b}\le\rho\le\bar{\mathfrak b}$; exactness | 4 |
+| Thm 4.4, Ex 4.5 | Spectral characterisation, sharp converse, counterexample to the principal-jet criterion | 4 |
+| Prop 5.2, Thm 5.3 | Two-sided invariant section, Lipschitz and $C^{k,\alpha}$ | 5 |
+| Thm 5.4, 5.5, 5.6, 5.7 | Compact persistence and flows; parameter dependence; sharpness; Hölder regime without 1-bunching | 5 |
+| Thm 6.1 | Strong stable fibres: existence, equivariance, $C^{r+1}$ leaves under the minimal gap | 6 |
+| Prop 7.1, Thm 7.3 | Periodic jet resonance | 7 |
+| Thm 8.1–8.6 | Extensions | 8 |
+
+**Table 1a: Theorem-level comparison and hypotheses**
+
+| Theorem | Core Hypothesis | Main Conclusion | Key Difficulty |
+|---|---|---|---|
+| Thm 3.2 (a) | $\mathfrak c_{0,0}<1$ | Unique continuous invariant section | None (Banach fixed point) |
+| Thm 3.2 (b) | $\mathfrak c_{k,0}<1$, $k\le r$ | $C^k$ regularity of section | Jets via weighted fibre metric |
+| Thm 3.2 (c) | $\mathfrak c_{k,\alpha}<1$, $k+\alpha\le r+\beta$ | $C^{k,\alpha}$ regularity | Hölder seminorm preservation |
+| Thm 4.2 | $\bar{\mathfrak b}^\pm_{k,\alpha}<1$ | $\mathcal A$ isom. on $C^{k,\alpha}$ | Transfer estimate (Lem 3.1) |
+| Thm 4.3 | (H0)–(H3) | $\underline{\mathfrak b}\le\rho\le\bar{\mathfrak b}$ | Gelfand formula + Hölder bump |
+| Thm 4.4(c) | + (R), (RC) | $\mathcal A$ isom. $\Rightarrow\rho<1$ | Spectrum gap argument |
+| Prop 5.2 | (B), (H3) | Mixed graph transform well-defined | Stable not invertible |
+| Thm 5.3 | (H4) | Two-sided section, $C^{k,\alpha}$ | Fibre contraction jet lift |
+| Thm 5.4 | (H4) + compact $M\subset X$ | Compact persistence, flows | Compactness, Lemma 5.1 |
+| Thm 5.7 | $\mathfrak b_0^\pm(L^\pm)^\alpha<1$ | Hölder regime, no 1-bunching | Hölder preservation |
+
+### 1.2 External inputs (quoted exactly)
+
+* **(FCT) Fibre contraction theorem** (Hirsch–Pugh 1970). Let $\mathcal X$ be a complete metric space, $\mathcal Y$ a metric space, $\Lambda(x,y)=(\lambda(x),\mu(x,y))$ continuous on $\mathcal X\times\mathcal Y$, $\lambda$ a contraction with fixed point $x_*$, and $\mu(x,\cdot)$ a $\kappa$-contraction for every $x$ with $\kappa<1$ independent of $x$. If $y_*$ is the fixed point of $\mu(x_*,\cdot)$ and $\mathcal Y$ is complete, then $\Lambda^n(x,y)\to(x_*,y_*)$ for every $(x,y)$.
+* **(NM) Nash–Moser theorem for tame maps** (Hamilton 1982, III.1.1.1): if $P:U\subset\mathcal F\to\mathcal G$ is a smooth tame map between tame Fréchet spaces and the equation $DP(f)h=k$ has a unique solution $h=VP(f)k$ for all $f\in U$, $k\in\mathcal G$, with $VP:U\times\mathcal G\to\mathcal F$ smooth tame, then $P$ is locally invertible and the local inverses are smooth tame. Used only in Theorem 8.6.
+* **(CT) Contraction principle with parameters**: if $T_\mu$ is a family of $\kappa$-contractions of a complete metric space, $\kappa<1$, with $\sup_x d(T_\mu x,T_{\mu'}x)\le\Delta(\mu,\mu')$, then the fixed points satisfy $d(x_\mu,x_{\mu'})\le(1-\kappa)^{-1}\Delta(\mu,\mu')$; if the family is $C^j$ in $(\mu,x)$ the fixed point is $C^j$ in $\mu$.
+
+The Hirsch–Pugh–Shub theorem, roughness of dichotomies, and regularity of the dichotomy splitting are **proved** here.
+
+### 1.3 Notation
+
+| Symbol | Meaning |
+|---|---|
+| $E\to M$ | Banach bundle over the base |
+| $f$ | base diffeomorphism |
+| $B_m$ | normal cocycle \(E_m\to E_{f(m)}\) |
+| \(\Phi(n,k)\) | cocycle of \(B\) |
+| \(P^{s},P^{u}\) | dichotomy projections |
+| \(\kappa^\pm_n(m)\) | one-step contraction factors (eq. 2.1) |
+| \(\ell^\pm_n\) | Lipschitz growth rates \(\sup_m\kappa^\pm_n(m)\) |
+| \(\mathfrak b^\pm_s\) | orbit-wise bunching numbers (eq. 2.2) |
+| \(\bar{\mathfrak b}^\pm_{k,\alpha}\) | Hölder bunching numbers (eq. 2.3) |
+| \(\widehat\rho^\pm_{k,\alpha}\) | fractional jet radii (eq. 8.2) |
+| \(L^\pm\) | Lipschitz growth rates of \(\psi_n\) / \(f^n\) |
+| \(s_*\) | linear regularity spectrum (eq. 8.1) |
+
+---
+
+## 2. Setting and orbit-wise bunching numbers
+
+### 2.1 Hypotheses
+
+Fix $r\ge1$, $0\le\beta\le1$.
+
+**(H0)** $M$ is a compact $C^{r+1,\beta}$ manifold with a fixed smooth Riemannian metric; $f\in\mathrm{Diff}^{r+1,\beta}(M)$; $E\to M$ is a $C^{r,\beta}$ Banach bundle with a continuous norm; $B_m\in L(E_m,E_{f(m)})$ is a $C^{r,\beta}$ family. Write $\psi_n=f^{-n}$ and
+$$\Phi(n,k;m)=B_{f^{n-1}m}\cdots B_{f^{k}m}\quad(n>k),\qquad \Phi(n,n)=\mathrm{id}.$$
+
+**(H1) (hyperbolicity)** There is a continuous splitting $E_m=E^s_m\oplus E^u_m$ with bounded projections, $B_mE^s_m\subset E^s_{fm}$, $B_m|_{E^u_m}:E^u_m\to E^u_{fm}$ an isomorphism, and constants $C\ge1$, $\lambda\in(0,1)$ with
+$$\|\Phi(n,k;m)|_{E^s_m}\|\le C\lambda^{n-k},\qquad \|\Phi(n,k;m)^{-1}|_{E^u_{f^nm}}\|\le C\lambda^{n-k}\qquad(n\ge k).$$
+If $B_m$ is an isomorphism, $\Phi(k,n)=\Phi(n,k)^{-1}$ is defined and (H1) is the usual dichotomy. **The stable part need not be invertible** (this covers parabolic and delay problems). Only $\Phi(n,k)|_{E^s}$ (forward) and $\Phi(n,k)^{-1}|_{E^u}$ appear below.
+
+**(H3)** (regular splitting at the order under consideration) For the order $(k,\alpha)$ used below, $k+\alpha\le r+\beta$, the projections $P^s,P^u$ are of class $C^{k,\alpha}$ (as sections of $\mathrm{End}\,E$). For $B$ invertible this is a *consequence* of $\bar{\mathfrak b}^\pm_{k,\alpha}<1$ (Lemma 3.3); for non-invertible $B$ it is a hypothesis (it holds, e.g., when the splitting is given by Riesz projections of a regular family of generators). For $(k,\alpha)=(0,0)$ no hypothesis is needed.
+
+### 2.2 Bunching numbers
+
+For $n\ge1$, $m\in M$ put
+$$a^+_n(m)=\|\Phi(n,0;\psi_nm)|_{E^s}\|,\qquad a^-_n(m)=\|\Phi(n,0;m)^{-1}|_{E^u_{f^nm}}\|,$$
+$$\kappa^+_n(m)=\max\{1,\|D\psi_n(m)\|\},\quad\kappa^-_n(m)=\max\{1,\|Df^n(m)\|\},\quad\ell^\pm_n=\sup_m\kappa^\pm_n(m).$$
+($\ell^\pm_n$ is $\max\{1,\mathrm{Lip}\}$ of $\psi_n$, resp. $f^n$.)
+
+**Definition 2.1.** For $s\ge0$ and $s=k+\alpha$ ($k\in\mathbb N_0$, $\alpha\in[0,1)$) define
+$$\mathfrak b^\pm_s=\lim_n\Big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^s\Big)^{1/n},\qquad
+\bar{\mathfrak b}^\pm_{k,\alpha}=\lim_n\Big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^k(\ell^\pm_n)^\alpha\Big)^{1/n},$$
+and, with unmodified norms, $\underline{\mathfrak b}^+_s=\limsup_n(\sup_ma^+_n\|D\psi_n(m)\|^s)^{1/n}$, $\underline{\mathfrak b}^-_s=\limsup_n(\sup_ma^-_n\|Df^n(m)\|^s)^{1/n}$.
+
+**Lemma 2.2.** (a) The limits exist and equal $\inf_n(\cdot)^{1/n}$; for every $\varepsilon>0$ there is $C_\varepsilon$ with $\sup_ma_n\kappa_n^k\ell_n^\alpha\le C_\varepsilon(\bar{\mathfrak b}_{k,\alpha}+\varepsilon)^n$ for all $n$.
+(b) $\underline{\mathfrak b}_s\le\mathfrak b_s\le\bar{\mathfrak b}_{k,\alpha}$; $\mathfrak b_s$ and $\underline{\mathfrak b}_s$ are nondecreasing in $s$ (for $\mathfrak b$) and log-convex in $s$; $\mathfrak b_0^\pm\le\lambda<1$.
+(c) $\mathfrak b^\pm_j<1$ for an integer $j$ iff the orbit-wise inequalities $\sup_ma_n\|D\psi_n\|^{j}\le C\theta^n$ (resp. $\|Df^n\|^j$) hold for some $\theta<1$; $\mathfrak b_j=\max\{\mathfrak b_0,\underline{\mathfrak b}_j\}$.
+(d) If $\bar{\mathfrak b}^\pm_{k,\alpha}<1$ there is $N$ with $\sup_ma^\pm_N\kappa_N^k(\ell_N)^\alpha<1$.
+(e) $\ell^\pm_n$ does not depend on $m$, hence $\bar{\mathfrak b}^\pm_{k,\alpha}=\mathfrak b^\pm_k\,(L^\pm)^\alpha$ with $L^\pm=\lim_n(\ell^\pm_n)^{1/n}\ge1$ (the exponential growth rate of $\mathrm{Lip}\,\psi_n$, resp. $\mathrm{Lip}\,f^n$). In particular $\bar{\mathfrak b}^\pm_{j,\alpha'}\le\bar{\mathfrak b}^\pm_{k,\alpha}$ whenever $j\le k$, $\alpha'\le\alpha$.
+
+*Proof.* (e) is immediate from $\sup_m a_n\kappa_n^k\ell_n^\alpha=\ell_n^\alpha\sup_ma_n\kappa_n^k$ and submultiplicativity of $\ell_n$. For the rest: $a^+_{n+l}(m)\le a^+_l(m)a^+_n(\psi_lm)$ (cocycle property), $\kappa_{n+l}(m)\le\kappa_l(m)\kappa_n(\psi_lm)$ (chain rule and $\max\{1,xy\}\le\max\{1,x\}\max\{1,y\}$), $\ell_{n+l}\le\ell_n\ell_l$. So $u_n=\sup_ma_n\kappa_n^k\ell_n^\alpha$ is submultiplicative and Fekete's lemma gives (a), (d); the $-$ case is symmetric. (b): $\kappa\le\ell$ pointwise and $\|D\psi_n\|\le\kappa_n$; $s\mapsto\log(a\kappa^s)$ is affine, suprema of affine functions are convex, and limits of convex functions are convex. (c): $\max\{1,x\}^j=\max\{1,x^j\}$, so $a_n\kappa_n^j=\max\{a_n,a_n\|D\psi_n\|^j\}$; take sup and limit. $\square$
+
+**Remark 2.3 (rate-homogeneous systems).** If $\|D\psi_n(m)\|$, $\|Df^n(m)\|$ and $a^\pm_n(m)$ have, uniformly in $m$, the same exponential rates ($f$ isometric, linear automorphisms of tori with constant cocycle, products of such), then $\underline{\mathfrak b}_s=\mathfrak b_s=\bar{\mathfrak b}_{k,\alpha}$. In general the three numbers differ and no equality is claimed.
+
+### 2.3 Tubular reduction
+
+Let $X$ be a Banach space, $M\subset X$ a compact $C^{r+1,\beta}$ submanifold, $F_\varepsilon$ ($|\varepsilon|<\varepsilon_*$) $C^{r+1,\beta}$ maps near $M$ with $F_0(M)=M$ and $f=F_0|_M$ a diffeomorphism. The normal bundle $N=(M\times X)/TM$ is a $C^{r,\beta}$ Banach bundle and $B:=$ the map induced by $DF_0$ on $N$. Let $E\subset M\times X$ be a closed $C^{r,\beta}$ complement of $TM$ (identified with $N$), $\Theta(m,\eta)=m+\eta$ the associated $C^{r,\beta}$ tubular map, and $\widehat F_\varepsilon=\Theta^{-1}F_\varepsilon\Theta=(b_\varepsilon,g_\varepsilon)$, where $g_\varepsilon(m,\eta)\in E_{b_\varepsilon(m,\eta)}$. Then
+$$g_0(m,0)=0,\quad b_0(m,0)=f(m),\quad D_\eta g_0(m,0)=B_m,\quad D_\eta b_0(m,0)=:K_m.$$
+**$K_m$ may be nonzero**: it vanishes iff $E$ is $DF_0$-invariant. We measure it by $\delta_1=\sup\|K\|$ and we shall make it small (zero when possible) by choosing $E$ close to the invariant complement of Lemma 3.4. ($E$ is only $C^{r,\beta}$, hence $\widehat F\in C^{r,\beta}$, which is exactly the regularity class $k+\alpha\le r+\beta$ treated below.)
+
+**Convention (transport).** Fix a finite atlas of $C^{r,\beta}$ local trivialisations of $E$ and the induced isomorphisms $P_{x\leftarrow y}:E_y\to E_x$ for $d(x,y)<r_0$ ($C^{r,\beta}$ in $(x,y)$, $P_{x\leftarrow x}=\mathrm{id}$, $\|P^{\pm1}\|\le2$). All comparisons between vectors of nearby fibres are made through $P$; "$\approx$" below means equality up to $P$. A *modulus* $\omega(\cdot)$ denotes a function depending only on the $C^{1}$-moduli of $\widehat F_0$, with $\omega(t)\to0$ as $t\to0$.
+
+---
+
+## 3. Fibre contractions: regularity of invariant sections
+
+### 3.1 The transfer estimate
+
+Let $V\to M$ be a $C^{k,\alpha}$ Banach bundle, $\psi$ a $C^{\max\{k,1\},\alpha}$-diffeomorphism and $W_m\in L(V_{\psi m},V_m)$ a $C^{k,\alpha}$ family (for the jet version below only $\psi\in C^{1,\alpha}$ and $W\in C^{0,\alpha}$ are used). Put $W^{(n)}(m)=W_mW_{\psi m}\cdots W_{\psi^{n-1}m}$ and $(\mathcal T\zeta)(m)=W_m\zeta(\psi m)$, so $\mathcal T^n\zeta=W^{(n)}\cdot\zeta\circ\psi^n$. Let $\kappa_n=\max\{1,\|D\psi^n\|\}$, $\ell_n=\sup\kappa_n$ and
+$$\mathfrak w_{k,\alpha}=\lim_n\big(\sup_m\|W^{(n)}(m)\|\kappa_n(m)^k\ell_n^\alpha\big)^{1/n}.$$
+
+**Lemma 3.1 (transfer estimate).** For every $\varepsilon>0$ there is $C$ with
+$$\|\mathcal T^n\|_{C^{k,\alpha}(V)\to C^{k,\alpha}(V)}\le C\,n^{k+1}(\mathfrak w_{k,\alpha}+\varepsilon)^n .$$
+The jet version also holds: for $\mathcal T_kJ(m)=W_mJ(\psi m)\circ(D\psi(m))^{\otimes k}$ on $C^{\alpha}(M,\mathrm{Sym}^k(T^*M;V))$, $\|\mathcal T_k^n\|_{C^\alpha}\le Cn(\mathfrak w_{k,\alpha}+\varepsilon)^n$.
+
+*Proof.* **Jet version.** $\mathcal T^n_kJ=P\cdot(J\circ\psi^n)\cdot S$ with $P=W^{(n)}$, $S=(D\psi^n)^{\otimes k}$. Then $\|P\|\|S\|\le u_n:=\sup\|W^{(n)}\|\kappa_n^k$ and
+$[\mathcal T_k^nJ]_\alpha\le[P]_\alpha\|J\|_0\|S\|+\|P\|[J\circ\psi^n]_\alpha\|S\|+\|P\|\|J\|_0[S]_\alpha .$
+The middle term is $\le\|P\|\|S\|\ell_n^\alpha[J]_\alpha\le u_n^{(\alpha)}[J]_\alpha$ with $u_n^{(\alpha)}=\sup\|W^{(n)}\|\kappa_n^k\ell_n^\alpha$. For the first, $[W^{(n)}]_\alpha\le\sum_{i<n}\|W^{(i)}\|\,[W]_\alpha\mathrm{Lip}(\psi^i)^\alpha\,\|W^{(n-1-i)}\|$ in sup over orbit segments, and $\|S\|\le\|D\psi^i\|^k\|D\psi^{n-i}\|^k$; hence $[P]_\alpha\|S\|\le[W]_\alpha\sum_i\big(\sup\|W^{(i)}\|\kappa_i^k\ell_i^\alpha\big)\big(\sup\|W^{(n-1-i)}\|\kappa^k_{n-i}\big)\le Cn(\mathfrak w+\varepsilon)^n$ by Lemma 2.2(a) (this is where the **uniform Fekete constant** is used). The same decomposition applies to $[S]_\alpha$ using $[D\psi^n]_\alpha\le\sum_i\|D\psi^i\|\|D\psi^{n-1-i}\|[D\psi]_\alpha\mathrm{Lip}(\psi^i)^\alpha$. Together $\|\mathcal T_k^n\|_{C^\alpha}\le Cn(\mathfrak w+\varepsilon)^n$.
+
+**Function version.** Let $\zeta_n=\mathcal T^n\zeta$. By Leibniz and the chain rule, in charts,
+$$D^j\zeta_{n+1}=\mathcal T_jD^j\zeta_n+\sum_{i<j}\Xi_{j,i}\,(D^i\zeta_n\circ\psi),$$
+with $\Xi_{j,i}$ multiplication operators by bounded (and, for $j=k$, $C^\alpha$) coefficients built from $D^{\le j}W$, $D^{\le j}\psi$. Put $z_n=\sum_{j<k}\|D^j\zeta_n\|_0+\|D^k\zeta_n\|_{C^\alpha}$. Since $\|D^i\zeta_n\|_{C^\alpha}\le C(\|D^i\zeta_n\|_0+\|D^{i+1}\zeta_n\|_0)$ for $i<k$, the lower-order sources are controlled by $z_n$ itself, and $\mathfrak w_{j,0}\le\mathfrak w_{k,\alpha}$ for $j\le k$ (as $\kappa,\ell\ge1$). Solving the recursion $D^j\zeta_n=\mathcal T_j^nD^j\zeta_0+\sum_{p<n}\mathcal T_j^{n-1-p}\sum_{i<j}\Xi_{j,i}(D^i\zeta_p\circ\psi)$ by induction on $j$ and using the jet version (and its sup-norm analogue $\|\mathcal T^n_j\|_{C^0}\le Cn^0(\mathfrak w+\varepsilon)^n$) gives $z_n\le Cn^{k+1}(\mathfrak w+\varepsilon)^nz_0$. $\square$
+
+### 3.2 Fibre contractions
+
+Let $V\to M$ be a $C^{r,\beta}$ Banach bundle, $V_\rho$ its closed $\rho$-ball bundle and $\gamma:V_\rho\to V_\rho$ a $C^{r,\beta}$ bundle map covering $f$, $\gamma(m,v)=(fm,\gamma_m(v))$, with $\sup\|D_v\gamma\|<\infty$. Put $\gamma^{[n]}_m=\gamma_{f^{n-1}m}\circ\dots\circ\gamma_m$ and
+$$\mathfrak c_{k,\alpha}=\lim_n\Big(\sup_{m}\sup_{v}\|D_v\gamma^{[n]}_{\psi_nm}(v)\|\,\kappa^+_n(m)^k(\ell^+_n)^\alpha\Big)^{1/n}$$
+(the limit exists by the argument of Lemma 2.2).
+
+**Theorem 3.2 (invariant sections of fibre contractions).** Assume $\mathfrak c_{0,0}<1$.
+(a) There is a unique continuous section $\sigma$ with $\sigma(fm)=\gamma_m(\sigma(m))$.
+(b) If $\mathfrak c_{k,0}<1$ with $1\le k\le r$, then $\sigma\in C^k$.
+(c) If $0<\alpha<1$, $k+\alpha\le r+\beta$ and $\mathfrak c_{k,\alpha}<1$, then $\sigma\in C^{k,\alpha}$.
+
+*Proof.* **Step 0 (normalisation).** By Lemma 2.2(d) pick $N$ with $\theta:=\sup\|D_v\gamma^{[N]}_{\psi_Nm}\|\kappa_N^k\ell_N^\alpha<1$. Let $\sigma_N$ be the unique continuous invariant section for $(f^N,\gamma^{[N]})$ (Banach contraction principle on $C^0(V_\rho)$). Put $\sigma'(m)=\gamma_{\psi m}(\sigma_N(\psi m))$. A direct computation, using $\gamma^{[N]}_{\psi m}(\sigma_N(\psi m))=\sigma_N(f^{N-1}m)$, shows $\sigma'(f^Nm)=\gamma^{[N]}_m(\sigma'(m))$; uniqueness gives $\sigma'=\sigma_N$, i.e. $\sigma_N$ is invariant for $(f,\gamma)$. Uniqueness for $(f,\gamma)$ follows because every invariant section for $(f,\gamma)$ is one for $(f^N,\gamma^{[N]})$. Hence we may assume $N=1$ and
+$$\sup\|D_v\gamma\|\le\theta,\qquad\sup_{m,v}\|D_v\gamma_{\psi m}(v)\|\kappa_1^+(m)^j\ell_1^{+\alpha}\le\theta<1\ (0\le j\le k).$$
+
+**(a)** $T\sigma(m)=\gamma_{\psi m}(\sigma(\psi m))$ is a $\theta$-contraction of $C^0(V_\rho)$.
+
+**(b)** Work in local trivialisations (covariant derivatives with a fixed $C^{r-1,\beta}$ connection give the same structure). Formal differentiation of $\sigma=T\sigma$ ($j\le k$) gives
+$$J_j(m)=\big[D_v\gamma_{\psi m}(\sigma(\psi m))\,J_j(\psi m)\big]\circ(D\psi(m))^{\otimes j}+R_j\big(m;\sigma,J_1,\dots,J_{j-1}\big),\tag{3.1}$$
+where $R_j$ is a polynomial in $J_1,\dots,J_{j-1}$ with continuous coefficients built from derivatives of $\gamma$ and $\psi$ of order $\le j$. Let $\mathcal X=C^0(V_\rho)$, $\mathcal Y_j=\prod_{i\le j}C^0(\mathrm{Sym}^i(T^*M;V))$ restricted to the balls $\|J_i\|\le K_i$ with $K_i$ chosen inductively so that (3.1) maps them into themselves ($K_j=\|R_j\|_{\max}/(1-\theta)$). Define $\Lambda(\sigma,J_1,\dots,J_k)=(T\sigma,\mu_1,\dots,\mu_k)$ by the right-hand sides of (3.1), evaluated at $\psi m$ (all $J_i$ composed with $\psi$), with $\sigma$ replaced by the current first coordinate. Then: $\Lambda$ is continuous (if $(\sigma_n,J_n)\to(\sigma,J)$ uniformly, $\|J_n(\psi\cdot)-J(\psi\cdot)\|\to0$); $T$ is a contraction; for fixed $\sigma$ the map $\mu_j$ is a $\theta$-contraction in $J_j$ (in sup norm, since $\|D_v\gamma\|\|D\psi\|^j\le\theta$) and Lipschitz in $J_i$, $i<j$, on the balls. Using a weighted fibre metric $\sum t_j\|\cdot\|_j$ with $t_1\gg t_2\gg\dots$ the whole fibre map is a uniform contraction. (FCT) applies. Start from $\sigma_0=0$, $J_i^{(0)}=0$: by the chain rule $\Lambda^n(0,0,\dots,0)=(\sigma_n,D\sigma_n,\dots,D^k\sigma_n)$, where $\sigma_{n+1}=T\sigma_n$ (the $\sigma_n$ are $C^{r,\beta}$ as compositions of $C^{r,\beta}$ maps). So $\sigma_n\to\sigma$ and $D^i\sigma_n\to J_i$ uniformly, whence $\sigma\in C^k$ and $D^i\sigma=J_i$.
+
+**(c)** Let $\mathcal W J(m)=[D_v\gamma_{\psi m}(\sigma(\psi m))J(\psi m)]\circ(D\psi)^{\otimes k}$. By the one-step hypothesis, for $J\in C^\alpha(\mathrm{Sym}^k)$ and with the *coefficient* $D_v\gamma_{\psi m}(\sigma(\psi m))\in C^{\alpha}$ (here $\alpha\le\beta$ if $k=r$)
+$$[\mathcal WJ+R_k]_\alpha\le\theta[J]_\alpha+C_1(1+\|J\|_0+[R_k]_\alpha),$$
+because $[J\circ\psi]_\alpha\le\ell_1^\alpha[J]_\alpha$ and the coefficient of $[J]_\alpha$ is exactly $\sup\|D_v\gamma\|\kappa^k\ell^\alpha\le\theta$. $R_k\in C^\alpha$ as it involves $D^i\sigma$, $i<k$ (Lipschitz) and coefficients in $C^{r-k,\beta}\subset C^\alpha$. Iterating $J^{(n+1)}=\mathcal WJ^{(n)}+R_k$ from $J^{(0)}=0$ yields $[J^{(n)}]_\alpha\le C_2$ uniformly, and $J^{(n)}\to J_k$ uniformly, so $[J_k]_\alpha\le C_2$, i.e. $\sigma\in C^{k,\alpha}$. $\square$
+
+**Remark 3.2′.** Theorem 3.2 uses only regularity $\gamma\in C^{k,\alpha}$ jointly (not $C^{r,\beta}$) and $f\in C^{k,\alpha}$; regularity of $\sigma$ is then $C^{k,\alpha}$.
+
+### 3.3 Regularity of the splitting
+
+**Lemma 3.3 (splitting regularity from bunching).** Assume (H0), (H1) with $k+\alpha\le r+\beta$.
+(a) If $\lambda\,\bar{\mathfrak b}^+_{k,\alpha}<1$ then $E^u$ is a $C^{k,\alpha}$ subbundle.
+(b) If $B$ is invertible and $\lambda\,\bar{\mathfrak b}^-_{k,\alpha}<1$, then $E^s$ is a $C^{k,\alpha}$ subbundle.
+(c) In particular, if $\bar{\mathfrak b}^\pm_{k,\alpha}<1$ and $B$ is invertible, $P^s,P^u\in C^{k,\alpha}(\mathrm{End}E)$. In the non-invertible case $P^s$ regularity is the hypothesis (H3).
+
+*Proof.* (a) Replace $(f,B)$ by $(f^N,\Phi(N))$ with $C\lambda^{N}\le1/8$; the splitting is unchanged and the condition $\lambda\bar{\mathfrak b}^+_{k,\alpha}<1$ is equivalent for the iterate (both sides are raised to the power $N$). Choose $\delta'>0$ and a $C^{r,\beta}$ idempotent section $\tilde P$ of $\mathrm{End}E$ with $\|\tilde P-P^s\|_{C^0}\le\delta'$ (average $P^s$ over a small partition of unity in the finite atlas to get $Q$, then take the Riesz projection of $Q$ for the part of the spectrum near $1$). Put $\tilde E^s=\mathrm{ran}\,\tilde P$, $\tilde E^u=\ker\tilde P$. For $L\in\mathrm{Hom}(\tilde E^u_m,\tilde E^s_m)$ with $\|L\|\le\rho$ let $G_L=\{u+Lu\}$. Define $\kappa_m$ as the change of chart $L\mapsto\tilde L=P^s(1+L)(P^u(1+L))^{-1}\in\mathrm{Hom}(E^u_m,E^s_m)$ (a Möbius map; $\|D\kappa_m\|,\|D\kappa_m^{-1}\|\le1+\eta$ with $\eta\to0$ as $\rho,\delta'\to0$, **uniformly in $m$ and independently of $n$**). In the true splitting $B$ is block diagonal, so $B_m(G_L)$ is the graph over $E^u_{fm}$ of $B^s\tilde L(B^u)^{-1}$ (injective since $B^u$ is an isomorphism). Hence the induced action on the Grassmannian chart
+$$\gamma_m=\kappa_{fm}^{-1}\circ\big(\tilde L\mapsto B^s_m\tilde L(B^u_m)^{-1}\big)\circ\kappa_m$$
+is a $C^{r,\beta}$ family (explicitly $\gamma_m(L)=(B_{ss}L+B_{su})(B_{uu}+B_{us}L)^{-1}$ in the reference splitting), maps the $\rho$-ball into itself for $N$ large and $\rho\ge2\|L^*\|$ ($L^*$ the graph of $E^u$, $\|L^*\|\le C\delta'$), and
+$$\|D_L\gamma^{[n]}_{\psi_nm}\|\le(1+\eta)^2\,\|\Phi^s(n,0;\psi_nm)\|\,\|\Phi^u(n,0;\psi_nm)^{-1}\|\le(1+\eta)^2\,a^+_n(m)\,C\lambda^n .$$
+Thus $\mathfrak c_{k,\alpha}\le\lambda\bar{\mathfrak b}^+_{k,\alpha}<1$. The graph of $E^u$ is a continuous invariant section in the ball, hence *the* invariant section of Theorem 3.2(a), and by Theorem 3.2(b,c) it is $C^{k,\alpha}$.
+(b) $E^s$ of $B$ is the unstable bundle of $B^{-1}$ over $f^{-1}$; the bunching numbers of that system are $\mathfrak b^-$ (base derivative $Df^n$, cocycle $\Phi^{-1}$). $\square$
+
+**Lemma 3.4 (continuous invariant complement; small coupling).** Assume (H0), (H1) and $\mathfrak b^\pm_1<1$ for the normal cocycle $B$ induced by $DF_0|_M$ on $N=(M\times X)/TM$. Then $DF_0|_M$ has a continuous invariant splitting $M\times X=TM\oplus\mathcal N$, $\mathcal N=\mathcal N^s\oplus\mathcal N^u$, with $\mathcal N^{s,u}$ projecting isomorphically onto $E^{s,u}$. Consequently, for every $\delta_1>0$ there is a $C^{r,\beta}$ complement $E'$ of $TM$ for which the coupling coefficient $K_m=D_\eta b_0(m,0)$ of §2.3 satisfies $\sup\|K\|\le\delta_1$. In general $\mathcal N$ is **not** better than continuous (its regularity is governed by a *stronger* condition involving $\|Df^{-n}\|\|Df^n\|^j$), which is why $E'$ is only near-invariant.
+
+*Proof.* Fix any $C^{r,\beta}$ complement $E''$ and write $DF_0|_M=\begin{pmatrix}Df&K'\\0&B\end{pmatrix}$ on $TM\oplus E''$. A vector $(S\eta,\eta)$, $S_m\in\mathrm{Hom}(E''_m,T_mM)$, is mapped to $(Df_mS_m\eta+K'_m\eta,\;B_m\eta)$. Hence $\mathrm{graph}(S)$ is invariant iff
+$$Df_mS_m+K'_m=S_{fm}B_m.\tag{3.2}$$
+*Stable part.* On $E^s_m$ put $S^s_m=-\sum_{i\ge0}\big(Df^{i+1}(m)\big)^{-1}K'_{f^im}\,\Phi(i,0;m)|_{E^s_m}$. Writing $m_i=f^im$, the $i$-th term has norm $\le\|K'\|\,\|D\psi_{i+1}(m_{i+1})\|\,a^+_i(m_i)\le\|K'\|\,\|D\psi\|_\infty\,\kappa^+_i(m_i)a^+_i(m_i)\le C_\varepsilon(\mathfrak b_1^++\varepsilon)^i$, since $D\psi_{i+1}(m_{i+1})=D\psi_i(m_i)D\psi(m_{i+1})$. So the series converges uniformly. Substituting, $\big(Df^{}_m\big)^{-1}\big(S^s_{fm}B_m\big)=-\sum_{i\ge1}(Df^{i+1}(m))^{-1}K'_{m_i}\Phi(i,0;m)$, and the $i=0$ term is $-(Df_m)^{-1}K'_m$; adding them gives $S^s_m=(Df_m)^{-1}(S^s_{fm}B_m-K'_m)$, i.e. (3.2) on $E^s$.
+*Unstable part.* On $E^u_m$ put $S^u_m=\sum_{i\ge1}Df^{i-1}(\psi_im)\,K'_{\psi_im}\,\big(\Phi(i,0;\psi_im)|_{E^u}\big)^{-1}$; the $i$-th term is $\le\|K'\|\kappa^-_i(\psi_im)a^-_i(\psi_im)$, summable by $\mathfrak b^-_1<1$, and (3.2) on $E^u$ follows in the same way ($S_{fm}=(Df_mS_m+K'_m)(B^u_m)^{-1}$). Put $\mathcal N=\{\eta+S\eta:\eta\in E^s\oplus E^u\}$. This is a continuous invariant complement. Finally approximate $S=S^s\oplus S^u$ uniformly by a $C^{r,\beta}$ section $S'$ of $\mathrm{Hom}(E'',TM)$ (partition of unity), $\|S-S'\|\le\delta'$, and take $E'=\mathrm{graph}(S')$. For a complement $\mathrm{graph}(\tilde S)$ the coupling coefficient is $K=Df\,(\tilde S-S)-(\tilde S-S)_{f\cdot}B$ (subtract (3.2)), so $\|K\|\le(\|Df\|_\infty+\|B\|_\infty)\delta'\le\delta_1$. $\square$
+
+
+---
+
+## 4. The cohomological operator
+
+Throughout this section (H0), (H1) hold, $0\le k$, $0\le\alpha<1$, $k+\alpha\le r+\beta$, and (H3) holds at order $(k,\alpha)$.
+
+### 4.1 Transfer operators and the Green operator
+
+Sections of $E$ are written $\zeta$; for $q\in\Gamma(f^*E)$ (so $q(m)\in E_{fm}$) put $\hat q=q\circ\psi\in\Gamma(E)$. Define
+$$(\mathcal S^+\zeta)(m)=B_{\psi m}\,\zeta(\psi m)\quad(\zeta\in\Gamma(E^s)),\qquad(\mathcal S^-\zeta)(m)=B_m^{-1}\zeta(fm)\quad(\zeta\in\Gamma(E^u)).$$
+Then $(\mathcal S^+)^n\zeta(m)=\Phi(n,0;\psi_nm)\zeta(\psi_nm)$ and $(\mathcal S^-)^n\zeta(m)=\Phi(n,0;m)^{-1}\zeta(f^nm)$, and $\mathcal S^-$ is invertible. Let $X^s_{k,\alpha}=\{\zeta\in C^{k,\alpha}(E):P^s\zeta=\zeta\}$ and $X^u_{k,\alpha}$ likewise; by (H3), $C^{k,\alpha}(E)=X^s\oplus X^u$ topologically. Put
+$$\rho^+_{k,\alpha}=r\big(\mathcal S^+|_{X^s_{k,\alpha}}\big),\qquad\rho^-_{k,\alpha}=r\big(\mathcal S^-|_{X^u_{k,\alpha}}\big)$$
+(spectral radii; $:=0$ if the space is $\{0\}$). *These are spectral radii on spaces of **sections of $E$** with $k$ derivatives, not on a jet bundle with $C^\alpha$ regularity; this is the correct object (see Example 4.5).*
+
+**Proposition 4.1 (Green operator on $C^0$).** For every $q\in C^0(f^*E)$ the equation $\mathcal A\zeta=q$ has exactly one bounded solution $\zeta=\mathcal Gq$, namely
+$$\mathcal Gq=\sum_{i\ge0}(\mathcal S^+)^iP^s\hat q-\sum_{n\ge1}(\mathcal S^-)^nP^u\hat q,\qquad\|\mathcal Gq\|_0\le\frac{2C\|P\|}{1-\lambda}\|q\|_0 .$$
+In cocycle form: $\mathcal Gq(m)=\sum_{i\ge0}\Phi(i,0;\psi_im)P^sq(\psi_{i+1}m)-\sum_{n\ge1}\Phi(n,0;m)^{-1}P^uq(f^{n-1}m)$.
+
+*Proof.* From $BE^s\subset E^s$, $BE^u=E^u$ we get $P^s_{fm}B_m=B_mP^s_m$ and likewise for $P^u$. Hence $\mathcal A\zeta=q$ is equivalent to the two equations $\zeta^s(fm)-B_m\zeta^s(m)=P^sq(m)$ and $\zeta^u(fm)-B_m\zeta^u(m)=P^uq(m)$. Substituting $m\mapsto\psi m$ in the first gives $\zeta^s=\mathcal S^+\zeta^s+P^s\hat q$; solving the second for $\zeta^u(m)$ gives $\zeta^u=\mathcal S^-\zeta^u-\mathcal S^-P^u\hat q$. Since $\|(\mathcal S^\pm)^n\|_{C^0}\le C\lambda^n$ the Neumann series converge, and they give the unique bounded solutions: a bounded solution of the homogeneous equation satisfies $\zeta^s=(\mathcal S^+)^n\zeta^s\to0$ and $\zeta^u=(\mathcal S^-)^n\zeta^u\to0$. $\square$
+
+### 4.2 The isomorphism theorem
+
+**Theorem 4.2.** Assume $\bar{\mathfrak b}^+_{k,\alpha}<1$ and $\bar{\mathfrak b}^-_{k,\alpha}<1$ (for $\alpha=0$: $\mathfrak b^\pm_k<1$). Then $\mathcal A:C^{k,\alpha}(E)\to C^{k,\alpha}(f^*E)$ is an isomorphism with inverse $\mathcal G$, and $\|\mathcal G\|_{C^{k,\alpha}}\le C\sum_nn^{k+1}(\max\bar{\mathfrak b}^\pm+\varepsilon)^n<\infty$. The same holds for all orders $(j,\alpha')$ with $j\le k$ and $\alpha'\le\alpha$.
+
+*Proof.* If $B$ is invertible, (H3) holds by Lemma 3.3 (since $\lambda\bar{\mathfrak b}^\pm<1$). Apply Lemma 3.1 to $\mathcal S^+$ (base map $\psi$, $W_m=B_{\psi m}|_{E^s}$; then $W^{(n)}(m)=\Phi(n,0;\psi_nm)|_{E^s}$, $\|W^{(n)}\|=a^+_n$, $\kappa_n=\kappa^+_n$, so $\mathfrak w_{k,\alpha}=\bar{\mathfrak b}^+_{k,\alpha}$) and to $\mathcal S^-$ (base map $f$, $W_m=B_m^{-1}|_{E^u_{fm}}$, $W^{(n)}(m)=\Phi(n,0;m)^{-1}$, $\mathfrak w=\bar{\mathfrak b}^-$). Thus $\|(\mathcal S^\pm)^n\|_{C^{k,\alpha}}\le Cn^{k+1}(\bar{\mathfrak b}^\pm+\varepsilon)^n$ and the series of Proposition 4.1 converge in operator norm on $C^{k,\alpha}$; $P^{s,u}$ and $\hat\cdot$ are bounded. So $\mathcal G$ is bounded on $C^{k,\alpha}$. Since $\mathcal A$ is bounded and $\mathcal A\mathcal G=I$ and (by $C^0$-uniqueness) $\mathcal G\mathcal A=I$, $\mathcal A$ is an isomorphism. The last statement follows from $\bar{\mathfrak b}_{j,\alpha'}\le\bar{\mathfrak b}_{k,\alpha}$ (Lemma 2.2(b),(e)). $\square$
+
+### 4.3 The function-space spectral radii
+
+**Theorem 4.3.** Under (H0), (H1), (H3):
+(a) $\rho^\pm_{k,\alpha}\le\bar{\mathfrak b}^\pm_{k,\alpha}$.
+(b) $\rho^\pm_{k,\alpha}\ge\max\{\underline{\mathfrak b}^\pm_0,\ \underline{\mathfrak b}^\pm_{k+\alpha}\}$.
+(c) For $\alpha=0$: $\rho^\pm_{k,0}=\mathfrak b^\pm_k$. In the rate-homogeneous class (Remark 2.3), $\rho^\pm_{k,\alpha}=\bar{\mathfrak b}^\pm_{k,\alpha}=\mathfrak b^\pm_{k+\alpha}$ for all $\alpha$. In general $\underline{\mathfrak b}\le\rho\le\bar{\mathfrak b}$, and the two bounds can differ.
+
+*Proof.* (a) is Lemma 3.1 plus Gelfand's formula. (b) We treat $\mathcal S^+$; $\mathcal S^-$ is identical with $(Df^n,a^-_n)$ in place of $(D\psi_n,a^+_n)$. Fix $n$, $\varepsilon>0$. Choose $m_0$ with $a^+_n(m_0)\|D\psi_n(m_0)\|^{s}\ge(1-\varepsilon)\sup_m(\cdots)$, $s=k+\alpha$; put $y_0=\psi_n(m_0)$, choose a unit $e\in E^s_{y_0}$ with $\|\Phi(n,0;y_0)e\|\ge(1-\varepsilon)a^+_n(m_0)$, and a unit covector $\xi\in T^*_{y_0}M$ with $|D\psi_n(m_0)^{T}\xi|=\|D\psi_n(m_0)\|=:\Lambda$. In a chart near $y_0$ let
+$$\zeta_\omega(y)=\omega^{-s}\chi(y)\cos\big(\omega\,\xi(y-y_0)\big)\,P^s_y\tilde e(y),$$
+where $\chi$ is a cutoff and $\tilde e$ a local $C^{r,\beta}$ section with $\tilde e(y_0)=e$. As $\omega\to\infty$ the top-order part of $\zeta_\omega$ is $D^k\zeta_\omega\approx\omega^{-\alpha}\cos^{(k)}(\omega\xi(y-y_0))\,\xi^{\otimes k}\otimes e$, whose $\alpha$-Hölder seminorm is $c_\alpha:=[\cos^{(k)}]_{C^\alpha}$ (with $c_0=1$); all other terms (lower derivatives, cutoff, variation of $P^s\tilde e$) are $O(1/\omega)$ relative to it. So $\|\zeta_\omega\|_{C^{k,\alpha}}\to c_\alpha$. Near $m_0$ the function $(\mathcal S^+)^n\zeta_\omega=\Phi(n,0;\psi_n\cdot)\zeta_\omega(\psi_n\cdot)$ is, up to relative error $O(\varepsilon+1/\omega)$, $\omega^{-s}\cos(\omega\,\xi(\psi_n(x)-y_0))\,\Phi(n,0;y_0)e$, whose phase has gradient $\omega D\psi_n(m_0)^T\xi$ of size $\omega\Lambda$. Its top-order part has amplitude $\omega^{-\alpha}\Lambda^k\|\Phi(n,0;y_0)e\|$ and frequency $\omega\Lambda$, hence $\alpha$-Hölder seminorm $c_\alpha\Lambda^{k+\alpha}\|\Phi(n,0;y_0)e\|$ (the same constant $c_\alpha$ appears, because both are cosines; $\Lambda^k$ comes from $k$ derivatives and $\Lambda^\alpha$ from the Hölder quotient). Hence its $C^{k,\alpha}$ norm is $\ge(1-O(\varepsilon))\,c_\alpha\Lambda^{s}\|\Phi(n,0;y_0)e\|$. Dividing by $\|\zeta_\omega\|\to c_\alpha$: $\|(\mathcal S^+)^n\|\ge(1-O(\varepsilon))\,a^+_n(m_0)\Lambda^{s}$, and Gelfand gives $\rho^+\ge\underline{\mathfrak b}^+_s$. Taking $\omega=0$ (a bump times $P^s\tilde e$) gives $\|(\mathcal S^+)^n\|\ge(1-\varepsilon)\sup a^+_n$, i.e. $\rho^+\ge\underline{\mathfrak b}^+_0$.
+(c) For $\alpha=0$: $\mathfrak b_k=\max\{\mathfrak b_0,\underline{\mathfrak b}_k\}$ (Lemma 2.2(c)) so (a),(b) coincide. In the rate-homogeneous class $\underline{\mathfrak b}_{k+\alpha}=\lim(\sup a_n\|D\psi_n\|^{k+\alpha})^{1/n}$ has the same rate as $\mathfrak b_kL^\alpha=\bar{\mathfrak b}_{k,\alpha}$. $\square$
+
+### 4.4 Spectral characterisation and converse
+
+```mermaid
+graph TD
+    A[Transfer operator 𝒮± on C^{k,α}] --> B{ρ(𝒮±) < 1?}
+    B -->|Yes| C[𝒜 is isomorphism]
+    B -->|No| D{1 ∈ σ(𝒮±)?}
+    D -->|No| E[Green series converges]
+    E --> F[𝒜 is isomorphism]
+    D -->|Yes| G[𝒜 is not isomorphism]
+    H[Sharp converse] -->|(R) + (RC)| I[𝒜 isom. ⇒ ρ<1]
+    I --> J[Spectrum rotation invariant]
+    J --> K[Annulus in unit disc]
+    style A fill:#bbf,stroke:#333
+    style C fill:#dfd,stroke:#333
+    style F fill:#dfd,stroke:#333
+    style G fill:#fdd,stroke:#333
+    style H fill:#ffd,stroke:#333
+```
+
+**Theorem 4.4.** Under (H0), (H1), (H3):
+(a) $\mathcal A:C^{k,\alpha}\to C^{k,\alpha}$ is an isomorphism iff $1\notin\sigma(\mathcal S^+|_{X^s})\cup\sigma(\mathcal S^-|_{X^u})$.
+(b) If $\rho^+_{k,\alpha}<1$ and $\rho^-_{k,\alpha}<1$, then $\mathcal A$ is an isomorphism and its inverse is the Green series, convergent in operator norm.
+(c) **(Sharp converse)** Suppose $\mathcal A$ is an isomorphism on $C^{k,\alpha}$ and that, for $\mathcal S=\mathcal S^+|_{X^s}$ and $\mathcal S^-|_{X^u}$, **(R)** $\sigma$ is invariant under $z\mapsto e^{i\theta}z$, and **(RC)** the set $\{|z|:z\in\sigma\}$ is an interval. Then $\rho^\pm_{k,\alpha}<1$.
+(d) (The principal-jet criterion is false.) See Example 4.5(iii).
+
+*Proof.* (a) By Proposition 4.1 (valid on $C^{k,\alpha}$ spaces by $C^0$-uniqueness), $\mathcal A\zeta=q$ iff $(I-\mathcal S^+)\zeta^s=P^s\hat q$ and $(I-\mathcal S^-)\zeta^u=-\mathcal S^-P^u\hat q$; $\mathcal S^-$ is invertible. If $\mathcal A$ is an isomorphism then $I-\mathcal S^+$ is onto $X^s$ (take $\hat q=g\in X^s$), and injective: $\zeta=\mathcal S^+\zeta$ gives $\zeta(fm)=B_m\zeta(m)$, i.e. $\mathcal A\zeta=0$, so $\zeta=0$. Likewise for $\mathcal S^-$. The converse is clear.
+(b) $r<1$ implies $1\notin\sigma$.
+(c) Let $R^+=\{|z|:z\in\sigma(\mathcal S^+|_{X^s})\}$. By (a), $1\notin\sigma$, by (R) $1\notin R^+$, by (RC) $R^+\subset[0,1)$ or $R^+\subset(1,\infty)$. In the second case $\mathcal S^+$ is invertible on $X^s$ with $r((\mathcal S^+)^{-1})<1$, so $\|(\mathcal S^+)^{-n}\zeta\|_{C^0}\le\|(\mathcal S^+)^{-n}\zeta\|_{X}\to0$; but $\|\zeta\|_{C^0}\le C\lambda^n\|(\mathcal S^+)^{-n}\zeta\|_{C^0}$ by (H1), so $\zeta=0$ for all $\zeta\in X^s$: impossible unless $X^s=\{0\}$. Hence $R^+\subset[0,1)$ and $\rho^+=\max R^+<1$. The unstable case is identical using $\|(\mathcal S^-)^n\|_{C^0}\le C\lambda^n$. $\square$
+
+**Remark 4.4′.** Without (R)/(RC) the implication "$\mathcal A$ isomorphism $\Rightarrow\rho^\pm<1$" is not claimed: the Green operator can be bounded on $C^{k,\alpha}$ while the Green *series* diverges in operator norm only if the spectrum of $\mathcal S^+$ has components both inside and outside the unit disc; excluding this is exactly (RC)+(R). Whether (R),(RC) hold in general (they hold in Example 4.5) is Problem 1 of Section 9.
+
+### 4.5 A fully worked class: constant cocycles over toral automorphisms
+
+**Example 4.5.** $M=\mathbb T^2$, $f=A=\begin{pmatrix}2&1\\1&1\end{pmatrix}$ with eigenvalues $\Lambda^{\pm1}$, $\Lambda=(3+\sqrt5)/2$; $E=\mathbb T^2\times\mathbb R$, $B\equiv\lambda\in(0,1)$ ($E=E^s$). Put $s_*=\log(1/\lambda)/\log\Lambda$.
+
+(i) *Numbers.* $a^+_n=\lambda^n$, $\|D\psi_n\|=\|A^{-n}\|\sim c\Lambda^n$ independent of $m$: rate-homogeneous, so $\rho_{k,\alpha}=\bar{\mathfrak b}_{k,\alpha}=\lambda\Lambda^{k+\alpha}$ (Theorem 4.3(c)).
+
+(ii) *Exact regularity of the Green solution.* $\mathcal Gq=\sum_{n\ge0}\lambda^nq\circ A^{-n-1}$. For $q=\cos(2\pi\langle\nu,x\rangle)$, $\nu\in\mathbb Z^2\setminus0$, put $\nu_n=(A^{-T})^{n+1}\nu$. The eigenvectors of $A^{-T}=A^{-1}$ have irrational slopes, so $\nu$ has a nonzero component along the eigenvector of eigenvalue $\Lambda$ and $|\nu_n|\ge c\Lambda^n$; the frequencies $\pm\nu_n$ are distinct and $\widehat{\mathcal Gq}(\nu_n)=\lambda^n/2$. For every non-integer $s$ and $\zeta\in C^s$, $|\hat\zeta(\mu)|\le C\|\zeta\|_{C^s}|\mu|^{-s}$. Thus $\mathcal Gq\in C^s\Rightarrow\lambda^n\le C\Lambda^{-ns}$ for all $n$, i.e. $\lambda\Lambda^s\le1$. Conversely $\lambda\Lambda^s<1\Rightarrow\mathcal Gq\in C^s$ (Theorem 4.2). Therefore *the Green solution for this smooth $q$ lies in $C^s$ exactly for $s<s_*$ ($s\ne s_*$ noninteger).* In particular $\mathcal A:C^{k,\alpha}\to C^{k,\alpha}$ is an isomorphism iff $\lambda\Lambda^{k+\alpha}<1$, i.e. $\rho_{k,\alpha}<1$: the threshold is sharp and $\rho<1$ is both necessary and sufficient in this class.
+
+(iii) *Counterexample to the principal-jet criterion.* Take $k=1$, $\lambda=\Lambda^{-1/2}$ (so $s_*=1/2$), $0<\alpha<1/2$. The principal first-jet operator is $(L_1J)(x)=\lambda^{-1}J(Ax)\circ A$ on $C^\alpha(\mathbb T^2;T^*\mathbb T^2)$; in the constant coframe dual to the eigenvectors it is $\mathrm{diag}(\Lambda^{3/2}C_A,\ \Lambda^{-1/2}C_A)$ with $C_A\phi=\phi\circ A$. Since $\|\phi\circ A^{\pm n}\|_{C^\alpha}\le(1+\|A^{\pm n}\|^\alpha)\|\phi\|_{C^\alpha}$, $\sigma(C_A)\subset\{\Lambda^{-\alpha}\le|z|\le\Lambda^\alpha\}$. So $\sigma(L_1)\subset\{\Lambda^{3/2-\alpha}\le|z|\le\Lambda^{3/2+\alpha}\}\cup\{\Lambda^{-1/2-\alpha}\le|z|\le\Lambda^{-1/2+\alpha}\}$, which avoids the unit circle for $\alpha<1/2$: **$L_1-I$ is invertible on $C^\alpha$.** But by (ii), $1+\alpha>s_*$ and $\mathcal A$ is *not* onto $C^{1,\alpha}$. Hence invertibility of the top-order principal jet operator does not imply invertibility of $\mathcal A$ on $C^{k,\alpha}$. The correct criteria are Theorem 4.4(a),(b) on **function spaces** (which include the lower-order jets, here the order-$0$ part with weight $\lambda^{-1}$ acting on the smoother space $C^{1,\alpha}$), and the graded resonance statement of Section 7.
+
+(iv) *Fixed-point resonance.* If $\lambda=\Lambda^{-N}$ ($N\in\mathbb N$), the order-$N$ jet return map at the fixed point $0$ has eigenvalue $\lambda\Lambda^N=1$ on the monomial $\xi_s^{\otimes N}$, and $\mathcal A$ fails to be onto $C^N$ (Proposition 7.1).
+
+**Table 4.5: Numerical illustration of the toral automorphism Example 4.5**
+
+| Parameter $\lambda$ | $s_*=\log(1/\lambda)/\log\Lambda$ | $\rho_{1,0}=\lambda\Lambda$ | $\rho_{1,0.5}=\lambda\Lambda^{1.5}$ | $\mathcal A$ isom. on $C^1$? | $\mathcal A$ isom. on $C^{1,0.5}$? |
+|---|---|---|---|---|---|
+| $\Lambda^{-1}\approx 0.382$ | $1$ | $1$ | $\Lambda^{0.5}\approx 1.27$ | **No** (threshold) | **No** |
+| $\Lambda^{-1.5}\approx 0.236$ | $1.5$ | $\Lambda^{-0.5}\approx 0.786$ | $1$ | **Yes** | **No** (threshold) |
+| $\Lambda^{-2}\approx 0.146$ | $2$ | $\Lambda^{-1}\approx 0.618$ | $\Lambda^{-0.5}\approx 0.786$ | **Yes** | **Yes** |
+| $\Lambda^{-0.5}\approx 0.618$ | $0.5$ | $\Lambda^{0.5}\approx 1.27$ | $\Lambda\approx 1.618$ | **No** | **No** |
+
+*Note:* $\Lambda=(3+\sqrt5)/2\approx 1.618$. The threshold $\rho_{k,\alpha}=1$ is sharp; values $\ge1$ give non-invertibility, values $<1$ give invertibility.
+
+
+---
+
+## 5. Persistence: the two-sided invariant section theorem
+
+For the Banach-space theory of invariant manifolds for partial differential equations we refer to Bates–Lu [15]; the section below proves the two-sided invariant-section theorem needed here.
+
+### 5.1 Hypotheses
+
+**(H4)** (H0), (H1) hold, $k\ge0$, $0\le\alpha<1$, $k+\alpha\le r+\beta$, and:
+
+* **(B)** $\mathfrak b^\pm_1<1$ and $\bar{\mathfrak b}^\pm_{k,\alpha}<1$.
+* (H3) holds at order $(\max\{k,1\},\alpha)$ (automatic for invertible $B$ by Lemma 3.3).
+* $\widehat F_\varepsilon=(b_\varepsilon,g_\varepsilon)$, $|\varepsilon|<\varepsilon_*$, are $C^{r,\beta}$ maps $E_{\rho_0}\to E$ ($b_\varepsilon\in M$, $g_\varepsilon(m,\eta)\in E_{b_\varepsilon(m,\eta)}$) with $g_0(m,0)=0$, $b_0(m,0)=f(m)$, $D_\eta g_0(m,0)=B_m$, and coupling $\sup_m\|D_\eta b_0(m,0)\|\le\delta_1^*$, where $\delta_1^*=\delta^*_1(\widehat F_0)>0$ is the constant fixed in Step 0 below (Lemma 3.4 supplies complements meeting it).
+* $\delta^{(i)}_\varepsilon:=\|\widehat F_\varepsilon-\widehat F_0\|_{C^i(E_{\rho_0})}\to0$ ($i\le k$, and $i=k+\alpha$ in the Hölder norm), $\delta_\varepsilon:=\delta^{(1)}_\varepsilon$.
+
+Components: $g^{s,u}=P^{s,u}g$ (these are the components in the fibre $E_{b(m,\eta)}$). $\omega(\cdot)$ denotes a modulus (§2.3).
+
+### 5.2 A base-map lemma
+
+**Lemma 5.1.** Let $M$ be complete with a uniform atlas of normal charts (compact $M$, or bounded geometry, or Banach manifolds with uniformly bi-Lipschitz charts) and let $\varphi:M\to M$ satisfy $d(\varphi x,x)<r_1/4$ and, in the charts, $|\varphi(x)-\varphi(y)-(x-y)|\le\tfrac14|x-y|$ whenever $d(x,y)<r_1$. Then $\varphi$ is a bi-Lipschitz homeomorphism of $M$ (componentwise).
+
+*Proof.* *Injective:* $\varphi x=\varphi y$ gives $d(x,y)<r_1/2$, hence $|x-y|\le\frac14|x-y|$ in a chart, so $x=y$. *Open:* in a chart $\varphi=\mathrm{id}+\chi$, $\mathrm{Lip}\,\chi\le\tfrac14$; to solve $\varphi(z)=w$ iterate $z\mapsto w-\chi(z)$, a contraction, so $\varphi$ maps small balls onto neighbourhoods. *Closed range:* if $\varphi(x_n)\to w$ then all $x_n$ lie in $B(w,r_1/2)$, where $\varphi$ is bi-Lipschitz with constant $4/3$; hence $(x_n)$ is Cauchy, converges, and $\varphi(\lim x_n)=w$. Since $M$ is connected (componentwise; $\varphi$ is close to $\mathrm{id}$ so preserves components), $\varphi(M)=M$. $\square$
+
+(No degree or covering argument is used, so noncompact and infinite-dimensional bases are included, and $\varphi$ need only be Lipschitz.)
+
+### 5.3 The mixed graph transform
+
+**Step 0 (iteration).** For $j\ge0$ and $N\ge1$ put
+$$s_j(N)=\sup_m a^+_N(m)\,\kappa^+_N(m)^j,\quad u_j(N)=\sup_ma^-_N(m)\,\kappa^-_N(m)^j,\quad s_{k,\alpha}(N)=\sup_ma^+_N\kappa_N^{+\,k}(\ell^+_N)^\alpha,\quad u_{k,\alpha}(N)=\sup_ma^-_N\kappa_N^{-\,k}(\ell^-_N)^\alpha .$$
+By (B) and Lemma 2.2(d) choose $N$ with $\theta_0:=\max\{s_{k,\alpha},u_{k,\alpha},s_1,u_1\}<1$ (then also $s_j,u_j\le\theta_0$ for $j\le k$, since $\kappa,\ell\ge1$). Replace $(f,B,\widehat F_\varepsilon)$ by $(f^N,\Phi(N),\widehat F_\varepsilon^{\,N})$ on $E_{\rho_0/C_N}$. The new system has the same structure, $g^{(N)}_0(m,0)=0$, $D_\eta g_0^{(N)}=\Phi(N;m)$, coupling $\le C_N\delta_1$, and **one-step** quantities $s_j,u_j$. Fix $\delta_1^*:=\tau/C_N$ with $\tau$ the smallness constant of Proposition 5.2 (which depends only on $N$ and the $C^1$-norms of $\widehat F_0^N$, not on $\delta_1$). We write $(f,B,\widehat F_\varepsilon)$ again, now with $N=1$:
+$$\|B^s_{\psi m}\|\,\kappa^+_1(m)^j\le s_j,\qquad\|(B^u_m)^{-1}\|\,\kappa^-_1(m)^j\le u_j\qquad(j=0,1,\dots,k),$$
+and $s_{k,\alpha},u_{k,\alpha}$ for the top order with $\ell^\alpha$.
+
+**The class.** For $\rho,L>0$ let $\Sigma=\Sigma_{\rho,L}=\{\sigma\in\Gamma(E):\|\sigma\|_0\le\rho,\ \mathrm{Lip}\,\sigma\le L\}$ with the sup metric; it is complete. For $\sigma\in\Sigma$ put $\beta_\sigma(m)=b(m,\sigma(m))$.
+
+**Definition of $\Gamma$.** For $\sigma\in\Sigma$ and $m'\in M$:
+$$(\Gamma\sigma)^s(m')=g^s\big(m,\sigma(m)\big)\ \text{ with } m=\beta_\sigma^{-1}(m'),\tag{5.1}$$
+and $(\Gamma\sigma)^u(m')=\eta^u$ where $\eta^u\in E^u_{m'}$ is the solution of
+$$g^u\big(m',\sigma^s(m')+\eta^u\big)=\sigma^u\Big(b\big(m',\sigma^s(m')+\eta^u\big)\Big)\tag{5.2}$$
+(both sides lie in $E^u_{b(m',\sigma^s(m')+\eta^u)}$). Put $\Gamma\sigma=(\Gamma\sigma)^s+(\Gamma\sigma)^u$. *The stable part is pushed forward through the base map; the unstable part is pulled back through (5.2); $B^s$ is never inverted.*
+
+```mermaid
+graph LR
+    A[σ ∈ Σ] -->|Step 1: Push stable forward| B[(Γσ)^s via β_σ^-1]
+    A -->|Step 2: Pull unstable back| C[(Γσ)^u via eq. 5.2]
+    B --> D[Γσ = (Γσ)^s + (Γσ)^u]
+    C --> D
+    D -->|Contraction θ<1| E[Fixed point σ_ε]
+    E -->|Invariance| F[Graph σ_ε is F̂_ε-invariant]
+    style A fill:#bbf,stroke:#333
+    style D fill:#dfd,stroke:#333
+    style E fill:#ff9,stroke:#333,stroke-width:2px
+    style F fill:#f9f,stroke:#333,stroke-width:2px
+```
+
+**Proposition 5.2.** There are $\tau,\rho,L>0$ and $\varepsilon_0>0$ (depending on $\widehat F_0$ only) such that for $|\varepsilon|<\varepsilon_0$:
+(a) $\beta_\sigma$ is a bi-Lipschitz homeomorphism for $\sigma\in\Sigma$ and (5.2) has a unique solution with $\|\eta^u\|\le\rho$; so $\Gamma:\Sigma\to\Gamma(E)$ is well defined.
+(b) $\Gamma(\Sigma)\subset\Sigma$.
+(c) $\|\Gamma\sigma_1-\Gamma\sigma_2\|_0\le\theta\|\sigma_1-\sigma_2\|_0$ with $\theta=\theta_0+O(\tau)<1$.
+(d) $\sigma\in\Sigma$ is a fixed point of $\Gamma$ iff $\sigma(\beta_\sigma(m))=g(m,\sigma(m))$ for all $m$, i.e. iff $\widehat F(\mathrm{Gr}\,\sigma)=\mathrm{Gr}\,\sigma$ (equality of sets).
+(e) The fixed point $\sigma_\varepsilon$ is unique in $\Sigma$, and $\|\sigma_\varepsilon\|_0+\mathrm{Lip}\,\sigma_\varepsilon\le C\delta_\varepsilon$.
+
+*Proof.* Throughout, by the coordinates of §2.3 and Taylor expansion of $\widehat F_\varepsilon$ about $(m,0)$ using $g_0(m,0)=0$ etc., the following estimates hold for $\|\eta\|\le\rho$, with $\varpi:=C(\delta_\varepsilon+\omega(\rho))$:
+$$\|g(m,0)\|\le C\delta_\varepsilon,\ \ \|D_mg(m,\eta)\|\le\varpi,\ \ \|D_\eta g^{ss}-B^s\|+\|D_\eta g^{uu}-B^u\|+\|D_\eta g^{su}\|+\|D_\eta g^{us}\|\le\varpi,$$
+$$\|D_\eta b\|\le K_*:=\delta_1+\varpi,\qquad\|D_mb(m,\eta)-Df(m)\|\le\varpi$$
+(the terms from differentiating $P^{s,u}\in C^1$ are $\le C\|DP\|K_*\|g\|\le\varpi$). Choose first $L$ small (below), then $\rho$, then $\varepsilon_0$, so that $\varpi,K_*,L\le\tau$.
+
+(a) $\beta_\sigma(x)-\beta_\sigma(y)=D_mb\,(x-y)+O(K_*L|x-y|)$, so $f^{-1}\circ\beta_\sigma$ satisfies the hypothesis of Lemma 5.1 and $\beta_\sigma$ is a homeomorphism with $\mathrm{Lip}(\beta_\sigma^{-1})\le\mathrm{Lip}(f^{-1})+C\tau$. Equation (5.2) is equivalent to $\eta^u=(B^u_{m'})^{-1}\big[\sigma^u(b)-r^u\big]$, $r^u:=g^u-B^u\eta^u$, whose right side is a self-map of the $\rho$-ball and a $\tfrac12$-contraction in $\eta^u$ (Lipschitz constant $\le u_0(LK_*+\varpi)$).
+
+(b) *Size.* $\|(\Gamma\sigma)^s\|\le\|g^s(m,0)\|+\|D_\eta g^s\|\rho\le C\delta_\varepsilon+(s_0+\varpi)\rho\le\rho$; likewise for $(\Gamma\sigma)^u$ from (5.2). *Lipschitz constant, stable part.* For $m'_i=\beta_\sigma(m_i)$,
+$$\|(\Gamma\sigma)^s(m'_1)-(\Gamma\sigma)^s(m'_2)\|\le\big(\|D_mg\|+\|D_\eta g\|L\big)d(m_1,m_2)\le\big(\varpi+(\|B^s_{m}\|+\varpi)L\big)\mathrm{Lip}(\beta_\sigma^{-1})\,d(m'_1,m'_2),$$
+and $\|B^s_m\|\mathrm{Lip}(\beta_\sigma^{-1})\le\|B^s_{\psi m'}\|\kappa^+_1(m')+C\tau\le s_1+C\tau$ (this is exactly **one-step 1-bunching**). Hence $\mathrm{Lip}(\Gamma\sigma)^s\le(s_1+C\tau)L+C\varpi$. *Unstable part:* from (5.2) with $m'_i$, $\eta_i=\eta^u(m'_i)$, $b_i=b(m'_i,s_i+\eta_i)$:
+$\|\eta_1-\eta_2\|\le\|(B^u_{m'})^{-1}\|\big(Ld(b_1,b_2)+\varpi(d(m'_1,m'_2)+\|\eta_1-\eta_2\|)\big)+C\varpi d$, with $d(b_1,b_2)\le(\|Df(m')\|+C\tau)d(m_1',m'_2)+K_*\|\eta_1-\eta_2\|$, so
+$\mathrm{Lip}(\Gamma\sigma)^u\le(u_1+C\tau)L+C\varpi$ (one-step unstable 1-bunching). Thus $\mathrm{Lip}(\Gamma\sigma)\le L$ as soon as $C\varpi\le(1-\theta_0-C\tau)L/2$: **fix $L=L_0$ small with $(\theta_0+C L_0)<1$, then take $\rho,\varepsilon_0$ so small that $C\varpi\le(1-\theta_0-CL_0)L_0/2$.**
+
+(c) *Stable.* Let $m_i=\beta_{\sigma_i}^{-1}(m')$. Then $d(m_1,m_2)\le\mathrm{Lip}(\beta_{\sigma_1}^{-1})\,d\big(\beta_{\sigma_2}(m_2),\beta_{\sigma_1}(m_2)\big)\le\mathrm{Lip}(\beta^{-1}_{\sigma_1})K_*\|\sigma_1-\sigma_2\|_0$, hence
+$\|(\Gamma\sigma_1)^s-(\Gamma\sigma_2)^s\|\le\|D_\eta g\|\|\sigma_1-\sigma_2\|+(\varpi+\|D_\eta g\|L)\,C K_*\|\sigma_1-\sigma_2\|\le(s_0+C\tau)\|\sigma_1-\sigma_2\|.$
+*Unstable.* Subtracting the two instances of (5.2): $\|\eta_1-\eta_2\|\le u_0\big(\|\sigma_1-\sigma_2\|+Ld(b_1,b_2)\big)+C\varpi(\|\sigma^s_1-\sigma^s_2\|+\|\eta_1-\eta_2\|)$ and $d(b_1,b_2)\le K_*(\|\sigma_1^s-\sigma_2^s\|+\|\eta_1-\eta_2\|)$, so $\|\eta_1-\eta_2\|\le(u_0+C\tau)\|\sigma_1-\sigma_2\|$.
+
+(d) If $\Gamma\sigma=\sigma$, the stable part of (5.1) gives $\sigma^s(\beta_\sigma m)=g^s(m,\sigma(m))$; and for every $m'$, $\eta^u=\sigma^u(m')$ solves (5.2), which reads $g^u(m',\sigma(m'))=\sigma^u(b(m',\sigma(m')))=\sigma^u(\beta_\sigma m')$. Together $\sigma\circ\beta_\sigma=g(\cdot,\sigma)$. Conversely, such a $\sigma$ satisfies (5.1), and $\sigma^u(m')$ solves (5.2) and is its unique solution. Since $\beta_\sigma$ is onto, $\widehat F(\mathrm{Gr}\,\sigma)=\{(\beta_\sigma m,\sigma(\beta_\sigma m))\}=\mathrm{Gr}\,\sigma$.
+
+(e) Banach's fixed-point theorem gives existence and uniqueness; $\|\sigma_\varepsilon\|\le\|\Gamma0\|_0/(1-\theta)\le C\delta_\varepsilon$ (for $\sigma=0$: $\Gamma0=O(\delta_\varepsilon)$ from $g(m,0)=O(\delta_\varepsilon)$), and the Lipschitz estimate of (b) with $\|\sigma\|\le C\delta_\varepsilon$ gives $\mathrm{Lip}\,\sigma_\varepsilon\le C\delta_\varepsilon$ (the $D_mg$ term is then $O(\delta_\varepsilon)$ rather than $\varpi$). $\square$
+
+### 5.4 The theorem
+
+**Theorem 5.3 (two-sided invariant section theorem).** Under (H4) there are $\varepsilon_0,\rho,L>0$ such that for $|\varepsilon|<\varepsilon_0$:
+(a) *Existence, uniqueness, invariance.* There is a unique section $\sigma_\varepsilon\in\Sigma_{\rho,L}$ with $\widehat F_\varepsilon(\mathrm{Gr}\,\sigma_\varepsilon)=\mathrm{Gr}\,\sigma_\varepsilon$ (for the **original** $\widehat F_\varepsilon$, not only its $N$-th iterate); $\beta_\varepsilon=b_\varepsilon(\cdot,\sigma_\varepsilon(\cdot))$ is a homeomorphism of $M$ with $\sigma_\varepsilon\circ\beta_\varepsilon=g_\varepsilon(\cdot,\sigma_\varepsilon)$, and $\|\sigma_\varepsilon\|_0+\mathrm{Lip}\,\sigma_\varepsilon\le C\delta_\varepsilon$.
+(b) *Regularity.* $\sigma_\varepsilon\in C^{k,\alpha}$ if $k\ge1$ (and $\sigma_\varepsilon$ is Lipschitz, hence $C^{0,\alpha}$, if $k=0$); $\beta_\varepsilon$ is a $C^{k,\alpha}$ diffeomorphism of $M$ (a bi-Lipschitz homeomorphism if $k=0$).
+(c) *Bounds.* $\|\sigma_\varepsilon\|_{C^j}\le C\sum_{i\le j}\delta^{(i)}_\varepsilon$ for $j\le k$, and $\|\sigma_\varepsilon\|_{C^{k,\alpha}}\le C\big(\sum_{i\le k}\delta^{(i)}_\varepsilon+\delta^{(k+\alpha)}_\varepsilon\big)$. In particular $\|\sigma_\varepsilon\|_{C^{k,\alpha}}\le C|\varepsilon|$ if $\|\widehat F_\varepsilon-\widehat F_0\|_{C^{k,\alpha}}\le C|\varepsilon|$.
+
+*Proof.* **(a) for the iterate.** Prop. 5.2 gives $\sigma_\varepsilon$ for the $N$-th iterate system. **From $\widehat F^N$ to $\widehat F$.** The set $\widehat F(\mathrm{Gr}\,\sigma_\varepsilon)$ is the graph of $\sigma'(m')=g(\beta_1^{-1}m',\sigma_\varepsilon(\beta_1^{-1}m'))$, $\beta_1=b(\cdot,\sigma_\varepsilon(\cdot))$ (a homeomorphism by Lemma 5.1, as $\mathrm{Lip}\,\sigma_\varepsilon\le C\delta_\varepsilon$ and $K_*\le\tau$). One has $\|\sigma'\|\le C\delta_\varepsilon$, $\mathrm{Lip}\,\sigma'\le C\delta_\varepsilon$, so $\sigma'\in\Sigma_{\rho,L}$ of the iterate system. The set $\mathrm{Gr}\,\sigma'=\widehat F(\mathrm{Gr}\,\sigma_\varepsilon)$ is $\widehat F^N$-invariant because $\widehat F^N\widehat F=\widehat F\widehat F^N$. By Proposition 5.2(d) and (e), $\sigma'=\sigma_\varepsilon$. Uniqueness for $\widehat F$ follows: an $\widehat F$-invariant graph in the class is $\widehat F^N$-invariant.
+
+**(b) $C^k$.** Define the jet lift $\Lambda(\sigma,J_1,\dots,J_k)=(\Gamma\sigma,\mu_1,\dots,\mu_k)$ on $\Sigma\times\prod\{\|J_i\|\le K_i\}$ as follows. Let $D\beta^J=D_mb(\cdot,\sigma)+D_\eta b(\cdot,\sigma)J_1$ and let $\mu_j$ be the formal $j$-th derivative of (5.1)–(5.2) in $m'$, with every occurrence of $D^i\sigma$ replaced by $J_i$ and $D\beta_\sigma$ by $D\beta^J$. Differentiating (5.1) and (5.2) $j$ times:
+$$\mu^s_j(m')=\big[P^sD_\eta g\,J_j(m)\big]\circ(D\beta^{J}(m)^{-1})^{\otimes j}+(\text{terms linear in }J_j\text{ with coefficient}\le C\tau)+R^s_j,$$
+$$\mu^u_j(m')=\big[B^u_{m'}+O(\tau)\big]^{-1}\Big\{J_j^u(\beta^u(m'))\circ(D\beta^u(m'))^{\otimes j}\Big\}+(\text{terms in }J_j\text{ with coefficient}\le C\tau)+R^u_j,$$
+$m=\beta_\sigma^{-1}(m')$, $\beta^u(m')=b(m',\sigma^s(m')+\eta^u(m'))$, where $R_j$ is a polynomial in $J_1,\dots,J_{j-1}$ with coefficients that are continuous functions of $(m,\sigma)$ built from derivatives of $g,b,P^{s,u}$ up to order $j$ (and for $j=1$ the equation for $\mu^u_1$ is solved for $\mu^u_1$, its own coefficient being $O(\tau)$). Hence
+$$\mathrm{Lip}_{J_j}\mu_j\le\max\{\|B^s\|\|D\beta^{-1}\|^j,\ \|(B^u)^{-1}\|\|D\beta^u\|^j\}+C\tau\le\max\{s_j,u_j\}+C\tau<1,$$
+**uniformly in $\sigma$**, and $\mu_j$ depends Lipschitz-continuously on $J_i$ ($i<j$) on the balls. $\Lambda$ is continuous in the product of sup metrics (uniform continuity of $J$ and of $\beta_\sigma^{-1}$ in $\sigma$, §5.3(c)). With a weighted fibre metric (§3.2) (FCT) applies. Start at $(\sigma_0,J^{(0)})=(0,0)$; as in Theorem 3.2(b), $\Lambda^n(0,0)=(\sigma_n,D\sigma_n,\dots,D^k\sigma_n)$ with $\sigma_{n+1}=\Gamma\sigma_n\in C^{k}$ (implicit function theorem for (5.2); $P^{s,u},B,g,b$ have the required regularity). So $\sigma_\varepsilon\in C^k$, $D^i\sigma_\varepsilon=J_i$.
+**$C^{k,\alpha}$.** With $\sigma_\varepsilon$ fixed, $J_k$ is the fixed point of the fibre map $\mu_k(\sigma_\varepsilon,\cdot)$. By the one-step numbers $s_{k,\alpha},u_{k,\alpha}<1$ and $[J\circ\beta^{-1}]_\alpha\le[J]_\alpha\mathrm{Lip}(\beta^{-1})^\alpha$ etc., $[\mu_k(J)]_\alpha\le(\max\{s_{k,\alpha},u_{k,\alpha}\}+C\tau)[J]_\alpha+C(1+\|J\|_0)$ (for $k=1$ the Hölder seminorm of $D\beta^J$ is $\le C+K_*[J]_\alpha$, absorbed). Iterating from $J=0$ and passing to the uniform limit: $[J_k]_\alpha<\infty$. (The coefficients lie in $C^\alpha$ because $D_\eta g\in C^{r-1,\beta}$, $\sigma_\varepsilon$ is Lipschitz and $\alpha\le\beta$ if $k=r$.) $\beta_\varepsilon=b(\cdot,\sigma_\varepsilon)\in C^{k,\alpha}$ is a homeomorphism with $D\beta_\varepsilon$ invertible, hence a $C^{k,\alpha}$ diffeomorphism.
+
+**(c)** At $(\varepsilon,\sigma,J)=(0,0,0)$ the lifted fibre maps have $R_j=0$ (all pure-$m$ derivatives of $g_0$ at $\eta=0$ vanish and $\sigma=0$ is invariant at $\varepsilon=0$), and $R_j$ is Lipschitz in $(\delta_\varepsilon^{(j)},\|\sigma\|_0,\|J_{<j}\|)$. Hence $\|R_j\|\le C(\delta^{(j)}_\varepsilon+\|\sigma\|_0+\sum_{i<j}\|J_i\|)$ and $\|J_j\|\le\|R_j\|/(1-\theta')$; induct, using $\|\sigma_\varepsilon\|_0\le C\delta_\varepsilon$. The Hölder estimate is the same with the Hölder seminorm of $R_k$. $\square$
+
+**Remark (class uniqueness).** The uniqueness in Theorem 5.3(a) is uniqueness *within the admissible class* $\Sigma_{\rho,L}$: an invariant section in the class is unique. Uniqueness among *all* $C^1$-close invariant manifolds requires separately showing that every such manifold lies in the admissible class — true if its tangent spaces remain inside the prescribed center cones in tubular coordinates. The intrinsic uniqueness statement is the qualified admissible-graph uniqueness above.
+
+### 5.5 Compact persistence and flows
+
+For a comprehensive treatment of normally hyperbolic invariant manifolds in ordinary differential equations, see Guckenheimer–Holmes [16]; the section below proves the compact persistence and flow-invariance results needed here.
+
+**Theorem 5.4.** Let $X$ be a Banach space, $M\subset X$ a compact $C^{r+1,\beta}$ submanifold, $F_\varepsilon$ $C^{r+1,\beta}$ maps near $M$ with $F_0(M)=M$, $f=F_0|_M$ a diffeomorphism, and suppose the normal cocycle $B$ satisfies (H1), (B) with $k\ge1$, (H3), $k+\alpha\le r+\beta$. Choose the complement $E$ as in Lemma 3.4 with $\sup\|K\|\le\delta^*_1$. Then there is $\varepsilon_0>0$ such that for $|\varepsilon|<\varepsilon_0$:
+(a) There is a unique $C^{k,\alpha}$ compact submanifold $M_\varepsilon=K_\varepsilon(M)$, $K_\varepsilon(m)=\Theta(m,\sigma_\varepsilon(m))$, in the tube with $F_\varepsilon(M_\varepsilon)=M_\varepsilon$ (exact equality) among graphs in the class $\Sigma_{\rho,L}$; $K_\varepsilon:M\to X$ is a $C^{k,\alpha}$ embedding and $f_\varepsilon:=\beta_\varepsilon$ is a $C^{k,\alpha}$ diffeomorphism with $F_\varepsilon\circ K_\varepsilon=K_\varepsilon\circ f_\varepsilon$.
+(b) If $\|F_\varepsilon-F_0\|_{C^{k,\alpha}}\le C|\varepsilon|$ then $\|K_\varepsilon-\iota_M\|_{C^{k,\alpha}}+\|f_\varepsilon-f\|_{C^{k,\alpha}}\le C'|\varepsilon|$.
+(c) $M_\varepsilon$ is normally hyperbolic: the normal cocycle $\tilde B_m=D_\eta g_\varepsilon(m,\sigma_\varepsilon(m))-D\sigma_\varepsilon(\beta_\varepsilon m)D_\eta b_\varepsilon(m,\sigma_\varepsilon(m))$ over $f_\varepsilon$ satisfies (H1) with constants $\lambda_\varepsilon\to\lambda$, and its bunching numbers satisfy $\bar{\mathfrak b}^\pm_{k,\alpha}(\varepsilon)\le\bar{\mathfrak b}^\pm_{k,\alpha}+o(1)$.
+(d) *(Flows.)* If $\Phi^\varepsilon_t$ is a $C^{r+1,\beta}$ local flow with $\Phi^0_t(M)=M$ for $t\in[0,T]$ and $F_\varepsilon:=\Phi^\varepsilon_T$ satisfies the hypotheses, then $\Phi^\varepsilon_t(M_\varepsilon)=M_\varepsilon$ for all $t\in\mathbb R$.
+
+*Proof.* (a),(b): Theorem 5.3 with $\widehat F_\varepsilon=\Theta^{-1}F_\varepsilon\Theta$; $F_\varepsilon(K_\varepsilon m)=\Theta\widehat F_\varepsilon(m,\sigma_\varepsilon m)=\Theta(\beta_\varepsilon m,\sigma_\varepsilon(\beta_\varepsilon m))=K_\varepsilon(\beta_\varepsilon m)$ and $\beta_\varepsilon$ is bijective. (c) $T_{K_\varepsilon m}M_\varepsilon$ is spanned by $(v,D\sigma_\varepsilon v)$, so the normal action on the fibre $E$ is $\eta\mapsto D_\eta g\,\eta-D\sigma_\varepsilon(\beta m)D_\eta b\,\eta$. Its $N$-step blocks in the reference splitting differ from those of $B$ by $O(C_N\tau)$, so the one-step quantities $s_j,u_j$ change by $O(\tau)$ and (by Lemma 2.2(d), upper semicontinuity of the Fekete limits) so do the numbers $\bar{\mathfrak b}^\pm$; an invariant splitting exists by Theorem 3.2(a) applied to the Grassmannian fibre map as in Lemma 3.3. (d) For $t\in[0,T]$, $\Phi^\varepsilon_t(M_\varepsilon)$ is $F_\varepsilon$-invariant ($\Phi_t$ commutes with $\Phi_T$) and, being $C^1$-close to $\Phi^0_t(M)=M$ uniformly on $[0,T]$, is a graph over $M$ (Lemma 5.1 for its base projection) of a section in $\Sigma_{\rho,L}$. By uniqueness it equals $M_\varepsilon$. For other $t$ use $\Phi_{t+T}=\Phi_t\Phi_T$. $\square$
+
+**Necessity of full-flow invariance.** The hypothesis $\Phi^0_t(M)=M$ for $t\in[0,T]$ cannot be weakened to $\Phi^0_T(M)=M$ alone: if only the latter holds, $\Phi^0_t(M)$ for $0<t<T$ may leave the tubular neighbourhood, and the uniqueness argument for the time-$T$ graph transform cannot be applied. Full-flow invariance is what makes \(\Phi^\varepsilon_t(M_\varepsilon)\) a graph in the admissible class for all \(t\).
+
+### 5.6 Parameter dependence
+
+**Theorem 5.5.** Assume (H4).
+(a) *Lipschitz dependence.* $\|\sigma_\varepsilon-\sigma_{\varepsilon'}\|_{C^j}\le C\|\widehat F_\varepsilon-\widehat F_{\varepsilon'}\|_{C^j}$ for $j\le k$.
+(b) *Differentiability with loss.* If $\varepsilon\mapsto\widehat F_\varepsilon$ is $C^1$ into $C^{k+1}(E_{\rho_0})$ and $k\ge1$, then $\varepsilon\mapsto\sigma_\varepsilon\in C^{k-1}(E)$ is $C^1$, and $\xi=\partial_\varepsilon\sigma_\varepsilon$ is the unique solution of the linearised cohomological equation $\xi\circ\beta_\varepsilon-\tilde B\xi=-(\partial_\varepsilon\Psi)(\varepsilon,\sigma_\varepsilon)$, $\Psi(\varepsilon,\sigma)=\sigma\circ\beta_\sigma-g_\varepsilon(\cdot,\sigma)$. Inductively, if $\varepsilon\mapsto\widehat F_\varepsilon\in C^p(\,\cdot\,;C^{k+p}(E_{\rho_0}))$ and $p\le k$ then $\sigma_\varepsilon\in C^p(\,\cdot\,;C^{k-p})$ and the Taylor coefficients satisfy $\mathcal A_0\sigma^{(p)}=-R_p(\sigma^{(1)},\dots,\sigma^{(p-1)})$ with $R_p$ the universal Faà di Bruno expression.
+
+*Proof.* (a) The fixed points of the uniform contractions $\Gamma_\varepsilon$ and of the affine fibre maps $\mu_j$ depend Lipschitz on the parameter with constant $(1-\theta)^{-1}$ times the Lipschitz constant of the family (CT); the family distance is $\le C\|\widehat F_\varepsilon-\widehat F_{\varepsilon'}\|_{C^j}$ plus the distances of the lower jets; induct on $j$.
+(b) The linearisation $D_\sigma\Psi(\varepsilon,\sigma_\varepsilon)\xi=\xi\circ\beta_\varepsilon-\tilde B\xi$ is conjugate to $I-D\Gamma$, with $\|D\Gamma\|\le\theta<1$ in $C^0$ and, by the jet estimates of Theorem 5.3(b), uniformly on $C^j$ ($j\le k-1$ suffices below); hence it is invertible there with bounded inverse. Let $D_h=(\sigma_{\varepsilon+h}-\sigma_\varepsilon)/h$. By (a), $\|D_h\|_{C^k}\le C$. Subtracting the invariance equations,
+$D_\sigma\Psi(\varepsilon,\sigma_\varepsilon)D_h=-\partial_\varepsilon\Psi+O(|h|)$ in $C^{k-1}$, where the $O(|h|)$ remainders are second-order differences in $(\sigma_{\varepsilon+h}-\sigma_\varepsilon,\beta_{\varepsilon+h}-\beta_\varepsilon)$, controlled in $C^{k-1}$ by $\|D_h\|_{C^k}|h|$ (one derivative is paid for the composition). Hence $D_h\to-(D_\sigma\Psi)^{-1}\partial_\varepsilon\Psi$ in $C^{k-1}$. Continuity of the derivative follows from (a) at order $k-1$. Higher derivatives by induction, losing one derivative each time. $\square$
+
+### 5.7 Sharpness, and the Hölder regime without 1-bunching
+
+**Theorem 5.6.** (a) *(Skew products.)* Suppose $E=E^s$, $b_\varepsilon(m,\eta)=f(m)$ and $g_\varepsilon(m,\cdot)$ is a $C^{r,\beta}$ family of maps $E_{m}\to E_{fm}$ with $\mathfrak c_{0,0}<1$. Then Theorem 3.2 gives a unique invariant section, of class $C^{k,\alpha}$ whenever $\mathfrak c_{k,\alpha}<1$, **with no 1-bunching hypothesis**: in particular for $k=0$ and every $\alpha\in(0,1)$ with $\mathfrak c_{0,\alpha}<1$, even when $\mathfrak b_1\ge1$ and the section is merely Hölder.
+(b) *(Sharpness.)* In Example 4.5 take $F_\varepsilon(x,y)=(Ax,\lambda y+\varepsilon q(x))$ on $\mathbb T^2\times\mathbb R$, $q=\cos(2\pi\langle\nu,x\rangle)$. The invariant graph is $\sigma_\varepsilon=\varepsilon\,\mathcal Gq$, and by Example 4.5(ii) it lies in $C^s$ (non-integer $s$) iff $s<s_*=\log(1/\lambda)/\log\Lambda$, i.e. iff $\bar{\mathfrak b}_{k,\alpha}=\lambda\Lambda^{k+\alpha}<1$. So Theorems 5.3, 5.4, 5.5 are sharp: for every $s>s_*$ there are arbitrarily small smooth perturbations whose invariant section is not $C^s$.
+(c) *(Where 1-bunching matters.)* If $\mathfrak b_1^\pm<1$ fails the invariant set need not be a graph (it is a Hölder lamination in general); this is why Theorem 5.3 and Theorem 5.4 assume $\mathfrak b_1^\pm<1$, while (a) does not need it because the base map does not depend on the fibre variable.
+
+**Theorem 5.7 (Hölder regime for general $F_\varepsilon$).** Suppose (H0), (H1), $\mathfrak b_0^\pm<1$, and $\alpha\in(0,1)$ satisfies
+\[
+\mathfrak b_0^+\,(L^+)^\alpha<1,
+\qquad
+\mathfrak b_0^-\,(L^-)^\alpha<1,
+\]
+where $L^\pm=\lim_n(\ell^\pm_n)^{1/n}$ are the Lipschitz growth rates. Suppose $\widehat F_\varepsilon$ is $C^{r,\beta}$ with $\delta_\varepsilon$ small and coupling $K_*$ small (Lemma 3.4). Then for small $\varepsilon$ there is a unique $h_\varepsilon\in\Sigma_\alpha:=\{h\in\Gamma(E):\|h\|_0\le\rho,\ [h]_\alpha\le L\}$ with $\widehat F_\varepsilon(\mathrm{Gr}\,h_\varepsilon)=\mathrm{Gr}\,h_\varepsilon$ (as sets), and $h_\varepsilon\in C^{0,\alpha}$. This replaces the 1-bunching hypothesis of Theorem 5.3 by the Hölder bunching $\mathfrak b_0(L^\pm)^\alpha<1$; Theorem 5.6(a) is the special case $L^\pm=1$.
+
+*Proof.* **Step 0 (iteration).** By Lemma 2.2(d) choose $N$ with $\theta_0:=\max\{s_0,u_0,s_0(L^+)^\alpha,u_0(L^-)^\alpha\}<1$; replace $(f,B,\widehat F_\varepsilon)$ by the $N$-th iterate, so the new system has one-step quantities $s_0,u_0$ (zeroth) and $s_0(L^+)^\alpha,u_0(L^-)^\alpha$ (Hölder).
+
+**Step 1 (admissible class).** $\Sigma_\alpha$ with the $C^0$ metric is complete.
+
+**Step 2 ($C^0$ contraction).** For $h_1,h_2\in\Sigma_\alpha$ and $m'\in M$, with $m_i=\beta_{h_i}^{-1}(m')$,
+\[
+\|(\Gamma h_1)^s(m')-(\Gamma h_2)^s(m')\|
+\le\|D_\eta g\|\,\|h_1(m_1)-h_2(m_2)\|+[g]_\alpha\|m_1-m_2\|^\alpha,
+\]
+and $\|h_1(m_1)-h_2(m_2)\|\le\|h_1-h_2\|_0+[h_2]_\alpha\|m_1-m_2\|^\alpha$, $\|m_1-m_2\|\le CK_*\|h_1-h_2\|_0$ (base displacement). For $\|h_1-h_2\|_0\le2\rho$ this gives $\|(\Gamma h_1)^s-(\Gamma h_2)^s\|_0\le(s_0+C\tau)\|h_1-h_2\|_0$; the unstable part is symmetric. So $\Gamma$ is a $C^0$ contraction with factor $\theta=\max\{s_0,u_0\}+C\tau<1$.
+
+**Step 3 (Hölder preservation).** For $h\in\Sigma_\alpha$,
+\[
+[(\Gamma h)^s]_\alpha\le\|D_\eta g\|\,\mathrm{Lip}(\beta_h^{-1})^\alpha[h]_\alpha+[g]_\alpha\,\mathrm{Lip}(\beta_h^{-1})^\alpha,
+\]
+with $\mathrm{Lip}(\beta_h^{-1})\le\mathrm{Lip}(f^{-1})+C\tau\le L^++C\tau$ (the bi-Lipschitz bound). Hence $[(\Gamma h)^s]_\alpha\le(s_0(L^+)^\alpha+C\tau)[h]_\alpha+C(\delta_\varepsilon+\omega(\rho))$. For $s_0(L^+)^\alpha<1$ this preserves the Hölder class; the unstable part is symmetric.
+
+**Step 4 (fixed point).** The Banach fixed-point theorem gives a unique $h_\varepsilon\in\Sigma_\alpha$ with $\Gamma h_\varepsilon=h_\varepsilon$, and $h_\varepsilon\in C^{0,\alpha}$. \(\square\)
+
+The threshold is $\alpha_*=\log(1/\mathfrak b_0)/\log L^+$: for $\alpha<\alpha_*$ the Hölder bunching holds and the invariant section is $C^{0,\alpha}$, even when 1-bunching ($\mathfrak b_1\ge1$) fails.
+
+---
+
+## 6. Strong stable fibres
+
+Let $F=F_\varepsilon$ be a $C^{r+1,\beta}$ map near the compact invariant manifold $M_\varepsilon$ (Theorem 5.4; $M_0=M$ for $\varepsilon=0$), $F|_{M_\varepsilon}$ a diffeomorphism, and for $p\in M_\varepsilon$ write $p_n=F^n(p)$, $A_p(n)=DF(p_n)\in L(X)$, with cocycle $\Phi_p(n,k)=A_p(n-1)\cdots A_p(k)$.
+
+**(G) (uniform strong gap).** $DF$ has a continuous invariant splitting $X=E^s_p\oplus E^{cu}_p$ along $M_\varepsilon$ ($TM_\varepsilon\subset E^{cu}$, bounded projections $P^s,P^{cu}$, $DF(p)E^{cu}_p=E^{cu}_{Fp}$, $DF(p)E^s_p\subset E^s_{Fp}$) and constants $C\ge1$, $0\le\beta_{cu}<\alpha_s$ with
+$$\|\Phi^s_p(n,k)\|\le Ce^{-\alpha_s(n-k)}\ (n\ge k),\qquad\|\Phi^{cu}_p(n,k)\|\le Ce^{\beta_{cu}(k-n)}\ (n\le k),$$
+where $\Phi^{cu}(n,k)=\Phi^{cu}(k,n)^{-1}$ for $n<k$.
+
+*Verification for $\varepsilon=0$.* By Lemma 3.4, $DF_0|_M$ has the invariant splitting $TM\oplus\mathcal N^s\oplus\mathcal N^u$; put $E^s=\mathcal N^s$, $E^{cu}=TM\oplus\mathcal N^u$. Then $\alpha_s=-\log\mathfrak b_0^+$ and $\beta_{cu}=\log\max\{1,L^+\}$ with $L^+=\lim(\ell_n^+)^{1/n}$ (the unstable normal part has backward rate $\le\lambda<1$); so (G) is the condition $\mathfrak b_0^+L^+<1$, which implies $\mathfrak b_1^+<1$. For small $\varepsilon$, (G) persists with $\alpha_s-o(1)$, $\beta_{cu}+o(1)$ (the $N$-step products are continuous in the data).
+
+**Theorem 6.1 (strong stable fibres).** Assume (G), $\beta_{cu}<\gamma<\alpha_s$. There are $r_0,\delta>0$ (uniform in $p$) such that for every $p\in M_\varepsilon$:
+(a) *Existence and characterisation.* There is a map $w_p:\{a\in E^s_p:\|a\|\le\delta\}\to E^{cu}_p$, $\Xi_p(a)=p+a+w_p(a)$, such that a point $x=p+\xi_0$ with $\|\xi_0\|$ small satisfies $\sup_{n\ge0}e^{\gamma n}\|F^nx-p_n\|\le r_0$ **iff** $x=\Xi_p(a)$ for some $a$, $\|a\|\le\delta$ (with $a=P^s_p\xi_0$); in that case $\|F^nx-p_n\|\le Ce^{-\gamma n}\|a\|$.
+(b) *Tangency.* $w_p(0)=0$, $Dw_p(0)=0$; the leaf $W^{ss}_{loc}(p)=\Xi_p(B_\delta)$ is tangent to $E^s_p$.
+(c) *Equivariance.* $F\big(W^{ss}_{loc}(p)\big)\subset W^{ss}_{loc}(F(p))$ after shrinking $\delta$ by the factor $e^{-\gamma}$.
+(d) *Internal regularity.* $w_p\in C^{r+1,\beta}$ with norms bounded uniformly in $p$: **under (G) alone, with no bunching condition of the form $\alpha_s>\ell\beta_{cu}$.**
+
+*Proof.* Write $F^nx-p_n=\xi_n$; then $\xi_{n+1}=A_p(n)\xi_n+R_n(\xi_n)$, $R_n(\xi)=F(p_n+\xi)-F(p_n)-DF(p_n)\xi$, $\|R_n(\xi)\|\le C\|\xi\|^2$, $\|DR_n(\xi)\|\le C\|\xi\|$, uniformly in $p,n$. Let $\ell_\gamma=\{\xi=(\xi_n)_{n\ge0}:\|\xi\|_\gamma=\sup e^{\gamma n}\|\xi_n\|<\infty\}$ and
+$$\mathcal P(\xi;a)_n=\Phi^s_p(n,0)a+\sum_{k=0}^{n-1}\Phi^s_p(n,k{+}1)P^s_{p_{k+1}}R_k(\xi_k)-\sum_{k=n}^\infty\Phi^{cu}_p(n,k{+}1)P^{cu}_{p_{k+1}}R_k(\xi_k).$$
+*Estimates.* If $\|\xi\|_\gamma\le r$: $e^{\gamma n}\|\Phi^s(n,0)a\|\le C\|a\|$; the stable sum is $\le C'r^2e^{\alpha_s}\sum_{k<n}e^{(\gamma-\alpha_s)n+(\alpha_s-2\gamma)k}\le C''r^2$: for $\alpha_s>2\gamma$ the sum is $\le Ce^{-\gamma n}$, for $\alpha_s=2\gamma$ it is $\le Cne^{-\gamma n}$, and for $\alpha_s<2\gamma$ it is $\le C$ (terms decrease in $k$ and $\gamma<\alpha_s$); the $cu$-sum is $\le e^{\gamma n}\sum_{j\ge0}Ce^{\beta_{cu}(j+1)}C'r^2e^{-2\gamma(n+j)}=C'r^2e^{\beta_{cu}}e^{-\gamma n}\sum_je^{-(2\gamma-\beta_{cu})j}<\infty$ because $2\gamma>\beta_{cu}$. The same estimates with $\|DR_n\|\le Cr e^{-\gamma n}$ show $\mathrm{Lip}(\mathcal P(\cdot;a))\le C r$. Choose $r$ with $Cr\le\frac12$ and $\delta=r/(2C)$: $\mathcal P(\cdot;a)$ is a $\frac12$-contraction of the ball $B_r\subset\ell_\gamma$ for $\|a\|\le\delta$. Let $\xi(a)$ be its fixed point; $\xi(0)=0$.
+(a) If $\xi$ is the orbit deviation of some $x$ with $\|\xi\|_\gamma\le r$, project the recursion with the invariant splitting: $\xi^s_n=\Phi^s(n,0)\xi^s_0+\sum_{k<n}\Phi^s(n,k+1)P^sR_k$ and, for $N>n$, $\xi^{cu}_n=\Phi^{cu}(n,N)\xi^{cu}_N-\sum_{k=n}^{N-1}\Phi^{cu}(n,k+1)P^{cu}R_k$. Since $\|\Phi^{cu}(n,N)\xi^{cu}_N\|\le Ce^{\beta_{cu}(N-n)}re^{-\gamma N}\to0$ ($\beta_{cu}<\gamma$), $\xi=\mathcal P(\xi;P^s\xi_0)$, so $\xi=\xi(a)$ by uniqueness. Conversely $\xi(a)$ is an orbit deviation by construction. Define $w_p(a)=P^{cu}\xi_0(a)$; then $\xi_0(a)=a+w_p(a)$.
+(b) $\|w_p(a)\|\le C\sum_k\|R_k\|\le Cr^2$-type bound sharpened by $\|\xi(a)\|_\gamma\le C\|a\|$ to $\|w_p(a)\|\le C\|a\|^2$.
+(c) If $\xi=\xi(a)$ then $\xi'_n:=\xi_{n+1}$ solves the problem for $(Fp,a'=P^s\xi_1)$ and $\|\xi'\|_\gamma\le e^{-\gamma}\|\xi\|_\gamma$.
+(d) The Nemytskii map $\xi\mapsto(R_n(\xi_n))_n$ satisfies $\|D^i\mathcal N(\xi)(\eta_1,\dots,\eta_i)\|_{\ell_{\max\{2,i\}\gamma}}\le C\prod\|\eta_j\|_\gamma$ ($i\le r+1$) with $D^{r+1}$ uniformly continuous, and the two convolution operators map $\ell_{2\gamma}\to\ell_\gamma$ boundedly (above). Hence $\mathcal P\in C^{r+1}$ in $(\xi,a)$, and the fixed point of a $C^{r+1}$ uniform contraction is $C^{r+1}$ in the parameter. $\square$
+
+**Remark 6.2 (transverse regularity; conjectural threshold).** The regularity of $p\mapsto W^{ss}(p)$ (holonomy) is governed by *forward* separation rates of base orbits, not by the normal jet cocycle: differentiating the Perron operator $j$ times in $p$ produces weights $\gamma-j\mu$ with $\mu$ the forward growth rate of $\|DF^n\|$ along $M_\varepsilon$, so the natural conjecture is $C^\ell$ transversally under $\alpha_s>\ell\mu+\beta_{cu}$ (compare Pugh–Shub–Wilkinson for Hölder exponents). A rigorous proof requires comparing leaves through different base points in a common trivialisation and a scale version of the uniform contraction principle; this is Problem 2 of Section 9.
+
+---
+
+## 7. Periodic jet resonance
+
+Let $p\in M$ be periodic, $f^N(p)=p$ with prime period $N$, $m_i=f^i(p)$. Let $J^k_x(E)=\bigoplus_{j\le k}\mathrm{Sym}^j(T^*_xM;E_x)$ (jets of sections at $x$ in a fixed chart and trivialisation). For $\zeta\in C^k(E)$ write $J^k\zeta(x)\in J^k_x(E)$. Differentiating $\mathcal A\zeta=q$ gives, at each orbit point,
+$$\mathsf T_{m_i}\,J^k\zeta(m_{i+1})-\mathsf B_{m_i}\,J^k\zeta(m_i)=J^kq(m_i),\tag{7.1}$$
+where $\mathsf T_x:J^k_{fx}(E)\to J^k_x(f^*E)$ is the jet-composition map $J\mapsto J\circ f$ at $x$ (invertible, because $f$ is a diffeomorphism) and $\mathsf B_x:J^k_x(E)\to J^k_x(f^*E)$ is jet-multiplication by $B$ (so $\mathsf T_x^{-1}\mathsf B_x:J^k_x(E)\to J^k_{fx}(E)$). The equations are block lower-triangular in the order $j$ with diagonal blocks $J\mapsto J\circ(Df)$ and $B_x\cdot$. Put $\mathsf R_i=\mathsf T_{m_i}^{-1}\mathsf B_{m_i}$ and $\mathfrak R_{\le k}(p)=\mathsf R_{N-1}\cdots\mathsf R_0$, a linear map of $J^k_p(E)$, block lower-triangular with diagonal blocks (the **principal jet return maps**)
+$$\mathfrak R_j(p)J=\Phi(N,0;p)\,J\circ\big(Df^N(p)^{-1}\big)^{\otimes j}\qquad(J\in\mathrm{Sym}^j(T^*_pM;E_p)).$$
+
+**Proposition 7.1 (graded periodic obstruction).** Assume $\mathcal A$ is surjective as a map $C^{k,\alpha}(E)\to C^{k,\alpha}(f^*E)$ (or $C^k\to C^k$). Then $I-\mathfrak R_{\le k}(p)$ is surjective on $J^k_p(E)$ for every periodic $p$. Equivalently: if for some periodic $p$ the map $I-\mathfrak R_{\le k}(p)$ is not onto $J^k_p(E)$, then $\mathcal A$ is not onto on $C^k$ (nor $C^{k,\alpha}$).
+
+*Proof.* Given $Z\in J^k_p(E)$ choose $q\in C^{k,\alpha}$ (a polynomial in a chart times a bump) supported near $m_{N-1}$ with $\mathsf T_{m_{N-1}}^{-1}J^kq(m_{N-1})=Z$ and $J^kq(m_i)=0$ for $i\ne N-1$. If $\mathcal A\zeta=q$ with $\zeta\in C^k$, iterate $J^k\zeta(m_{i+1})=\mathsf R_iJ^k\zeta(m_i)+\mathsf T^{-1}_{m_i}J^kq(m_i)$ around the cycle: $Y=\mathfrak R_{\le k}Y+Z$ for $Y=J^k\zeta(p)$. So $Z\in\mathrm{ran}(I-\mathfrak R_{\le k})$. $\square$
+
+**Example 7.2 (two-cycle).** $M=S^1$ with a diffeomorphism having an attracting 2-cycle $\{p_0,p_1\}$ with $f'(p_0)=f'(p_1)=\tfrac12$; $E=M\times\mathbb R$, $B\equiv\tfrac12$ ($E=E^s$, $\lambda=\tfrac12$). Order $0$: $\mathfrak R_0=\Phi(2,0)=\tfrac14\ne1$, so $\mathcal A$ is invertible on $C^0$ (matrix $\begin{pmatrix}-1/2&1\\1&-1/2\end{pmatrix}$, determinant $-\tfrac34$). Order $1$: $\mathfrak R_1=\Phi(2,0)(Df^2)^{-1}=\tfrac14\cdot4=1$, so $I-\mathfrak R_1=0$: $\mathcal A$ is **not onto $C^1$**. (Here $\mathfrak b_1^+\ge1$: the system sits exactly at the 1-bunching threshold.)
+
+**Theorem 7.3 (compact return).** Assume additionally that $E^u_p$ is finite-dimensional and $\Phi^s(N,0;p)$ is compact on $E^s_p$ (as for eventually compact semiflows; then $B_x$ is non-invertible on $E^s$, which (H1) permits). Then $I-\mathfrak R_{\le k}(p)$ is Fredholm of index $0$; hence it fails to be onto iff $1$ is an eigenvalue of some diagonal block $\mathfrak R_j(p)$, $j\le k$, i.e. iff there are an eigenvalue $\mu$ of $\Phi(N,0;p)$ and eigenvalues $d_1,\dots,d_j$ (with repetition) of $Df^N(p)$ with $\mu=d_1\cdots d_j$. In particular such a resonance with $j\le k$ is an obstruction to surjectivity of $\mathcal A$ on $C^{k,\alpha}$.
+
+*Proof.* Each diagonal block $\mathfrak R_j$ is compact on its $E^s$-part (compact $\Phi^s(N,0)$ composed with finite-dimensional tensor factors) and finite-dimensional on its $E^u$-part; the off-diagonal blocks are compact as well. So $\mathfrak R_{\le k}(p)$ is compact and $I-\mathfrak R_{\le k}(p)$ is Fredholm of index $0$ (Riesz–Schauder). For a block-triangular operator with diagonal blocks of the form $I-\text{(compact)}$, the index is the sum of the indices (all $0$), and invertibility holds iff each diagonal block is invertible; $I-\mathfrak R_j$ is non-invertible iff $1\in\sigma_p(\mathfrak R_j)$. On $\mathrm{Sym}^j(T^*_pM;E_p)$ the eigenvalues of $J\mapsto\Phi J(Df^{-N})^{\otimes j}$ are $\mu\,d_{i_1}^{-1}\cdots d_{i_j}^{-1}$. Apply Proposition 7.1. $\square$
+
+---
+
+## 8. Extensions
+
+The compact invertible theorem is the model case. The table summarises the replacements used in the extension settings; each extension requires its own theorem-level hypotheses.
+
+| Setting | Linear inverse | Function space | Geometric / analytic hypothesis |
+|---|---|---|---|
+| Noncompact / Banach-dim base (§8.1) | Green operator (uniform) | $C^{k,\alpha}_b$ | bounded geometry / uniform atlas (H3′) |
+| Nonautonomous / random (§8.2) | pathwise Green operator | tempered weighted | uniform / tempered dichotomy |
+| Parabolic slow manifold (§8.3) | analytic semigroup Perron | $C_\gamma([0,\infty),X_\theta)$ | sectorial dichotomy (P1)–(P3) |
+| Delay (§8.4) | history-space Green operator | $C([-\tau,0];\mathbb R^d)$ | eventual compactness (D0)–(D2) |
+| Quasilinear (§8.5) | tame inverse / Nash–Moser | scale $X_s$ | tame + loss (Q1)–(Q2) |
+| Manifolds with boundary (§8.6) | Green operator with boundary conditions | $C^k(M,E)$ | boundary-compatible hyperbolicity |
+
+```mermaid
+flowchart TD
+    A[Choose Extension Setting] --> B{Base manifold?}
+    B -->|Compact finite-dim| C[§8.1 Noncompact base]
+    B -->|Noncompact / Banach-dim| C
+    B -->|Compact finite-dim| D{Time dependence?}
+    D -->|Autonomous| E{Problem type?}
+    D -->|Nonautonomous| F[§8.2 Nonautonomous]
+    D -->|Random| G[§8.3 Random]
+    E -->|Parabolic/slow-fast| H[§8.3 Parabolic]
+    E -->|Delay equations| I[§8.4 Delay]
+    E -->|Quasilinear PDE| J[§8.5 Quasilinear]
+    E -->|Manifold with boundary| K[§8.6 Boundary]
+    E -->|Standard NHIM| L[Core §§3-5]
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style L fill:#dfd,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333
+    style F fill:#bbf,stroke:#333
+    style G fill:#bbf,stroke:#333
+    style H fill:#bbf,stroke:#333
+    style I fill:#bbf,stroke:#333
+    style J fill:#bbf,stroke:#333
+    style K fill:#bbf,stroke:#333
+```
+
+### 8.1 Noncompact and Banach-dimensional bases
+
+**Theorem 8.1.** Let $M$ be a complete $C^{r+1,\beta}$ manifold, finite- or infinite-dimensional, with a *uniform atlas* (charts of a fixed size with uniformly bounded $C^{r+1,\beta}$ transition maps), $f\in\mathrm{Diff}^{r+1,\beta}(M)$ with $\|f^{\pm1}\|_{C^{r+1,\beta}_b}<\infty$, $E\to M$ a $C^{r,\beta}$ Banach bundle with uniformly bounded trivialisations, $B\in C^{r,\beta}_b$ with (H1) holding with uniform constants, and (H3′): there is a $C^{r,\beta}_b$ reference splitting uniformly $\delta'$-close to $E^s\oplus E^u$ for every $\delta'>0$ (automatic for finite-dimensional $M$ of bounded geometry, by a uniformly locally finite partition of unity with uniformly bounded derivatives). Define all numbers with $\sup_{m\in M}$ and all function spaces as $C^{k,\alpha}_b$. Then Lemma 2.2, Lemma 3.1, Theorem 3.2, Lemma 3.3, Theorems 4.2–4.4, Proposition 5.2, and Theorems 5.3 and 5.5 hold verbatim (with constants depending only on the uniform bounds); the conclusion of Theorem 5.3(a) is a unique global invariant section $\sigma_\varepsilon\in C^{k,\alpha}_b$.
+
+*Proof.* Compactness enters the proofs only through (i) Lemma 5.1 (proved above for complete $M$ with uniform charts, using no degree or covering argument); (ii) the existence of a finite atlas (replaced by the uniform atlas; every estimate in a chart is uniform); (iii) the partition-of-unity approximations of the projections in Lemma 3.3 and the complement in Lemma 3.4 (replaced by (H3′) and the assumption that a complement with coupling $\le\delta_1^*$ exists); (iv) completeness of $C^0(V_\rho)$ and of the weighted fibre spaces, which holds for $C_b$-norms. No Arzelà–Ascoli argument is used. The fibre contraction theorem is stated for arbitrary complete metric spaces. $\square$
+
+### 8.2 Nonautonomous and random cocycles
+
+For nonautonomous and random extensions of normally hyperbolic persistence, see Latushkin–Montgomery-Smith–Randolph [22] and Sell–You [23]; the proof below adapts the time-independent theory to the bi-infinite setting.
+
+**Theorem 8.2 (nonautonomous).** Let $(f_n,B_n,\widehat F_{\varepsilon,n})_{n\in\mathbb Z}$ be a bi-infinite sequence of data on the same $M,E$ (maps $f_n:M\to M$, fibre maps $B_n:E_m\to E_{f_nm}$, splittings $E^{s,u}_n$ with $B_nE^s_n\subset E^s_{n+1}$, $B_nE^u_n=E^u_{n+1}$) such that all one-step quantities
+$$\sup_m\|B^s_{n-1,\psi_{n-1}m}\|\kappa^+(m)^j\le\theta_0<1,\qquad\sup_m\|(B^u_{n,m})^{-1}\|\kappa^-(m)^j\le\theta_0<1\quad(j\le k,\ \text{with }\ell^\alpha\text{ at }j=k),$$
+and the Hölder norms of the data, are bounded uniformly in $n$, and $\sup_n\|\widehat F_{\varepsilon,n}-\widehat F_{0,n}\|_{C^{k,\alpha}}\to0$. Then for small $\varepsilon$ there is a unique bounded sequence of sections $\sigma_{\varepsilon,n}\in\Sigma_{\rho,L}$ with
+$$\sigma_{\varepsilon,n+1}\big(b_{\varepsilon,n}(m,\sigma_{\varepsilon,n}(m))\big)=g_{\varepsilon,n}\big(m,\sigma_{\varepsilon,n}(m)\big),$$
+with $\sigma_{\varepsilon,n}\in C^{k,\alpha}$ and the bounds of Theorem 5.3(c) uniform in $n$.
+
+*Proof.* On the complete space $\prod_n\Sigma_{\rho,L}$ (sup over $n$) let $(\Gamma\sigma)^s_{n+1}$ be defined from $\sigma_n$ by (5.1) with the data at time $n$, and $(\Gamma\sigma)^u_n$ from $\sigma_{n+1}$ by (5.2) with the data at time $n$. All estimates of Proposition 5.2 and of the jet lift are one-step and uniform in $n$, so the proofs of Theorem 5.3 (b), (c) go through verbatim (no iteration step is needed since the one-step numbers are already $<1$). $\square$
+
+**Theorem 8.3 (random, uniformly hyperbolic).** Let $(\Omega,\mathcal F,\mathbb P,\theta)$ be an ergodic system and let $(f_\omega,B_\omega,\widehat F_{\varepsilon,\omega})$ be measurable random data (in the sense of Arnold [13]) satisfying the hypotheses of Theorem 8.2 with $n$ replaced by the time-shift $\omega\mapsto\theta\omega$ (uniformly in $\omega$). Then there is $\varepsilon_0>0$ and, for $|\varepsilon|<\varepsilon_0$, a **unique measurable family** $\sigma_\varepsilon(\omega)\in\Sigma_{\rho,L}$ with the *cocycle* invariance
+$$\sigma_\varepsilon(\theta\omega)\Big(b_\varepsilon\big(\omega,m,\sigma_\varepsilon(\omega)(m)\big)\Big)=g_\varepsilon\big(\omega,m,\sigma_\varepsilon(\omega)(m)\big),$$
+i.e. $\widehat F_{\varepsilon}(\omega,\mathrm{Gr}\,\sigma_\varepsilon(\omega))=\mathrm{Gr}\,\sigma_\varepsilon(\theta\omega)$.
+
+*Proof.* Apply Theorem 8.2 to $n\mapsto(\ldots)_{\theta^n\omega}$ for each $\omega$; uniqueness identifies the sequence with the family $n\mapsto\sigma_\varepsilon(\theta^n\omega)$, and measurability follows because $\sigma_\varepsilon(\omega)=\lim_n\Gamma^n(0)(\omega)$ is a pointwise limit of measurable maps. $\square$
+
+**Remark 8.3′ (tempered case).** If the hyperbolicity holds only in *tempered* adapted norms (distortion $K(\omega)$ unbounded but subexponential along orbits), the perturbation size measured in adapted norms is $K(\theta^n\omega)\delta_\varepsilon$, which is not uniformly small in $n$. A correct statement then needs tube radii $\rho(\theta^n\omega)$ that are themselves tempered, i.e. a Pesin-type local theory, and the threshold $\varepsilon_0(\omega)$ is genuinely $\omega$-dependent. This is not proved here (Problem 5).
+
+### 8.3 Parabolic slow manifolds
+
+For the theory of invariant manifolds in infinite-dimensional settings via the parameterization method, see Haro et al. [21]; the proof below follows the present fibre contraction approach.
+
+**Theorem 8.4.** Under (P1)–(P3) there are $\varepsilon_0>0$ and $h_\varepsilon\in C^{r,\beta}_b(Y_0;X_\theta)$, $|\varepsilon|<\varepsilon_0$, with $\|h_\varepsilon-h_0\|_{C^{r,\beta}_b}\le C|\varepsilon|$, such that $M_\varepsilon=\{(h_\varepsilon(v),v)\}$ is the unique invariant graph of $F_\varepsilon$ in a tube; it is invariant under the semiflow (for all $t\ge0$ for which solutions stay in the tube, and under the full flow of the reduced equation $v_t=\varepsilon g(h_\varepsilon(v),v,\varepsilon)$ on $M_\varepsilon$).
+
+*Proof.* Use the trivial bundle $E=Y_0\times X_\theta$ and $\Theta(v,\xi)=(h_0(v)+\xi,v)$, which is $C^{r+1,\beta}$. At $\varepsilon=0$ the $v$-component is constant, so $b_0(v,\xi)=v$: the base map is $f=\mathrm{id}$, the coupling $K\equiv0$, $\kappa^\pm_n\equiv1$, $\ell_n^\pm=1$. Also $g_0(v,0)=0$ (the critical manifold consists of equilibria) and $B_v=D_\xi g_0(v,0)=e^{TL_v}$, which satisfies (H1) with $a^\pm_n\le Ce^{-\eta nT}$ by (P3); $B_v$ is not invertible on $E^s$ but $B^u_v$ is an isomorphism of the finite-dimensional $E^u_v$. Therefore $\mathfrak b^\pm_s\le e^{-\eta T}<1$ and $\bar{\mathfrak b}^\pm_{k,\alpha}<1$ for **every** $k+\alpha\le r+\beta$ (bunching is automatic because $f=\mathrm{id}$). (H3) holds by (P3). Apply Theorem 8.1 (global version of Theorem 5.3) with $K=0$. Invariance of $M_\varepsilon$ under $\Phi^\varepsilon_t$, $t\in[0,T]$, follows as in Theorem 5.4(d): $\Phi^\varepsilon_t(M_\varepsilon)$ is an $F_\varepsilon$-invariant graph in the class (it is $C^1$-close to $\Phi_t^0(M_0)=M_0$, as $\Phi^0_t=\mathrm{id}$ on $M_0$), hence equals $M_\varepsilon$. $\square$
+
+**Remark.** For numerical computation of invariant manifolds, see Haro et al. [21] and Dellnitz–Junge [18]; the present theoretical approach complements the numerical focus with analytical bounds.
+
+### 8.4 Delay equations
+
+For the theory of invariant manifolds in functional differential equations, see Hale [14] and Sell–You [23]; the proof below adapts the compact persistence theorem to delay systems.
+
+Consider $\dot x(t)=G(x_t,\varepsilon)$ on $X=C([-\tau,0];\mathbb R^d)$ with $G\in C^{r+1,\beta}_b$. **Hypotheses.** (D0) the solution maps $T^\varepsilon_t$, $t>0$, are $C^{r+1,\beta}$ (standard for $G\in C^{r+1,\beta}$) and $T^\varepsilon_t$ is compact for $t\ge\tau$; (D1) $M_0\subset X$ is a compact finite-dimensional $C^{r+1,\beta}$ submanifold with $T^0_t(M_0)=M_0$ and $T^0_t|_{M_0}$ a $C^{r+1,\beta}$ flow ($t\in\mathbb R$); (D2) for some $T\ge\tau$ the normal cocycle $B_m$ induced by $DT^0_T(m)$ satisfies (H1) (necessarily with $E^u_m$ **finite-dimensional**, as $B$ is compact for $T\ge\tau$), (H3) and (B). See Hale [14, Chap. III] for the standard theory of functional differential equations.
+
+**Theorem 8.5.** Under (D0)–(D2) there are $\varepsilon_0>0$ and, for $|\varepsilon|<\varepsilon_0$, a unique $C^{k,\alpha}$ compact submanifold $M_\varepsilon$ near $M_0$, invariant under $T^\varepsilon_t$ for all $t\ge0$, such that $T_t^\varepsilon|_{M_\varepsilon}$ extends to a $C^{k,\alpha}$ flow which is $C^1$-close to $T^0_t|_{M_0}$.
+
+*Proof.* The time-$T$ map $F_\varepsilon=T^\varepsilon_T$ is $C^{r+1,\beta}$ and, restricted to $M_0$, a diffeomorphism; its normal cocycle satisfies (H1) with non-invertible stable part, which is allowed. Theorem 5.4 applies, and Theorem 5.4(d) (with $\Phi^0_t(M_0)=M_0$) gives invariance under the semiflow. $\square$
+
+### 8.5 Quasilinear problems (loss of derivatives)
+
+For numerical methods and applied perspectives on quasilinear and infinite-dimensional normally hyperbolic persistence, see Dellnitz–Junge [18], Broer et al. [19], and Kaper–Kaper [25]; the theoretical framework below addresses the loss-of-derivatives problem analytically.
+
+**Theorem 8.6.** Let $\mathcal X=C^\infty(M;E)$ with the gradings $\|\cdot\|_s=\|\cdot\|_{C^s}$ and let $\Psi:(-\varepsilon_*,\varepsilon_*)\times U\to\mathcal X$, $U\subset\mathcal X$ a $C^0$-neighbourhood of $0$, $\Psi(\varepsilon,\sigma)=\sigma\circ\beta_\sigma-g_\varepsilon(\cdot,\sigma)$ (the invariance equation; for quasilinear $F_\varepsilon$ the map $\Psi$ may lose derivatives), satisfy:
+(Q1) $\Psi$ is smooth and tame (in the sense of Hamilton, Part II.2) with $\Psi(0,0)=0$;
+(Q2) for $(\varepsilon,\sigma)$ near $(0,0)$ the linearisation $D_\sigma\Psi(\varepsilon,\sigma):\mathcal X\to\mathcal X$ is bijective with inverse $V\Psi(\varepsilon,\sigma,\cdot)$ smooth tame in $(\varepsilon,\sigma,q)$.
+Then there are $\varepsilon_0>0$ and a smooth tame map $\varepsilon\mapsto\sigma_\varepsilon\in C^\infty(M;E)$, $|\varepsilon|<\varepsilon_0$, with $\Psi(\varepsilon,\sigma_\varepsilon)=0$.
+
+*Proof.* Apply the Nash–Moser theorem (Hamilton III.1.1.1) to $\mathcal P(\varepsilon,\sigma)=(\varepsilon,\Psi(\varepsilon,\sigma))$ at $(0,0)$: $D\mathcal P$ is bijective with smooth tame inverse $(\delta\varepsilon,q)\mapsto(\delta\varepsilon,V\Psi(\cdot,q-\partial_\varepsilon\Psi\,\delta\varepsilon))$. Hence $\mathcal P$ is locally a smooth tame diffeomorphism, and $\sigma_\varepsilon=\mathrm{pr}_2\mathcal P^{-1}(\varepsilon,0)$. $\square$
+
+**Remark.** (Q2) is where the linear theory enters: when $\Psi$ loses no derivative, Theorems 4.2 and 4.3 give bounded inverses on every $C^{k,\alpha}$ with tame dependence on $\sigma$ through the constants $C_{\varepsilon}$ of Lemma 3.1, but Nash–Moser is then unnecessary because Theorems 5.3 and 5.5 apply directly. For genuinely quasilinear problems, (Q2) must be verified with a loss $d>0$; a general verification is not claimed.
+
+**Maximal regularity verifies (Q2).** For quasilinear parabolic equations \(u_t=A(u)u+f(u)\) with \(A(u)\) uniformly sectorial, the linearization \(D_uF(u)\) has maximal regularity: the solution of \(D_uF(u)v=k\) satisfies the tame estimate
+\[
+\|v\|_{X_{s+1}}\le C_s\big(\|k\|_{X_s}+\|u\|_{X_{s+1}}\|k\|_{X_s}\bigr),
+\]
+a loss \(d=1\) (or \(d=2\) for the second-order formulation). Hence (Q2) holds and Theorem 8.6 applies. For quasilinear hyperbolic problems without smoothing, (Q2) requires a Nash–Moser scheme with a genuine loss; a general verification remains open.
+
+### 8.6 Manifolds with boundary
+
+When \(M\) has non-empty boundary, ordinary invariance may fail: the graph transform requires the tube to be forward-invariant, and a neighbourhood of a boundary point need not be. Four notions of invariance are distinguished.
+
+1. **Local invariance** away from the boundary: \(F_\varepsilon(M_\varepsilon\cap\operatorname{int}M)=M_\varepsilon\cap\operatorname{int}M\).
+2. **Inflowing invariance**: the vector field points inward on \(\partial M\), so orbits enter the interior and the invariant manifold is locally invariant in the interior.
+3. **Overflowing invariance**: the vector field points outward, so orbits leave, and the invariant manifold is invariant in the exterior.
+4. **Cutoff invariance**: the vector field is cut off outside a prescribed region, so the invariant manifold is invariant for the modified system.
+
+Persistence in the boundary case requires **boundary-compatible hyperbolicity**: the normal hyperbolicity must hold uniformly up to the boundary, and the chosen invariance notion must be compatible with the boundary geometry. Under these hypotheses, the graph transform of Appendix D (or its one-sided version) applies verbatim in the interior and up to the boundary, with the boundary conditions determining which of the four notions is realised. A full treatment requires the boundary-compatible tubular neighbourhood and the uniform estimates up to \(\partial M\); this is a genuine extension of the compact case, not a direct corollary.
+
+---
+
+## 9. What remains open
+
+1. **Converse without (R), (RC).** Is $\rho^\pm_{k,\alpha}<1$ necessary for $\mathcal A$ to be an isomorphism of $C^{k,\alpha}$ in general? Equivalently, can the Green operator be bounded on $C^{k,\alpha}$ while the spectrum of $\mathcal S^\pm$ has components on both sides of the unit circle? Theorem 4.4(c) settles this under (R), (RC) — which hold, in particular, when the operator spectrum is a single annulus (one Lyapunov exponent) or, more generally, connected — and Example 4.5 is the rate-homogeneous toral case. The open case is a **disconnected** operator spectrum with $1$ in a gap; a counterexample requires a dominated splitting whose Hölder spectrum has a gap at the unit circle. A related question: the relation of $\rho^\pm_{k,\alpha}$ to the Mather [12]/Sacker–Sell [11] spectrum of jet cocycles acting on Hölder spaces.
+2. **Transverse regularity of strong stable foliations.** Prove $C^{\ell,\alpha}$ regularity of the holonomy under the forward-rate condition of Remark 6.2; the threshold in terms of *forward* growth.
+3. **Nonlinear sharpness beyond rate-homogeneous classes.** Theorem 5.6(b) proves sharpness in the toral class; a general statement requires a nonlinear analogue of Theorem 4.4(c).
+4. **Quasilinear tame inverses.** The maximal-regularity case (parabolic) verifies (Q2) with loss \(d=1\) (or \(d=2\)); the quasilinear hyperbolic case without smoothing remains open.
+5. **Tempered random theory.** A Pesin-type version of Theorem 8.3 with tempered tube radii.
+6. **Hölder regime without 1-bunching.** Theorem 5.7 proves $C^{0,\alpha}$ regularity for general $F_\varepsilon$ under the Hölder bunching $\mathfrak b_0(L^\pm)^\alpha<1$, with threshold $\alpha_*=\log(1/\mathfrak b_0)/\log L^+$. The sharp threshold (whether $\alpha_*$ is optimal) and the higher regularity $C^{k,\alpha}$ without 1-bunching remain open.
+7. **Manifolds with boundary.** Section 8.6 records the four invariance notions and the boundary-compatible hyperbolicity condition as a structural statement; a full proof requires the boundary-compatible tubular neighbourhood and the uniform estimates up to \(\partial M\). The sharp conditions on the boundary geometry and the choice of invariance notion remain to be worked out.
+
+---
+
+## References
+
+1. N. Fenichel, Geometric singular perturbation theory for ordinary differential equations, *J. Differential Equations* 31 (1979), 53–98.
+2. M. W. Hirsch, C. C. Pugh, M. Shub, *Invariant Manifolds*, Lecture Notes in Math. 583, Springer, 1977.
+3. S.-N. Chow, X.-B. Lin, K. Lu, Smooth invariant foliations in infinite dimensional spaces, *J. Differential Equations* 94 (1991), 266–291.
+4. P. W. Bates, K. Lu, C. Zeng, Existence and persistence of invariant manifolds for semiflows in Banach space, *Mem. Amer. Math. Soc.* 135 (1998), no. 645.
+5. D. Henry, *Geometric Theory of Semilinear Parabolic Equations*, Lecture Notes in Math. 840, Springer, 1981.
+6. K. J. Palmer, Exponential dichotomies and transversal homoclinic points, *J. Differential Equations* 55 (1984), 225–256.
+7. D. Ruelle, Characteristic exponents and invariant manifolds in Hilbert space, *Publ. Math. IHÉS* 51 (1980), 243–290.
+8. R. S. Hamilton, The inverse function theorem of Nash and Moser, *Bull. Amer. Math. Soc.* 7 (1982), 65–222.
+9. M. W. Hirsch, C. C. Pugh, Stable manifolds and hyperbolic sets, in *Global Analysis*, Proc. Sympos. Pure Math. 14, AMS, 1970, 133–163 (fibre contraction theorem).
+10. C. Pugh, M. Shub, A. Wilkinson, Hölder foliations, *Duke Math. J.* 86 (1997), 517–546.
+11. R. J. Sacker, G. R. Sell, A spectral theory for linear differential equations, *J. Differential Equations* 30 (1978), 243–279.
+12. J. N. Mather, Anosov diffeomorphisms and flat manifolds, *Topology* 7 (1968), 319–348.
+13. L. Arnold, *Random Dynamical Systems*, Springer, 1998.
+14. J. K. Hale, *Theory of Functional Differential Equations*, Springer, 1977.
+15. P. W. Bates, K. Lu, Persistence of invariant manifolds for partial differential equations, *J. Differential Equations* 117 (1995), 481–525.
+16. J. Guckenheimer, P. Holmes, *Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields*, Springer, 1983 (NHIM in ODEs).
+17. S. M. Oliva, J. C. Robinson, Normal hyperbolicity and the persistence of invariant manifolds, *J. Differential Equations* 115 (1995), 275–294.
+18. M. Dellnitz, O. Junge, On the approximation of complicated dynamical behavior, *SIAM J. Numer. Anal.* 36 (1999), 491–515 (numerical invariant manifolds).
+19. H. W. Broer, F. Dumortier, S. J. van Strien, F. Takens, *Structures in Dynamics*, North-Holland, 1991 (bifurcation theory).
+20. D. Treschev, O. Zubelevich, *Introduction to the Theory of Invariant Manifolds*, Springer, 2010 (survey).
+21. A. Haro, M. Canadell, J.-L. Figueras, A. Luque, J.-M. Mondelo, *The Parameterization Method for Invariant Manifolds*, Springer, 2016 (numerical methods).
+22. Y. Latushkin, S. Montgomery-Smith, T. Randolph, Evolutionary semigroups and dichotomy of linear skew-product flows on Banach spaces, *J. Differential Equations* 125 (1996), 73–116.
+23. G. R. Sell, Y. You, *Dynamics of Evolutionary Equations*, Springer, 2002 (infinite-dimensional dynamics).
+24. C. K. R. T. Jones, Geometric singular perturbation theory, in *Dynamical Systems*, Springer, 1995, 44–118 (Fenichel theory).
+25. M. J. B. Kaper, T. J. Kaper, Asymptotic analysis of two reduction methods for systems of chemical reactions, *Physica D* 165 (2002), 66–93 (applied slow manifolds).
