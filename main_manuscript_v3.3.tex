@@ -1,32 +1,16 @@
-% ============================================================================
-% LaTeX Version of: Cohomological Inverses and Fractional Jet Spectra in
-%                  Banach-Space Normally Hyperbolic Persistence
-%                  main_manuscript_v3.3.md - Enhanced with Pedagogical Additions
-% ============================================================================
-
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{amsthm,amstext}
+\usepackage{amsmath,amssymb,amsthm,amstext}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,calc,decorations.pathmorphing}
 \usepackage{booktabs}
 \usepackage{longtable}
-\usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{braket}
-\usepackage{physics}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{arrows,shapes,positioning,calc,decorations.pathmorphing}
-\usepackage{mathtools}
-\usepackage{stmaryd}
-\usepackage{mathrsfs}
-\usepackage{unicode-math}
-\usepackage{fontspec}
-\usepackage{xetex}
 
 % Custom theorem environments
 \theoremstyle{plain}
@@ -59,7 +43,6 @@
 \title{Cohomological Inverses and Fractional Jet Spectra in Banach-Space Normally Hyperbolic Persistence}
 \author{}
 \date{}
-
 \begin{document}
 
 \maketitle
@@ -72,16 +55,6 @@
 We study persistence of normally hyperbolic invariant manifolds in Banach spaces through the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$ of the normal cocycle $B$ over the tangential dynamics $f$.
 
 \begin{center}
-\begin{tikzpicture}[graph LR, node distance=2.5cm, auto, >=stealth, semithick]
-    \node (M) [style={fill=#f9f,stroke=#333,stroke-width=2px}] {Base Manifold $M$};
-    \node (E) [style={fill=#bbf,stroke=#333,stroke-width=2px}] [above=2.5cm of M] {Banach Bundle $E\to M$};
-    \node (S) [style={fill=#cfc,stroke=#333,stroke-width=1px}] [below=2.5cm of E] {Stable Bundle $E^s$};
-    \node (U) [style={fill=#ffc,stroke=#333,stroke-width=1px}] [below=2.5cm of E] {Unstable Bundle $E^u$};
-    \draw[M] -> [label=f] M;
-    \draw[E] -> [label=B] E;
-    \draw[E] -> [label={$\pi_s,\pi_u$}] S;
-    \draw[E] -> [label={$\pi_s,\pi_u$}] U;
-\end{tikzpicture}
 \end{center}
 
 \begin{enumerate}
@@ -324,32 +297,32 @@ Let $V\to M$ be a $C^{r,\beta}$ Banach bundle, $V_\rho$ its closed $\rho$-ball b
 
 \textit{Proof.} \textit{Step 0 (normalisation)}. By Lemma 2.2(d) pick $N$ with $\theta:=\sup\|D_v\gamma^{[N]}_{\psi_nm}(v)\|\kappa_N^k\ell_N^\alpha<1$. Let $\sigma_N$ be the unique continuous invariant section for $(f^N,\gamma^{[N]})$ (Banach contraction principle on $C^0(V_\rho)$). Put $\sigma'(m)=\gamma_{\psi m}(\sigma_N(\psi m))$. A direct computation, using $\gamma^{[N]}_{\psi m}(\sigma_N(\psi m))=\sigma_N(f^{N-1}m)$, shows $\sigma'(f^Nm)=\gamma^{[N]}_m(\sigma'(m))$; uniqueness gives $\sigma'=\sigma_N$, i.e. $\sigma_N$ is invariant for $(f,\gamma)$. Uniqueness for $(f,\gamma)$ follows because every invariant section for $(f,\gamma)$ is one for $(f^N,\gamma^{[N]})$. Hence we may assume $N=1$ and
 \[
-\sup\|D_v\gamma\|\le\theta,\qquad\sup_{m,v}\|D_v\gamma_{\psi m}(v)\|\kappa_1^+(m)^j\ell_1^{+\\alpha}\le\\theta<1\ (0\le j\le k).
+\sup\|D_v\gamma\|\le\theta,\qquad\sup_{m,v}\|D_v\gamma_{\psi m}(v)\|\kappa_1^+(m)^j\ell_1^{+\alpha}\le\theta<1\ (0\le j\le k).
 \]
 
-\textit{(a)} $T\\sigma(m)=\\gamma_{\\psi m}(\\sigma(\\psi m))$ is a $\\theta$-contraction of $C^0(V_\\rho)$.
+\textit{(a)} $T\sigma(m)=\gamma_{\psi m}(\sigma(\psi m))$ is a $\theta$-contraction of $C^0(V_\rho)$.
 
-\textit{(b)} Work in local trivialisations (covariant derivatives with a fixed $C^{r-1,\\beta}$ connection give the same structure). Formal differentiation of $\\sigma=T\\sigma$ ($j\\le k$) gives
+\textit{(b)} Work in local trivialisations (covariant derivatives with a fixed $C^{r-1,\beta}$ connection give the same structure). Formal differentiation of $\sigma=T\sigma$ ($j\le k$) gives
 \[
-J_j(m)=\\big[D_v\\gamma_{\\psi m}(\\sigma(\\psi m))\\,J_j(\\psi m)\\big]\\circ(D\\psi(m))^{\\otimes j}+R_j\\big(m;\\sigma,J_1,\\dots,J_{j-1}\\big),\\tag{3.1}
+J_j(m)=\big[D_v\gamma_{\psi m}(\sigma(\psi m))\,J_j(\psi m)\big]\circ(D\psi(m))^{\otimes j}+R_j\big(m;\sigma,J_1,\dots,J_{j-1}\big),\tag{3.1}
 \]
-where $R_j$ is a polynomial in $J_1,\\dots,J_{j-1}$ with continuous coefficients built from derivatives of $\\gamma$ and $\\psi$ of order $\\le j$. Let $\\mathcal X=C^0(V_\\rho)$, $\\mathcal Y_j=\\prod_{i\\le j}C^0(\\mathrm{Sym}^i(T^*M;V))$ restricted to the balls $\\|J_i\\|\\le K_i$ with $K_i$ chosen inductively so that (3.1) maps them into themselves ($K_j=\\|R_j\\|_{\\max}/(1-\\theta)$). Define $\\Lambda(\\sigma,J_1,\\dots,J_k)=(T\\sigma,\\mu_1,\\dots,\\mu_k)$ by the right-hand sides of (3.1), evaluated at $\\psi m$ (all $J_i$ composed with $\\psi$), with $\\sigma$ replaced by the current first coordinate. Then: $\\Lambda$ is continuous (if $(\\sigma_n,J_n)\\to(\\sigma,J)$ uniformly, $\\|J_n(\\psi\\cdot)-J(\\psi\\cdot)\\|\\to0$); $T$ is a contraction; for fixed $\\sigma$ the map $\\mu_j$ is a $\\theta$-contraction in $J_j$ (in sup norm, since $\\|D_v\\gamma\\|\\|D\\psi\\|^j\\le\\theta$) and Lipschitz in $J_i$, $i<j$, on the balls. Using a weighted fibre metric $\\sum t_j\\|\\cdot\\|_j$ with $t_1\\gg t_2\\gg\\dots$ the whole fibre map is a uniform contraction. (FCT) applies. Start from $\\sigma_0=0$, $J_i^{(0)}=0$: by the chain rule $\\Lambda^n(0,0,\\dots,0)=(\\sigma_n,D\\sigma_n,\\dots,D^k\\sigma_n)$, where $\\sigma_{n+1}=T\\sigma_n$ (the $\\sigma_n$ are $C^{r,\\beta}$ as compositions of $C^{r,\\beta}$ maps). So $\\sigma_n\\to\\sigma$ and $D^i\\sigma_n\\to J_i$ uniformly, whence $\\sigma\\in C^k$, $D^i\\sigma=J_i$.
+where $R_j$ is a polynomial in $J_1,\dots,J_{j-1}$ with continuous coefficients built from derivatives of $\gamma$ and $\psi$ of order $\le j$. Let $\mathcal X=C^0(V_\rho)$, $\mathcal Y_j=\prod_{i\le j}C^0(\mathrm{Sym}^i(T^*M;V))$ restricted to the balls $\|J_i\|\le K_i$ with $K_i$ chosen inductively so that (3.1) maps them into themselves ($K_j=\|R_j\|_{\max}/(1-\theta)$). Define $\Lambda(\sigma,J_1,\dots,J_k)=(T\sigma,\mu_1,\dots,\mu_k)$ by the right-hand sides of (3.1), evaluated at $\psi m$ (all $J_i$ composed with $\psi$), with $\sigma$ replaced by the current first coordinate. Then: $\Lambda$ is continuous (if $(\sigma_n,J_n)\to(\sigma,J)$ uniformly, $\|J_n(\psi\cdot)-J(\psi\cdot)\|\to0$); $T$ is a contraction; for fixed $\sigma$ the map $\mu_j$ is a $\theta$-contraction in $J_j$ (in sup norm, since $\|D_v\gamma\|\|D\psi\|^j\le\theta$) and Lipschitz in $J_i$, $i<j$, on the balls. Using a weighted fibre metric $\sum t_j\|\cdot\|_j$ with $t_1\gg t_2\gg\dots$ the whole fibre map is a uniform contraction. (FCT) applies. Start from $\sigma_0=0$, $J_i^{(0)}=0$: by the chain rule $\Lambda^n(0,0,\dots,0)=(\sigma_n,D\sigma_n,\dots,D^k\sigma_n)$, where $\sigma_{n+1}=T\sigma_n$ (the $\sigma_n$ are $C^{r,\beta}$ as compositions of $C^{r,\beta}$ maps). So $\sigma_n\to\sigma$ and $D^i\sigma_n\to J_i$ uniformly, whence $\sigma\in C^k$, $D^i\sigma=J_i$.
 
-\textit{(c)} Let $\\mathcal W J(m)=[D_v\\gamma_{\\psi m}(\\sigma(\\psi m))J(\\psi m)]\\circ(D\\psi)^{\\otimes k}$. By the one-step hypothesis, for $J\\in C^\\alpha(\\mathrm{Sym}^k)$ and with the \textit{coefficient} $D_v\\gamma_{\\psi m}(\\sigma(\\psi m))\\in C^{\\alpha}$ (here $\\alpha\\le\\beta$ if $k=r$)
+\textit{(c)} Let $\mathcal W J(m)=[D_v\gamma_{\psi m}(\sigma(\psi m))J(\psi m)]\circ(D\psi)^{\otimes k}$. By the one-step hypothesis, for $J\in C^\alpha(\mathrm{Sym}^k)$ and with the \textit{coefficient} $D_v\gamma_{\psi m}(\sigma(\psi m))\in C^{\alpha}$ (here $\alpha\le\beta$ if $k=r$)
 \[
-[D\\mathcal WJ+R_k]_\\alpha\\le\\theta[J]_\\alpha+C_1(1+\\|J\\|_0+[R_k]_\\alpha),
+[D\mathcal WJ+R_k]_\alpha\le\theta[J]_\alpha+C_1(1+\|J\|_0+[R_k]_\alpha),
 \]
-because $[J\\circ\\psi]_\\alpha\\le\\ell_1^\\alpha[J]_\\alpha$ and the coefficient of $[J]_\\alpha$ is exactly $\\sup\\|D_v\\gamma\\|\\kappa^k\\ell^\\alpha\\le\\theta$. $R_k\\in C^\\alpha$ as it involves $D^i\\sigma$, $i<k$ (Lipschitz) and coefficients in $C^{r-k,\\beta}\\subset C^\\alpha$. Iterating $J^{(n+1)}=\\mathcal WJ^{(n)}+R_k$ from $J^{(0)}=0$ yields $[J^{(n)}]_\\alpha\\le C_2$ uniformly, and $J^{(n)}\\to J_k$ uniformly, so $[J_k]_\\alpha\\le C_2$, i.e. $\\sigma\\in C^{k,\\alpha}$. $\\square$
+because $[J\circ\psi]_\alpha\le\ell_1^\alpha[J]_\alpha$ and the coefficient of $[J]_\alpha$ is exactly $\sup\|D_v\gamma\|\kappa^k\ell^\alpha\le\theta$. $R_k\in C^\alpha$ as it involves $D^i\sigma$, $i<k$ (Lipschitz) and coefficients in $C^{r-k,\beta}\subset C^\alpha$. Iterating $J^{(n+1)}=\mathcal WJ^{(n)}+R_k$ from $J^{(0)}=0$ yields $[J^{(n)}]_\alpha\le C_2$ uniformly, and $J^{(n)}\to J_k$ uniformly, so $[J_k]_\alpha\le C_2$, i.e. $\sigma\in C^{k,\alpha}$. $\square$
 
-\textbf{Remark 3.2′.} Theorem 3.2 uses only regularity $\\gamma\\in C^{k,\\alpha}$ jointly (not $C^{r,\\beta}$) and $f\\in C^{k,\\alpha}$; regularity of $\\sigma$ is then $C^{k,\\alpha}$.
+\textbf{Remark 3.2'.} Theorem 3.2 uses only regularity $\gamma\in C^{k,\alpha}$ jointly (not $C^{r,\beta}$) and $f\in C^{k,\alpha}$; regularity of $\sigma$ is then $C^{k,\alpha}$.
 
 \subsection{Regularity of the splitting}
 
 \textbf{Lemma 3.3 (splitting regularity from bunching).} Assume (H0), (H1) with $k+\alpha\le r+\beta$.
 \begin{itemize}
-    \item[(a)] If $\\lambda\\,\\bar{\\mathfrak b}^+_{k,\\alpha}<1$ then $E^u$ is a $C^{k,\\alpha}$ subbundle.
-    \item[(b)] If $B$ is invertible and $\\lambda\\,\\bar{\mathfrak b}^-_{k,\\alpha}<1$, then $E^s$ is a $C^{k,\\alpha}$ subbundle.
-    \item[(c)] In particular, if $\\bar{\\mathfrak b}^\\pm_{k,\\alpha}<1$ and $B$ is invertible, $P^s,P^u\\in C^{k,\\alpha}(\\mathrm{End}E)$. In the non-invertible case $P^s$ regularity is the hypothesis (H3).
+    \item[(a)] If $\lambda\,\bar{\mathfrak b}^+_{k,\alpha}<1$ then $E^u$ is a $C^{k,\alpha}$ subbundle.
+    \item[(b)] If $B$ is invertible and $\lambda\,\bar{\mathfrak b}^-_{k,\alpha}<1$, then $E^s$ is a $C^{k,\alpha}$ subbundle.
+    \item[(c)] In particular, if $\bar{\mathfrak b}^\pm_{k,\alpha}<1$ and $B$ is invertible, $P^s,P^u\in C^{k,\alpha}(\mathrm{End}E)$. In the non-invertible case $P^s$ regularity is the hypothesis (H3).
 \end{itemize}
 
 % ============================================================================
@@ -357,7 +330,7 @@ because $[J\\circ\\psi]_\\alpha\\le\\ell_1^\\alpha[J]_\\alpha$ and the coefficie
 % ============================================================================
 \section{The cohomological operator}
 
-Throughout this section (H0), (H1) hold, $0\\le k$, $0\\leak{\alpha}<1$, $k+\alpha\le r+\beta$, and (H3) holds at order $(k,\alpha)$.
+Throughout this section (H0), (H1) hold, $0\le k$, $0\le\alpha<1$, $k+\alpha\le r+\beta$, and (H3) holds at order $(k,\alpha)$.
 
 \subsection{Transfer operators and the Green operator}
 
@@ -421,7 +394,7 @@ The operator $\mathcal A$ is invertible exactly when $1$ is not in the spectrum 
 (b) $r<1$ implies $1\notin\sigma$.
 (c) Let $R^+=\{|z|:z\in\sigma(\mathcal S^+|_{X^s})\}$. By (a), $1\notin\sigma$, by (R) $1\notin R^+$, by (RC) $R^+\subset[0,1)$ or $R^+\subset(1,\infty)$. In the second case $\mathcal S^+$ is invertible on $X^s$ with $r((\mathcal S^+)^{-1})<1$, so $\|(\mathcal S^+)^{-n}\zeta\|_{C^0}\le\|(\mathcal S^+)^{-n}\zeta\|_{X}\to0$; but $\|\zeta\|_{C^0}\le C\lambda^n\|(\mathcal S^+)^{-n}\zeta\|_{C^0}$ by (H1), so $\zeta=0$ for all $\zeta\in X^s$: impossible unless $X^s=\{0\}$. Hence $R^+\subset[0,1)$ and $\rho^+=\max R^+<1$. The unstable case is identical using $\|(\mathcal S^-)^n\|_{C^0}\le C\lambda^n$. $\square$
 
-\textbf{Remark 4.4′.} Without (R)/(RC) the implication ``$\mathcal A$ isomorphism $\Rightarrow\rho^\pm<1$'' is not claimed: the Green operator can be bounded on $C^{k,\alpha}$ while the Green \textit{series} diverges in operator norm only if the spectrum of $\mathcal S^+$ has components both inside and outside the unit disc; excluding this is exactly (RC)+(R). Whether (R),(RC) hold in general (they hold in Example 4.5) is Problem 1 of Section 9.
+\textbf{Remark 4.4'.} Without (R)/(RC) the implication ``$\mathcal A$ isomorphism $\Rightarrow\rho^\pm<1$'' is not claimed: the Green operator can be bounded on $C^{k,\alpha}$ while the Green \textit{series} diverges in operator norm only if the spectrum of $\mathcal S^+$ has components both inside and outside the unit disc; excluding this is exactly (RC)+(R). Whether (R),(RC) hold in general (they hold in Example 4.5) is Problem 1 of Section 9.
 
 \subsection{A fully worked class: constant cocycles over toral automorphisms}
 
@@ -505,20 +478,6 @@ g^u\big(m',\sigma^s(m')+\eta^u\big)=\sigma^u\Big(b\big(m',\sigma^s(m')+\eta^u\bi
 \]
 (both sides lie in $E^u_{b(m',\sigma^s(m')+\eta^u)}$). Put $\Gamma\sigma=(\Gamma\sigma)^s+(\Gamma\sigma)^u$. \textit{The stable part is pushed forward through the base map; the unstable part is pulled back through (5.2); $B^s$ is never inverted.}
 
-\begin{tikzpicture}[graph LR, node distance=2.5cm, auto, >=stealth, semithick]
-    \node (A) [style={fill=#bbf,stroke=#333}] {$\sigma \in \Sigma$};
-    \node (B) [style={fill=#cfc}] at ($(A) + (2.5,0)$) {Push stable forward via $\beta_\sigma^{-1}$};
-    \node (C) [style={fill=#cfc}] at ($(A) + (5,0)$) {Pull unstable back via eq. 5.2};
-    \node (D) [style={fill=#dfd,stroke=#333}] at ($(A) + (2.5,2.5)$) {$\Gamma\sigma = (\Gamma\sigma)^s + (\Gamma\sigma)^u$};
-    \node (E) [style={fill=#ff9,stroke-width=2px}] at ($(A) + (2.5,5)$) {Fixed point $\sigma_\varepsilon$};
-    \node (F) [style={fill=#f9f,stroke-width=2px}] at ($(A) + (2.5,7.5)$) {Graph $\sigma_\varepsilon$ is $\widehat F_\varepsilon$-invariant};
-    \draw[A] -> [label=Step 1: Push stable forward] B;
-    \draw[A] -> [label=Step 2: Pull unstable back] C;
-    \draw[B] -> [D];
-    \draw[C] -> [D];
-    \draw[D] -> [label=Contraction $\theta<1$] E;
-    \draw[E] -> [label=Invariance] F;
-\end{tikzpicture}
 
 \textbf{Proposition 5.2.} There are $\tau,\rho,L>0$ and $\varepsilon_0>0$ (depending on $\widehat F_0$ only) such that for $|\varepsilon|<\varepsilon_0$:
 \begin{itemize}
@@ -585,7 +544,7 @@ where $\Phi^{cu}(n,k)=\Phi^{cu}(k,n)^{-1}$ for $n<k$.
     \item[(d)] The Nemytskii map $\xi\mapsto(R_n(\xi_n))_n$ satisfies $\|D^i\mathcal N(\xi)(\eta_1,\dots,\eta_i)\|_{\ell_{\max\{2,i\}\gamma}}\le C\prod\|\eta_j\|_\gamma$ ($i\le r+1$) with $D^{r+1}$ uniformly continuous, and the two convolution operators map $\ell_{2\gamma}\to\ell_\gamma$ boundedly (above). Hence $\mathcal P\in C^{r+1}$ in $(\xi,a)$, and the fixed point of a $C^{r+1}$ uniform contraction is $C^{r+1}$ in the parameter. $\square$
 \end{itemize}
 
-\textbf{Remark 6.1′ (non-reflexive Perron construction).} The half-line Perron construction above uses only the completeness of the weighted Banach sequence space $\ell_\gamma$ and the uniform contraction estimates; it does \textbf{not} require reflexivity of the ambient Banach space $X$, nor weak compactness of bounded sets. The same remark applies to the fibre contraction theorem of §3 and to the mixed graph transform of §5. This concerns internal leaf construction and internal regularity; transverse regularity of the family of leaves and the phase projection remain separate questions requiring additional bunching (Remark 6.2).
+\textbf{Remark 6.1' (non-reflexive Perron construction).} The half-line Perron construction above uses only the completeness of the weighted Banach sequence space $\ell_\gamma$ and the uniform contraction estimates; it does \textbf{not} require reflexivity of the ambient Banach space $X$, nor weak compactness of bounded sets. The same remark applies to the fibre contraction theorem of §3 and to the mixed graph transform of §5. This concerns internal leaf construction and internal regularity; transverse regularity of the family of leaves and the phase projection remain separate questions requiring additional bunching (Remark 6.2).
 
 \textbf{Remark 6.2 (transverse regularity; conjectural threshold).} The regularity of $p\mapsto W^{ss}(p)$ (holonomy) is governed by \textit{forward} separation rates of base orbits, not by the normal jet cocycle: differentiating the Perron operator $j$ times in $p$ produces weights $\gamma-j\mu$ with $\mu$ the forward growth rate of $\|DF^n\|$ along $M_\varepsilon$, so the natural conjecture is $C^\ell$ transversally under $\alpha_s>\ell\mu+\beta_{cu}$ (compare Pugh–Shub–Wilkinson for Hölder exponents). A rigorous proof requires comparing leaves through different base points in a common trivialisation and a scale version of the uniform contraction principle; this is Problem 2 of Section 9.
 
@@ -626,7 +585,7 @@ The compact invertible theorem is the model case. The table summarises the repla
 \toprule
 Setting & Linear inverse & Function space & Geometric / analytic hypothesis\\
 \midrule
-Noncompact / Banach-dim base (§8.1) & Green operator (uniform) & $C^{k,\alpha}_b$ & bounded geometry / uniform atlas (H3′) \\
+Noncompact / Banach-dim base (§8.1) & Green operator (uniform) & $C^{k,\alpha}_b$ & bounded geometry / uniform atlas (H3') \\
 Nonautonomous / random (§8.2) & pathwise Green operator & tempered weighted & uniform / tempered dichotomy \\
 Parabolic slow manifold (§8.3) & analytic semigroup Perron & $C_\gamma([0,\infty),X_\theta)$ & sectorial dichotomy (P1)–(P3) \\
 Delay (§8.4) & history-space Green operator & $C([-\tau,0];\mathbb R^d)$ & eventual compactness (D0)–(D2) \\
@@ -638,43 +597,12 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
 \label{tab:extensions}
 \end{table}
 
-\begin{tikzpicture}[flowchart TD]
-    \node (A) [style={fill=#f9f,stroke-width=2px}] {Choose Extension Setting};
-    \node (B) [below=2cm of A] {Base manifold?};
-    \node (C) [left=2.5cm of B] {Compact finite-dim};
-    \node (D) [right=2.5cm of B] {Noncompact / Banach-dim};
-    \node (E) [below=2cm of B] {Time dependence?};
-    \node (F) [left=2.5cm of E] {Autonomous};
-    \node (G) [right=2.5cm of E] {Nonautonomous};
-    \node (H) [right=2.5cm of E] {Random};
-    \node (I) [below=2cm of E] {Problem type?};
-    \node (J) [left=2.5cm of I] {Parabolic/slow-fast};
-    \node (K) [right=2.5cm of I] {Delay equations};
-    \node (L) [right=2.5cm of I] {Quasilinear PDE};
-    \node (M) [right=2.5cm of I] {Manifold with boundary};
-    \node (N) [right=2.5cm of I] {Standard NHIM};
-    \node (O) [left=2.5cm of F] {Core §§3-5};
-    \draw[A] -> [label=Base manifold?] B;
-    \draw[B] -> [label=Compact finite-dim] C;
-    \draw[B] -> [label=Noncompact / Banach-dim] D;
-    \draw[B] -> [label=Time dependence?] E;
-    \draw[E] -> [label=Autonomous] F;
-    \draw[E] -> [label=Nonautonomous] G;
-    \draw[E] -> [label=Random] H;
-    \draw[E] -> [label=Problem type?] I;
-    \draw[I] -> [label=Parabolic/slow-fast] J;
-    \draw[I] -> [label=Delay equations] K;
-    \draw[I] -> [label=Quasilinear PDE] L;
-    \draw[I] -> [label=Manifold with boundary] M;
-    \draw[I] -> [label=Standard NHIM] N;
-    \draw[F] -> [O];
-\end{tikzpicture}
 
 \subsection{Noncompact and Banach-dimensional bases}
 
-\textbf{Theorem 8.1.} Let $M$ be a complete $C^{r+1,\beta}$ manifold, finite- or infinite-dimensional, with a \textit{uniform atlas} (charts of a fixed size with uniformly bounded $C^{r+1,\beta}$ transition maps), $f\in\mathrm{Diff}^{r+1,\beta}(M)$ with $\|f^{\pm1}\|_{C^{r+1,\beta}_b}<\infty$, $E\to M$ a $C^{r,\beta}$ Banach bundle with uniformly bounded trivialisations, $B\in C^{r,\beta}_b$ with (H1) holding with uniform constants, and (H3′): there is a $C^{r,\beta}_b$ reference splitting uniformly $\delta'$-close to $E^s\oplus E^u$ for every $\delta'>0$ (automatic for finite-dimensional $M$ of bounded geometry, by a uniformly locally finite partition of unity with uniformly bounded derivatives). Define all numbers with $\sup_{m\in M}$ and all function spaces as $C^{k,\alpha}_b$. Then Lemma 2.2, Lemma 3.1, Theorem 3.2, Lemma 3.3, Theorems 4.2–4.4, Proposition 5.2, and Theorems 5.3 and 5.5 hold verbatim (with constants depending only on the uniform bounds); the conclusion of Theorem 5.3(a) is a unique global invariant section $\sigma_\varepsilon\in C^{k,\alpha}_b$.
+\textbf{Theorem 8.1.} Let $M$ be a complete $C^{r+1,\beta}$ manifold, finite- or infinite-dimensional, with a \textit{uniform atlas} (charts of a fixed size with uniformly bounded $C^{r+1,\beta}$ transition maps), $f\in\mathrm{Diff}^{r+1,\beta}(M)$ with $\|f^{\pm1}\|_{C^{r+1,\beta}_b}<\infty$, $E\to M$ a $C^{r,\beta}$ Banach bundle with uniformly bounded trivialisations, $B\in C^{r,\beta}_b$ with (H1) holding with uniform constants, and (H3'): there is a $C^{r,\beta}_b$ reference splitting uniformly $\delta'$-close to $E^s\oplus E^u$ for every $\delta'>0$ (automatic for finite-dimensional $M$ of bounded geometry, by a uniformly locally finite partition of unity with uniformly bounded derivatives). Define all numbers with $\sup_{m\in M}$ and all function spaces as $C^{k,\alpha}_b$. Then Lemma 2.2, Lemma 3.1, Theorem 3.2, Lemma 3.3, Theorems 4.2–4.4, Proposition 5.2, and Theorems 5.3 and 5.5 hold verbatim (with constants depending only on the uniform bounds); the conclusion of Theorem 5.3(a) is a unique global invariant section $\sigma_\varepsilon\in C^{k,\alpha}_b$.
 
-\textit{Proof.} Compactness enters the proofs only through (i) Lemma 5.1 (proved above for complete $M$ with uniform charts, using no degree or covering argument); (ii) the existence of a finite atlas (replaced by the uniform atlas; every estimate in a chart is uniform); (iii) the partition-of-unity approximations of the projections in Lemma 3.3 and the complement in Lemma 3.4 (replaced by (H3′) and the assumption that a complement with coupling $\le\delta_1^*$ exists); (iv) completeness of $C^0(V_\rho)$ and of the weighted fibre spaces, which holds for $C_b$-norms. No Arzelà–Ascoli argument is used. The fibre contraction theorem is stated for arbitrary complete metric spaces. $\square$
+\textit{Proof.} Compactness enters the proofs only through (i) Lemma 5.1 (proved above for complete $M$ with uniform charts, using no degree or covering argument); (ii) the existence of a finite atlas (replaced by the uniform atlas; every estimate in a chart is uniform); (iii) the partition-of-unity approximations of the projections in Lemma 3.3 and the complement in Lemma 3.4 (replaced by (H3') and the assumption that a complement with coupling $\le\delta_1^*$ exists); (iv) completeness of $C^0(V_\rho)$ and of the weighted fibre spaces, which holds for $C_b$-norms. No Arzelà–Ascoli argument is used. The fibre contraction theorem is stated for arbitrary complete metric spaces. $\square$
 
 \subsection{Nonautonomous and random cocycles}
 
