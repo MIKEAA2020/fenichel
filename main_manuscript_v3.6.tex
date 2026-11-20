@@ -7,10 +7,14 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{mathtools}
+\usepackage{tabularx}
 \usepackage{braket}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{hyperref}
+
+\setlength{\emergencystretch}{2em}
+\sloppy
 
 % Custom theorem environments
 \theoremstyle{plain}
@@ -52,7 +56,7 @@
 % ============================================================================
 \section*{Abstract}
 
-We study persistence of normally hyperbolic invariant manifolds in Banach spaces through the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$ of the normal cocycle $B$ over the tangential dynamics $f$. The framework decomposes into linear cohomological inversion, HPS invariant-section matching, roughness of exponential dichotomies, Perron constructions for strong fibres, and regularity obstructions in induced jet cocycles. The main new analytic contribution is a fractional jet-spectrum theorem for the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$. Bounded invertibility on $C^{k,\alpha}$ sections follows from a subunit spectral radius of the exact Green summand operators on Hölder jet bundles. We also prove a periodic triangular jet-resonance obstruction to $C^k$-surjectivity. These linear results are placed within the standard HPS/Banach invariant-section architecture for normally hyperbolic persistence; the two-sided HPS structural input supports the linear results. Supporting modules include Banach-bundle $C^k$ inversion, Perron strong fibres, dichotomy roughness, parameter expansions, flow reduction, global stable sets, and a noncompact bounded-geometry linear inverse. The broader parabolic, random, delay, quasilinear, noncompact nonlinear, and Banach-dimensional settings are presented as conditional extension architectures with their required additional hypotheses.
+We establish persistence of normally hyperbolic invariant manifolds in Banach spaces through the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$. The framework decomposes into linear cohomological inversion, HPS invariant-section matching, roughness of exponential dichotomies, Perron constructions, and regularity obstructions in induced jet cocycles. The main new analytic contribution is a fractional jet-spectrum theorem: bounded invertibility of $\mathcal A$ on $C^{k,\alpha}$ follows from a subunit spectral radius of the exact Green summand operators on Hölder jet bundles. We prove a periodic jet-resonance obstruction to $C^k$-surjectivity, a two-sided invariant-section theorem with explicit graph transform, and corrected extension architectures for noncompact, nonautonomous, parabolic, delay, quasilinear, and boundary settings.
 
 \begin{center}
 \end{center}
@@ -69,7 +73,7 @@ We study persistence of normally hyperbolic invariant manifolds in Banach spaces
 
 \section*{Intuition}
 
-\textbf{Intuition.} At its heart, this manuscript asks one central question: when can we ``correct'' a perturbed system so that its invariant manifold persists? The normal cocycle $B$ describes how nearby fibres deform under the dynamics; the cohomological equation
+At its heart, this manuscript asks one central question: when can we ``correct'' a perturbed system so that its invariant manifold persists? The normal cocycle $B$ describes how nearby fibres deform under the dynamics; the cohomological equation
 \[
 \mathcal A\zeta = \zeta\circ f - B\zeta = q
 \]
@@ -85,9 +89,10 @@ The following table maps the main-text theorems to the supporting modules of the
 \centering
 \caption{SI appendix map.}
 \label{tab:supp-map}
-\begin{tabular}{lll}
+\begin{tabularx}{\textwidth}{X X l}
+\toprule
 \textbf{Main result} & \textbf{Mechanism used} & \textbf{Appendix} \\
-\hline
+\midrule
 Thm 4.2 (isomorphism) & Banach-bundle cocycle inversion, Green series & A \\
 Thm 4.3, 4.4 (spectral radii) & Gelfand, Fekete, Green & K \\
 Thm 5.3 (existence, two-sided) & two-sided HPS graph transform & J \\
@@ -101,7 +106,8 @@ Thm 8.2, 8.3 (nonautonomous, random) & uniform one-step contractions & I \\
 Thm 8.4 (parabolic) & critical manifold jets & K \\
 Thm 8.5 (delay) & one-sided transform & D \\
 Thm 8.6 (quasilinear, loss) & Nash–Moser / tame inverses & K \\
-\end{tabular}
+\bottomrule
+\end{tabularx}
 \end{table}
 
 % ============================================================================
@@ -121,7 +127,7 @@ and the regularity of the persistent manifold is governed by the regularity of $
 
 \begin{table}[h]
 \centering
-\begin{tabular}{c|c|c}
+\begin{tabularx}{\textwidth}{c X c}
 \toprule
 Result & Content & Section\\
 \midrule
@@ -136,7 +142,7 @@ Thm 6.1 & Strong stable fibres: existence, equivariance, $C^{r+1}$ leaves under 
 Prop 7.1, Thm 7.3 & Periodic jet resonance & 7 \\
 Thm 8.1–8.6 & Extensions & 8 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Theorem-level comparison and hypotheses}
 \label{tab:results}
 \end{table}
@@ -145,7 +151,7 @@ Thm 8.1–8.6 & Extensions & 8 \\
 
 \begin{table}[h]
 \centering
-\begin{tabular}{c|c|c|c}
+\begin{tabularx}{\textwidth}{l X X X}
 \toprule
 Theorem & Core Hypothesis & Main Conclusion & Key Difficulty\\
 \midrule
@@ -160,7 +166,7 @@ Thm 5.3 & (H4) & Two-sided section, $C^{k,\alpha}$ & Fibre contraction jet lift\
 Thm 5.4 & (H4) + compact $M\subset X$ & Compact persistence, flows & Compactness, Lemma 5.1\\
 Thm 5.7 & $\mathfrak b_0^\pm(L^\pm)^\alpha<1$ & Hölder regime, no 1-bunching & Hölder preservation\\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Theorem-level comparison and hypotheses}
 \label{tab:table1a}
 \end{table}
@@ -181,7 +187,7 @@ The Hirsch–Pugh–Shub theorem~\cite{hir77}, roughness of dichotomies, and reg
 
 \begin{table}[h]
 \centering
-\begin{tabular}{l|l}
+\begin{tabularx}{\textwidth}{l X}
 \toprule
 Symbol & Meaning \\
 \midrule
@@ -198,7 +204,7 @@ $\widehat\rho^\pm_{k,\alpha}$ & fractional jet radii (eq. 8.2) \\
 $L^\pm$ & Lipschitz growth rates of $\psi_n$ / $f^n$ \\
 $s_*$ & linear regularity spectrum (eq. 8.1) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Notation}
 \label{tab:notation}
 \end{table}
@@ -237,16 +243,27 @@ If $B_m$ is an isomorphism, $\Phi(k,n)=\Phi(n,k)^{-1}$ is defined and (H1) is th
 
 For $n\ge1$, $m\in M$ put
 \[
-a^+_n(m)=\|\Phi(n,0;\psi_nm)|_{E^s}\|,\qquad a^-_n(m)=\|\Phi(n,0;m)^{-1}|_{E^u_{f^nm}}\|,\qquad
-\kappa^+_n(m)=\max\{1,\|D\psi_n(m)\|\},\quad\kappa^-_n(m)=\max\{1,\|Df^n(m)\|\},\quad\ell^\pm_n=\sup_m\kappa^\pm_n(m).
+a^+_n(m)=\|\Phi(n,0;\psi_nm)|_{E^s}\|,\qquad
+a^-_n(m)=\|\Phi(n,0;m)^{-1}|_{E^u_{f^nm}}\|,
+\]
+\[
+\kappa^+_n(m)=\max\{1,\|D\psi_n(m)\|\},\quad
+\kappa^-_n(m)=\max\{1,\|Df^n(m)\|\},\quad
+\ell^\pm_n=\sup_m\kappa^\pm_n(m).
 \]
 
 \textbf{Definition 2.1.} For $s\ge0$ and $s=k+\alpha$ ($k\in\mathbb N_0$, $\alpha\in[0,1)$) define
 \[
-\mathfrak b^\pm_s=\lim_n\Big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^s\Big)^{1/n},\qquad
+\mathfrak b^\pm_s=\lim_n\Big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^s\Big)^{1/n},
+\qquad
 \bar{\mathfrak b}^\pm_{k,\alpha}=\lim_n\Big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^k(\ell^\pm_n)^\alpha\Big)^{1/n},
 \]
-and, with unmodified norms, $\underline{\mathfrak b}^+_s=\limsup_n(\sup_ma^+_n\|D\psi_n(m)\|^s)^{1/n}$, $\underline{\mathfrak b}^-_s=\limsup_n(\sup_ma^-_n\|Df^n(m)\|^s)^{1/n}$.
+and, with unmodified norms,
+\[
+\underline{\mathfrak b}^+_s=\limsup_n(\sup_ma^+_n\|D\psi_n(m)\|^s)^{1/n},
+\qquad
+\underline{\mathfrak b}^-_s=\limsup_n(\sup_ma^-_n\|Df^n(m)\|^s)^{1/n}.
+\]
 
 \textbf{Lemma 2.2.} (a) The limits exist and equal $\inf_n(\cdot)^{1/n}$; for every $\varepsilon>0$ there is $C_\varepsilon$ with $\sup_ma_n\kappa_n^k\ell_n^\alpha\le C_\varepsilon(\bar{\mathfrak b}_{k,\alpha}+\varepsilon)^n$ for all $n$.
 (b) $\underline{\mathfrak b}_s\le\mathfrak b_s\le\bar{\mathfrak b}_{k,\alpha}$; $\mathfrak b_s$ and $\underline{\mathfrak b}_s$ are nondecreasing in $s$ (for $\mathfrak b$) and log-convex in $s$; $\mathfrak b_0^\pm\le\lambda<1$.
@@ -449,6 +466,7 @@ The operator $\mathcal A$ is invertible exactly when $1$ is not in the spectrum 
 
 \begin{table}[h]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{c|c|c|c|c|c}
 \toprule
 Parameter $\lambda$ & $s_*=\log(1/\lambda)/\log\Lambda$ & $\rho_{1,0}=\lambda\Lambda$ & $\rho_{1,0.5}=\lambda\Lambda^{1.5}$ & $\mathcal A$ isom. on $C^1$? & $\mathcal A$ isom. on $C^{1,0.5}$? \\
@@ -458,7 +476,7 @@ $\Lambda^{-1.5}\approx 0.236$ & $1.5$ & $\Lambda^{-0.5}\approx 0.618$ & $1$ & \t
 $\Lambda^{-2}\approx 0.146$ & $2$ & $\Lambda^{-1}\approx 0.382$ & $\Lambda^{-0.5}\approx 0.618$ & \textbf{Yes} & \textbf{Yes} \\
 $\Lambda^{-0.5}\approx 0.618$ & $0.5$ & $\Lambda^{0.5}\approx 1.618$ & $\Lambda\approx 2.618$ & \textbf{No} & \textbf{No} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{Numerical illustration of the toral automorphism Example 4.5}
 \label{tab:table45}
 \end{table}
@@ -495,7 +513,12 @@ Components: $g^{s,u}=P^{s,u}g$ (these are the components in the fibre $E_{b(m,\e
 
 \textbf{Step 0 (iteration).} For $j\ge0$ and $N\ge1$ put
 \[
-s_j(N)=\sup_m a^+_N(m)\,\kappa^+_N(m)^j,\quad u_j(N)=\sup_ma^-_N(m)\,\kappa^-_N(m)^j,\quad s_{k,\alpha}(N)=\sup_ma^+_N\kappa_N^{+\,k}(\ell^+_N)^\alpha,\quad u_{k,\alpha}(N)=\sup_ma^-_N\kappa_N^{-\,k}(\ell^-_N)^\alpha .
+s_j(N)=\sup_m a^+_N(m)\,\kappa^+_N(m)^j,\qquad
+u_j(N)=\sup_ma^-_N(m)\,\kappa^-_N(m)^j,
+\]
+\[
+s_{k,\alpha}(N)=\sup_ma^+_N\kappa_N^{+\,k}(\ell^+_N)^\alpha,\qquad
+u_{k,\alpha}(N)=\sup_ma^-_N\kappa_N^{-\,k}(\ell^-_N)^\alpha .
 \]
 By (B) and Lemma 2.2(d) choose $N$ with $\theta_0:=\max\{s_{k,\alpha},u_{k,\alpha},s_1,u_1\}<1$ (then also $s_j,u_j\le\theta_0$ for $j\le k$, since $\kappa,\ell\ge1$). Replace $(f,B,\widehat F_\varepsilon)$ by $(f^N,\Phi(N),\widehat F_\varepsilon^{\,N})$ on $E_{\rho_0/C_N}$. The new system has the same structure, $g^{(N)}_0(m,0)=0$, $D_\eta g_0^{(N)}=\Phi(N;m)$, coupling $\le C_N\delta_1$, and \textbf{one-step} quantities $s_j,u_j$. Fix $\delta_1^*:=\tau/C_N$ with $\tau$ the smallness constant of Proposition 5.2 (which depends only on $N$ and the $C^1$-norms of $\widehat F_0^N$, not on $\delta_1$). We write $(f,B,\widehat F_\varepsilon)$ again, now with $N=1$:
 \[
@@ -561,7 +584,8 @@ g^u\big(m',\sigma^s(m')+\eta^u\big)=\sigma^u\Big(b\big(m',\sigma^s(m')+\eta^u\bi
 \mu^s_j(m')=\big[P^sD_\eta g\,J_j(m)\big]\circ(D\beta^{J}(m)^{-1})^{\otimes j}+(\text{terms linear in }J_j\text{ with coefficient}\le C\tau)+R^s_j,
 \]
 \[
-\mu^u_j(m')=\big[B^u_{m'}+O(\tau)\big]^{-1}\Big\{J_j^u(\beta^u(m'))\circ(D\beta^u(m'))^{\otimes j}\Big\}+(\text{terms in }J_j\text{ with coefficient}\le C\tau)+R^u_j,
+\mu^u_j(m')=\big[B^u_{m'}+O(\tau)\big]^{-1}\Big\{J_j^u(\beta^u(m'))\circ(D\beta^u(m'))^{\otimes j}\Big\}
++(\text{terms in }J_j\text{ with coefficient}\le C\tau)+R^u_j,
 \]
 $m=\beta_\sigma^{-1}(m')$, $\beta^u(m')=b(m',\sigma^s(m')+\eta^u(m'))$, where $R_j$ is a polynomial in $J_1,\dots,J_{j-1}$ with coefficients that are continuous functions of $(m,\sigma)$ built from derivatives of $g,b,P^{s,u}$ up to order $j$ (and for $j=1$ the equation for $\mu^u_1$ is solved for $\mu^u_1$, its own coefficient being $O(\tau)$). Hence
 \[
@@ -671,7 +695,7 @@ The compact invertible theorem is the model case. The table summarises the repla
 
 \begin{table}[h]
 \centering
-\begin{tabular}{l|l|l|l}
+\begin{tabularx}{\textwidth}{X X X X}
 \toprule
 Setting & Linear inverse & Function space & Geometric / analytic hypothesis\\
 \midrule
@@ -682,7 +706,7 @@ Delay (§8.4) & history-space Green operator & $C([-\tau,0];\mathbb R^d)$ & even
 Quasilinear (§8.5) & tame inverse / Nash–Moser & scale $X_s$ & tame + loss (Q1)–(Q2) \\
 Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k(M,E)$ & boundary-compatible hyperbolicity \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Extension settings and replacements}
 \label{tab:extensions}
 \end{table}
@@ -700,7 +724,13 @@ For nonautonomous and random extensions of normally hyperbolic persistence, see 
 
 \textbf{Theorem 8.2 (nonautonomous).} Let $(f_n,B_n,\widehat F_{\varepsilon,n})_{n\in\mathbb Z}$ be a bi-infinite sequence of data on the same $M,E$ (maps $f_n:M\to M$, fibre maps $B_n:E_m\to E_{f_nm}$, splittings $E^{s,u}_n$ with $B_nE^s_n\subset E^s_{n+1}$, $B_nE^u_n=E^u_{n+1}$) such that all one-step quantities
 \[
-\sup_m\|B^s_{n-1,\psi_{n-1}m}\|\kappa^+(m)^j\le\theta_0<1,\qquad\sup_m\|(B^u_{n,m})^{-1}\|\kappa^-(m)^j\le\theta_0<1\quad(j\le k,\ \text{with }\ell^\alpha\text{ at }j=k),
+\sup_m\|B^s_{n-1,\psi_{n-1}m}\|\kappa^+(m)^j\le\theta_0<1
+\qquad (j\le k),
+\]
+and
+\[
+\sup_m\|(B^u_{n,m})^{-1}\|\kappa^-(m)^j\le\theta_0<1
+\qquad (j\le k,\ \text{with }\ell^\alpha\text{ at }j=k),
 \]
 and the Hölder norms of the data, are bounded uniformly in $n$, and $\sup_n\|\widehat F_{\varepsilon,n}-\widehat F_{0,n}\|_{C^{k,\alpha}}\to0$. Then for small $\varepsilon$ there is a unique bounded sequence of sections $\sigma_{\varepsilon,n}\in\Sigma_{\rho,L}$ with
 \[
@@ -798,7 +828,7 @@ The following table maps the main-text theorems to the supporting modules of the
 % ============================================================================
 \section*{Glossary}
 
-\begin{tabular}{l|l}
+\begin{tabularx}{\textwidth}{l X}
 Normal cocycle $B$ & Bundle map $B_m:E_m\to E_{f(m)}$ describing linearized normal dynamics \\
 Cohomological operator $\mathcal A$ & $\mathcal A\zeta = \zeta\circ f - B\zeta$; solves linearized persistence \\
 Transfer operator $\mathcal S^\pm$ & Stable/unstable propagation along orbits; $\mathcal S^+$ forward, $\mathcal S^-$ backward \\
@@ -810,24 +840,30 @@ Fibre contraction & Fixed-point argument on sections; regularity of invariant se
 Mixed graph transform & Two-sided invariant section: push stable forward, pull unstable backward \\
 1-bunching $\mathfrak b_1^\pm<1$ & Condition ensuring the invariant set is a graph (not just a lamination) \\
 Principal jet obstruction & Periodic orbit resonance blocking surjectivity at order $k$ \\
-\end{tabular}
+\end{tabularx}
 
 % ============================================================================
 % DECLARATIONS
 % ============================================================================
 \section*{Declarations}
 
-\textbf{Author information.} A. Abaee (independent researcher, Tehran, Iran). ORCID: \href{https://orcid.org/0000-0002-0019-1842}{0000-0002-0019-1842}. Email: \href{mailto:amin_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir}.
+\noindent \textbf{CRediT.} Conceptualization: A. Abaee; Methodology: A. Abaee; Formal analysis: A. Abaee; Investigation: A. Abaee; Writing—original draft: A. Abaee; Writing—review and editing: A. Abaee; Approval of final version: A. Abaee.
 
-\textbf{Funding.} None.
+\vspace{0.5em}
 
-\textbf{Competing interests.} None.
+\noindent \textbf{Funding.} None.
 
-\textbf{AI use.} Ernie (Baidu) and Deepseek AI assisted with computations, numerical checks and literature review. The author reviewed and edited the outputs and takes full responsibility for the work.
+\vspace{0.5em}
 
-\textbf{Data availability.} No separate data set is associated with this manuscript; the mathematical content, numerical checks, and literature entries are reported in the manuscript body and appendices and are archived in the accompanying source files.
+\noindent \textbf{Competing interests.} None.
 
-\textbf{Ethics.} This manuscript concerns mathematical analysis of dynamical systems and does not involve human or animal participants, their data, or clinical material; therefore ethical approval and the corresponding informed consent were not applicable.
+\vspace{0.5em}
+
+\noindent \textbf{Ethics.} Not applicable.
+
+\vspace{0.5em}
+
+\noindent \textbf{Data availability.} Not applicable.
 
 % ============================================================================
 % REFERENCES
