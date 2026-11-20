@@ -778,30 +778,30 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[auto,
-  decision/.style={draw, diamond, aspect=3, inner sep=2pt, font=\footnotesize},
-  process/.style={draw, rounded corners, minimum width=3cm, minimum height=0.9cm, align=center, font=\footnotesize},
-  terminal/.style={draw, rectangle, rounded corners, minimum width=3.2cm, minimum height=0.9cm, align=center, font=\footnotesize}]
+  decision/.style={draw, diamond, aspect=2.2, inner sep=2pt, font=\footnotesize},
+  process/.style={draw, rounded corners, minimum width=2.5cm, minimum height=0.8cm, align=center, font=\footnotesize},
+  terminal/.style={draw, rectangle, rounded corners, minimum width=2.8cm, minimum height=0.8cm, align=center, font=\footnotesize}]
   \node[process, fill=blue!20] (A) at (0,0) {Choose Extension Setting};
-  \node[decision] (B) at (0,-4) {Base manifold type};
-  \node[process] (C1) at (-6,-9) {§8.1 Noncompact\\Banach-dim. base};
-  \node[process] (C2) at (6,-9) {Compact finite-dim.\\base};
-  \node[decision] (D) at (6,-15) {Extension type};
-  \node[process] (E1) at (-10,-21) {§8.3 Parabolic slow mfld};
-  \node[process] (E2) at (-5,-21) {§8.2 Nonautonomous\\random};
-  \node[process] (E3) at (5,-21) {§8.4 Delay equations};
-  \node[process] (E4) at (10,-21) {§8.5 Quasilinear PDE};
-  \node[process] (E5) at (12,-24) {§8.6 Manifolds w/ boundary};
-  \node[process] (E6) at (0,-28) {Core §§3--5};
+  \node[decision] (B) at (0,-5) {Base manifold type};
+  \node[process] (C1) at (-7,-11) {§8.1 Noncompact\\Banach-dim. base};
+  \node[process] (C2) at (7,-11) {Compact finite-dim.\\base};
+  \node[decision] (D) at (7,-17) {Extension type};
+  \node[process] (E1) at (-11,-24) {§8.3 Parabolic slow mfld};
+  \node[process] (E2) at (-6,-24) {§8.2 Nonautonomous\\random};
+  \node[process] (E3) at (6,-24) {§8.4 Delay equations};
+  \node[process] (E4) at (11,-24) {§8.5 Quasilinear PDE};
+  \node[process] (E5) at (12,-27) {§8.6 Manifolds w/ boundary};
+  \node[process] (E6) at (0,-32) {Core §§3--5};
   \draw[->, thick] (A) -- (B);
-  \draw[->, thick] (B) -- node[above]{Noncompact} (C1);
-  \draw[->, thick] (B) -- node[above]{Compact finite-dim} (C2);
+  \draw[->, thick] (B) -- (-7,-5) -- (C1);
+  \draw[->, thick] (B) -- (7,-5) -- (C2);
   \draw[->, thick] (C2) -- (D);
-  \draw[->, thick] (D) -- (E1);
-  \draw[->, thick] (D) -- (E2);
-  \draw[->, thick] (D) -- (E3);
-  \draw[->, thick] (D) -- (E4);
-  \draw[->, thick] (D) -- (E5);
-  \draw[->, thick] (D) -- (E6);
+  \draw[->, thick] (D) -- (-11,-17) -- (E1);
+  \draw[->, thick] (D) -- (-6,-17) -- (E2);
+  \draw[->, thick] (D) -- (6,-17) -- (E3);
+  \draw[->, thick] (D) -- (11,-17) -- (E4);
+  \draw[->, thick] (D) -- (12,-20) -- (E5);
+  \draw[->, thick] (D) -- (0,-17) -- (E6);
 \end{tikzpicture}%
 }
 \caption{Extension setting selector flowchart.}
