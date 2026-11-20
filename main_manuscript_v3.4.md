@@ -2,6 +2,8 @@
 
 **Author:** Amin Abaee — independent researcher, Tehran, Iran. ORCID: [0000-0002-0019-1842](https://orcid.org/0000-0002-0019-1842). Email: [amin_abaee@ut.ac.ir](mailto:amin_abaee@ut.ac.ir).
 
+**Date:** 2026-11-20
+
 ---
 
 ## Abstract
@@ -13,8 +15,8 @@ graph LR
     M[Base Manifold M]
     E[Banach Bundle E over M]
     E -->|B| E
-    E -->|proj_s, proj_u| S[Stable Bundle E^s]
-    E -->|proj_s, proj_u| U[Unstable Bundle E^u]
+    E -->|proj_s, proj_u| S[Stable Bundle E_s]
+    E -->|proj_s, proj_u| U[Unstable Bundle E_u]
     style M fill:#f9f,stroke:#333,stroke-width:2px
     style E fill:#bbf,stroke:#333,stroke-width:2px
     style S fill:#cfc,stroke:#333,stroke-width:1px
@@ -137,8 +139,8 @@ $$\kappa^+_n(m)=\max\{1,\|D\psi_n(m)\|\},\quad\kappa^-_n(m)=\max\{1,\|Df^n(m)\|\
 ($\ell^\pm_n$ is $\max\{1,\mathrm{Lip}\}$ of $\psi_n$, resp. $f^n$.)
 
 **Definition 2.1.** For $s\ge0$ and $s=k+\alpha$ ($k\in\mathbb N_0$, $\alpha\in[0,1)$) define
-$$\mathfrak b^\pm_s=\lim_n\Big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^s\Big)^{1/n},\qquad
-\bar{\mathfrak b}^\pm_{k,\alpha}=\lim_n\Big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^k(\ell^\pm_n)^\alpha\Big)^{1/n},$$
+$$\mathfrak b^\pm_s=\lim_n\big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^s\big)^{1/n},\qquad
+\bar{\mathfrak b}^\pm_{k,\alpha}=\lim_n\big(\sup_m a^\pm_n(m)\kappa^\pm_n(m)^k(\ell^\pm_n)^\alpha\big)^{1/n},$$
 and, with unmodified norms, $\underline{\mathfrak b}^+_s=\limsup_n(\sup_ma^+_n\|D\psi_n(m)\|^s)^{1/n}$, $\underline{\mathfrak b}^-_s=\limsup_n(\sup_ma^-_n\|Df^n(m)\|^s)^{1/n}$.
 
 **Lemma 2.2.** (a) The limits exist and equal $\inf_n(\cdot)^{1/n}$; for every $\varepsilon>0$ there is $C_\varepsilon$ with $\sup_ma_n\kappa_n^k\ell_n^\alpha\le C_\varepsilon(\bar{\mathfrak b}_{k,\alpha}+\varepsilon)^n$ for all $n$.
@@ -185,7 +187,7 @@ with $\Xi_{j,i}$ multiplication operators by bounded (and, for $j=k$, $C^\alpha$
 ### 3.2 Fibre contractions
 
 Let $V\to M$ be a $C^{r,\beta}$ Banach bundle, $V_\rho$ its closed $\rho$-ball bundle and $\gamma:V_\rho\to V_\rho$ a $C^{r,\beta}$ bundle map covering $f$, $\gamma(m,v)=(fm,\gamma_m(v))$, with $\sup\|D_v\gamma\|<\infty$. Put $\gamma^{[n]}_m=\gamma_{f^{n-1}m}\circ\dots\circ\gamma_m$ and
-$$\mathfrak c_{k,\alpha}=\lim_n\Big(\sup_{m}\sup_{v}\|D_v\gamma^{[n]}_{\psi_nm}(v)\|\,\kappa^+_n(m)^k(\ell^+_n)^\alpha\Big)^{1/n}$$
+$$\mathfrak c_{k,\alpha}=\lim_n\big(\sup_{m}\sup_{v}\|D_v\gamma^{[n]}_{\psi_nm}(v)\|\,\kappa^+_n(m)^k(\ell^+_n)^\alpha\big)^{1/n}$$
 (the limit exists by the argument of Lemma 2.2).
 
 **Intuition for fibre contractions.** The map $\gamma$ is a *fibre map* that describes how a fibre $V_m$ changes as we follow the orbit: $\gamma$ pushes the fibre forward via $f$ and modifies the fibre content via $D_v\gamma$. The quantity $\mathfrak c_{k,\alpha}$ is a *one-step bunching* condition: the fibre change measured by $\|D_v\gamma\|$ should dominate the Hölder exponent ($\alpha$) and $k$ derivatives ($k$) of the base derivative. Smaller $\mathfrak c$ means the fibre map is a stronger contraction; the Banach fixed-point argument on the space of sections $V_\rho$ then produces a unique invariant section $\sigma$.
@@ -286,7 +288,7 @@ graph TD
     D -->|No| E[Green series converges]
     E --> F[A is isomorphism]
     D -->|Yes| G[A is not isomorphism]
-    H[Sharp converse] -->|(R) + (RC)| I[A isom implies rho<1]
+    H[Sharp converse] -->|(R) and (RC)| I[A isom implies rho<1]
     I --> J[Spectrum rotation invariant]
     J --> K[Annulus in unit disc]
     style A fill:#bbf,stroke:#333
@@ -372,7 +374,7 @@ and $s_{k,\alpha},u_{k,\alpha}$ for the top order with $\ell^\alpha$.
 **Definition of $\Gamma$.** For $\sigma\in\Sigma$ and $m'\in M$:
 $$(\Gamma\sigma)^s(m')=g^s\big(m,\sigma(m)\big)\ \text{ with } m=\beta_\sigma^{-1}(m'),\tag{5.1}$$
 and $(\Gamma\sigma)^u(m')=\eta^u$ where $\eta^u\in E^u_{m'}$ is the solution of
-$$g^u\big(m',\sigma^s(m')+\eta^u\big)=\sigma^u\Big(b\big(m',\sigma^s(m')+\eta^u\big)\Big)\tag{5.2}$$
+$$g^u\big(m',\sigma^s(m')+\eta^u\big)=\sigma^u\big(b\big(m',\sigma^s(m')+\eta^u\big)\big)\tag{5.2}$$
 (both sides lie in $E^u_{b(m',\sigma^s(m')+\eta^u)}$). Put $\Gamma\sigma=(\Gamma\sigma)^s+(\Gamma\sigma)^u$. *The stable part is pushed forward through the base map; the unstable part is pulled back through (5.2); $B^s$ is never inverted.*
 
 ```mermaid
@@ -432,7 +434,7 @@ $\|(\Gamma\sigma_1)^s-(\Gamma\sigma_2)^s\|\le\|D_\eta g\|\|\sigma_1-\sigma_2\|+(
 
 **(b) $C^k$.** Define the jet lift $\Lambda(\sigma,J_1,\dots,J_k)=(\Gamma\sigma,\mu_1,\dots,\mu_k)$ on $\Sigma\times\prod\{\|J_i\|\le K_i\}$ as follows. Let $D\beta^J=D_mb(\cdot,\sigma)+D_\eta b(\cdot,\sigma)J_1$ and let $\mu_j$ be the formal $j$-th derivative of (5.1)–(5.2) in $m'$, with every occurrence of $D^i\sigma$ replaced by $J_i$ and $D\beta_\sigma$ by $D\beta^J$. Differentiating (5.1) and (5.2) $j$ times:
 $$\mu^s_j(m')=\big[P^sD_\eta g\,J_j(m)\big]\circ(D\beta^{J}(m)^{-1})^{\otimes j}+(\text{terms linear in }J_j\text{ with coefficient}\le C\tau)+R^s_j,$$
-$$\mu^u_j(m')=\big[B^u_{m'}+O(\tau)\big]^{-1}\Big\{J_j^u(\beta^u(m'))\circ(D\beta^u(m'))^{\otimes j}\Big\}+(\text{terms in }J_j\text{ with coefficient}\le C\tau)+R^u_j,$$
+$$\mu^u_j(m')=\big[B^u_{m'}+O(\tau)\big]^{-1}\big\{J_j^u(\beta^u(m'))\circ(D\beta^u(m'))^{\otimes j}\big\}+(\text{terms in }J_j\text{ with coefficient}\le C\tau)+R^u_j,$$
 $m=\beta_\sigma^{-1}(m')$, $\beta^u(m')=b(m',\sigma^s(m')+\eta^u(m'))$, where $R_j$ is a polynomial in $J_1,\dots,J_{j-1}$ with coefficients that are continuous functions of $(m,\sigma)$ built from derivatives of $g,b,P^{s,u}$ up to order $j$ (and for $j=1$ the equation for $\mu^u_1$ is solved for $\mu^u_1$, its own coefficient being $O(\tau)$). Hence
 $$\mathrm{Lip}_{J_j}\mu_j\le\max\{\|B^s\|\|D\beta^{-1}\|^j,\ \|(B^u)^{-1}\|\|D\beta^u\|^j\}+C\tau\le\max\{s_j,u_j\}+C\tau<1,$$
 **uniformly in $\sigma$**, and $\mu_j$ depends Lipschitz-continuously on $J_i$ ($i<j$) on the balls. $\Lambda$ is continuous in the product of sup metrics (uniform continuity of $J$ and of $\beta_\sigma^{-1}$ in $\sigma$, §5.3(c)). With a weighted fibre metric (§3.2) (FCT) applies. Start at $(\sigma_0,J^{(0)})=(0,0)$; as in Theorem 3.2(b), $\Lambda^n(0,0)=(\sigma_n,D\sigma_n,\dots,D^k\sigma_n)$ with $\sigma_{n+1}=\Gamma\sigma_n\in C^{k}$ (implicit function theorem for (5.2); $P^{s,u},B,g,b$ have the required regularity). So $\sigma_\varepsilon\in C^k$, $D^i\sigma_\varepsilon=J_i$.
@@ -571,12 +573,12 @@ The compact invertible theorem is the model case. The table summarises the repla
 flowchart TD
     A[Choose Extension Setting] --> B{Base manifold type}
     B -->|Compact finite-dim| C[Section 8.1 Noncompact base]
-    B -->|Noncompact / Banach-dim| C
+    B -->|Noncompact Banach-dim| C
     B -->|Compact finite-dim| D{Time dependence}
     D -->|Autonomous| E{Problem type}
     D -->|Nonautonomous| F[Section 8.2 Nonautonomous]
     D -->|Random| G[Section 8.3 Random]
-    E -->|Parabolic/slow-fast| H[Section 8.3 Parabolic]
+    E -->|Parabolic slow-fast| H[Section 8.3 Parabolic]
     E -->|Delay equations| I[Section 8.4 Delay]
     E -->|Quasilinear PDE| J[Section 8.5 Quasilinear]
     E -->|Manifold with boundary| K[Section 8.6 Boundary]
@@ -611,7 +613,7 @@ with $\sigma_{\varepsilon,n}\in C^{k,\alpha}$ and the bounds of Theorem 5.3(c) u
 *Proof.* On the complete space $\prod_n\Sigma_{\rho,L}$ (sup over $n$) let $(\Gamma\sigma)^s_{n+1}$ be defined from $\sigma_n$ by (5.1) with the data at time $n$, and $(\Gamma\sigma)^u_n$ from $\sigma_{n+1}$ by (5.2) with the data at time $n$. All estimates of Proposition 5.2 and of the jet lift are one-step and uniform in $n$, so the proofs of Theorem 5.3 (b), (c) go through verbatim (no iteration step is needed since the one-step numbers are already $<1$). $\square$
 
 **Theorem 8.3 (random, uniformly hyperbolic).** Let $(\Omega,\mathcal F,\mathbb P,\theta)$ be an ergodic system and let $(f_\omega,B_\omega,\widehat F_{\varepsilon,\omega})$ be measurable random data (in the sense of Arnold [13]) satisfying the hypotheses of Theorem 8.2 with $n$ replaced by the time-shift $\omega\mapsto\theta\omega$ (uniformly in $\omega$). Then there is $\varepsilon_0>0$ and, for $|\varepsilon|<\varepsilon_0$, a **unique measurable family** $\sigma_\varepsilon(\omega)\in\Sigma_{\rho,L}$ with the *cocycle* invariance
-$$\sigma_\varepsilon(\theta\omega)\Big(b_\varepsilon\big(\omega,m,\sigma_\varepsilon(\omega)(m)\big)\Big)=g_\varepsilon\big(\omega,m,\sigma_\varepsilon(\omega)(m)\big),$$
+$$\sigma_\varepsilon(\theta\omega)\big(b_\varepsilon\big(\omega,m,\sigma_\varepsilon(\omega)(m)\big)\big)=g_\varepsilon\big(\omega,m,\sigma_\varepsilon(\omega)(m)\big),$$
 i.e. $\widehat F_{\varepsilon}(\omega,\mathrm{Gr}\,\sigma_\varepsilon(\omega))=\mathrm{Gr}\,\sigma_\varepsilon(\theta\omega)$. *(Random ergodic extension; see Appendix I for noncompact linear theory needed in measurable settings.)*
 
 *Proof.* Apply Theorem 8.2 to $n\mapsto(\ldots)_{\theta^n\omega}$ for each $\omega$; uniqueness identifies the sequence with the family $n\mapsto\sigma_\varepsilon(\theta^n\omega)$, and measurability follows because $\sigma_\varepsilon(\omega)=\lim_n\Gamma^n(0)(\omega)$ is a pointwise limit of measurable maps. $\square$
