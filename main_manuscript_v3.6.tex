@@ -12,6 +12,12 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+}
 
 \setlength{\emergencystretch}{2em}
 \sloppy
@@ -45,7 +51,7 @@
 \numberwithin{figure}{section}
 
 \title{Cohomological Inverses and Fractional Jet Spectra in Banach-Space Normally Hyperbolic Persistence}
-\author{Amin Abaee \\ independent researcher, Tehran, Iran \\ \href{https://orcid.org/0000-0002-0019-1842}{orcid: 0000-0002-0019-1842} \\ \href{mailto:amin_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir}}
+\author{Amin Abaee \\ independent researcher, Tehran, Iran \\ \href{https://orcid.org/0000-0002-0019-1842}{orcid: 0000-0002-0019-1842} \\ \href{mailto:amin_abaee@ut.ac.ir}{\texttt{amin\_abaee@ut.ac.ir}}}
 \date{2026-11-20}
 \begin{document}
 
@@ -771,21 +777,21 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
 \begin{figure}[h]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[node distance=1.2cm and 0.8cm, auto,
-  decision/.style={draw, diamond, aspect=2, inner sep=1pt, font=\footnotesize},
-  process/.style={draw, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize},
-  cnode/.style={draw, rectangle, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize}]
+\begin{tikzpicture}[node distance=2.2cm and 1.5cm, auto,
+  decision/.style={draw, diamond, aspect=2.5, inner sep=1.5pt, font=\footnotesize},
+  process/.style={draw, rounded corners, minimum width=2.5cm, minimum height=0.8cm, align=center, font=\footnotesize},
+  terminal/.style={draw, rectangle, rounded corners, minimum width=2.8cm, minimum height=0.8cm, align=center, font=\footnotesize}]
   \node[process, fill=blue!20] (A) {Choose Extension Setting};
   \node[decision, below=of A] (B) {Base manifold type};
-  \node[process, below left=of B] (C1) {§8.1 Noncompact\\Banach-dim. base};
-  \node[process, below right=of B] (C2) {Compact finite-dim. base};
+  \node[process, below left=of B, xshift=-2.5cm] (C1) {§8.1 Noncompact\\Banach-dim. base};
+  \node[process, below right=of B, xshift=2.5cm] (C2) {Compact finite-dim.\\base};
   \node[decision, below=of C2] (D) {Extension type};
-  \node[process, below left=of D, xshift=-0.5cm] (E1) {§8.3 Parabolic slow mfld};
-  \node[process, below=of D, xshift=-1.8cm] (E2) {§8.2 Nonautonomous/random};
-  \node[process, below=of D, xshift=0cm] (E3) {§8.4 Delay equations};
-  \node[process, below=of D, xshift=1.8cm] (E4) {§8.5 Quasilinear PDE};
-  \node[process, below right=of D, xshift=0.5cm] (E5) {§8.6 Manifolds w/ boundary};
-  \node[process, below=of D, yshift=-2.2cm] (E6) {Core §§3--5};
+  \node[process, below left=of D, xshift=-3.5cm] (E1) {§8.3 Parabolic slow mfld};
+  \node[process, below=of D, xshift=-1.5cm] (E2) {§8.2 Nonautonomous\\random};
+  \node[process, below=of D, xshift=1.5cm] (E3) {§8.4 Delay equations};
+  \node[process, below right=of D, xshift=3.5cm] (E4) {§8.5 Quasilinear PDE};
+  \node[process, below right=of D, xshift=0cm, yshift=-1.2cm] (E5) {§8.6 Manifolds w/ boundary};
+  \node[process, below=of D, yshift=-2.8cm] (E6) {Core §§3--5};
   \draw[->, thick] (A) -- (B);
   \draw[->, thick] (B) -- node[above]{Noncompact} (C1);
   \draw[->, thick] (B) -- node[above]{Compact finite-dim} (C2);
