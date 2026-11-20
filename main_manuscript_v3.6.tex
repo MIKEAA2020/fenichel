@@ -61,6 +61,22 @@ We establish persistence of normally hyperbolic invariant manifolds in Banach sp
 \begin{center}
 \end{center}
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=2.2cm, auto,
+  nodest/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.9cm, align=center, font=\footnotesize}]
+  \node[nodest, fill=magenta!25] (M) {Base Manifold\\$M$};
+  \node[nodest, fill=blue!25, right=of M] (E) {Banach Bundle\\$E$ over $M$};
+  \node[nodest, fill=green!25, below right=of E] (S) {Stable Bundle\\$E_s$};
+  \node[nodest, fill=yellow!25, below left=of E] (U) {Unstable Bundle\\$E_u$};
+  \draw[->, thick] (E) edge[loop above] node{$B$} (E);
+  \draw[->, thick] (E) -- node[swap]{proj$_s$} (S);
+  \draw[->, thick] (E) -- node{proj$_u$} (U);
+\end{tikzpicture}
+\caption{Bundle splitting overview.}
+\label{fig:bundle-overview}
+\end{figure}
+
 \begin{enumerate}
 \item We introduce \textbf{orbit-wise bunching numbers} $\mathfrak b^\pm_s$ and \textbf{mixed (Hölder) bunching numbers} $\bar{\mathfrak b}^\pm_{k,\alpha}$ (Fekete limits of explicit suprema) and prove that $\mathcal A$ is an isomorphism of $C^{k,\alpha}$ whenever $\bar{\mathfrak b}^\pm_{k,\alpha}<1$. No regularity of the dichotomy projections is assumed: it is \textit{derived} from the same bunching condition by a fibre-contraction section theorem (Theorem 3.2, Lemma 3.3).
 
@@ -433,6 +449,34 @@ where $\chi$ is a cutoff and $\tilde e$ a local $C^{r,\beta}$ section with $\til
 
 The operator $\mathcal A$ is invertible exactly when $1$ is not in the spectrum of the transfer operators $\mathcal S^\pm$ on the stable/unstable section spaces. This is the classic Fredholm alternative: $\mathcal A\zeta=q$ can be solved iff $I-\mathcal S^\pm$ is invertible, which happens exactly when $1\notin\sigma(\mathcal S^\pm)$. The sharp converse (4.4c) says: if the spectrum is ``connected'' in a suitable sense (rotation invariant and interval of moduli), then $\mathcal A$ invertible \textit{forces} the spectral radii to be $<1$. Example 4.5 satisfies (R) and (RC), so the sharp converse applies there; without these hypotheses the implication is not claimed (see Problem 1, Section 9).
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=1.5cm and 1.2cm, auto,
+  decision/.style={draw, diamond, aspect=2, inner sep=1.5pt, font=\footnotesize},
+  process/.style={draw, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize},
+  terminal/.style={draw, rectangle, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize}]
+  \node[process, fill=blue!20] (A) {Transfer operator $\mathcal S$};
+  \node[decision, below=of A] (B) {Spectral radius $<1$?};
+  \node[terminal, fill=green!20, left=of B] (C) {$\mathcal A$ is isomorphism};
+  \node[decision, right=of B] (D) {$1\in\sigma$?};
+  \node[decision, below=of D] (E) {Green series converges?};
+  \node[terminal, fill=green!20, below=of E] (F) {$\mathcal A$ is isomorphism};
+  \node[terminal, fill=red!20, right=of E] (G) {$\mathcal A$ not isomorphism};
+  \node[process, fill=orange!20, right=of G] (H) {Sharp converse: (R) \& (RC)};
+  \node[terminal, fill=yellow!20, below=of H] (I) {$\rho^\pm_{k,\alpha}<1$};
+  \draw[->, thick] (A) -- (B);
+  \draw[->, thick] (B) -- node[above]{Yes} (C);
+  \draw[->, thick] (B) -- node[above]{No} (D);
+  \draw[->, thick] (D) -- node[above]{No} (E);
+  \draw[->, thick] (D) -- node[right]{Yes} (G);
+  \draw[->, thick] (E) -- (F);
+  \draw[->, thick] (H) -- (I);
+  \draw[->, thick, dashed] (G) -- node[above]{(R),(RC)} (H);
+\end{tikzpicture}
+\caption{Spectral characterization decision tree.}
+\label{fig:spectral-decision}
+\end{figure}
+
 \textbf{Theorem 4.4.} Under (H0), (H1), (H3):
 
 \begin{theorem}
@@ -538,6 +582,29 @@ g^u\big(m',\sigma^s(m')+\eta^u\big)=\sigma^u\Big(b\big(m',\sigma^s(m')+\eta^u\bi
 \]
 (both sides lie in $E^u_{b(m',\sigma^s(m')+\eta^u)}$). Put $\Gamma\sigma=(\Gamma\sigma)^s+(\Gamma\sigma)^u$. \textit{The stable part is pushed forward through the base map; the unstable part is pulled back through (5.2); $B^s$ is never inverted.}
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=2cm and 1.5cm, auto,
+  nodest/.style={draw, rounded corners, minimum width=2cm, minimum height=0.75cm, align=center, font=\footnotesize},
+  decision/.style={draw, diamond, aspect=1.8, inner sep=1pt, font=\footnotesize}]
+  \node[nodest, fill=blue!20] (A) {Section $\sigma$};
+  \node[nodest, fill=green!20, below left=of A] (B) {Stable part:\\push forward via $\beta_\sigma^{-1}$};
+  \node[nodest, fill=orange!20, below right=of A] (C) {Unstable part:\\pull back via (5.2)};
+  \node[nodest, fill=yellow!20, below=of A] (D) {$\Gamma\sigma = \text{sum}$};
+  \node[decision, below=of D] (E) {Contraction?};
+  \node[nodest, fill=magenta!20, below=of E] (F) {Fixed point $\sigma_\varepsilon$};
+  \node[nodest, fill=cyan!20, below=of F] (G) {Invariant graph};
+  \draw[->, thick] (A) -- node[left]{stable} (B);
+  \draw[->, thick] (A) -- node[right]{unstable} (C);
+  \draw[->, thick] (B) -- (D);
+  \draw[->, thick] (C) -- (D);
+  \draw[->, thick] (D) -- (E);
+  \draw[->, thick] (E) -- node[left]{Yes} (F);
+  \draw[->, thick] (F) -- (G);
+\end{tikzpicture}
+\caption{Mixed graph transform: stable push-forward, unstable pull-back.}
+\label{fig:mixed-graph-transform}
+\end{figure}
 
 \textbf{Proposition 5.2.} There are $\tau,\rho,L>0$ and $\varepsilon_0>0$ (depending on $\widehat F_0$ only) such that for $|\varepsilon|<\varepsilon_0$:
 \begin{itemize}
@@ -711,6 +778,41 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
 \label{tab:extensions}
 \end{table}
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=1.6cm and 0.8cm, auto,
+  decision/.style={draw, diamond, aspect=2, inner sep=1pt, font=\footnotesize},
+  process/.style={draw, rounded corners, minimum width=1.8cm, minimum height=0.7cm, align=center, font=\footnotesize},
+  cnode/.style={draw, rectangle, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize}]
+  \node[process, fill=blue!20] (A) {Choose Extension Setting};
+  \node[decision, below=of A] (B) {Base manifold type};
+  \node[process, left=of B] (C) {Section 8.1 Noncompact base};
+  \node[process, right=of B] (C2) {Section 8.1 Noncompact base};
+  \node[decision, below=of B] (D) {Time dependence};
+  \node[process, below left=of D] (E1) {Section 8.3 Parabolic};
+  \node[decision, below right=of D] (F) {Problem type};
+  \node[process, below=of F] (G) {Section 8.2 Nonautonomous};
+  \node[process, below=of F] (H) {Section 8.3 Random};
+  \node[process, below left=of F] (I) {Section 8.4 Delay};
+  \node[process, below right=of F] (J) {Section 8.5 Quasilinear};
+  \node[process, below=of F] (K) {Section 8.6 Boundary};
+  \node[process, below=of F, yshift=-1.5cm] (L) {Core Sections 3--5};
+  \draw[->, thick] (A) -- (B);
+  \draw[->, thick] (B) -- node[above]{Compact finite-dim} (C);
+  \draw[->, thick] (B) -- node[above]{Noncompact Banach-dim} (C2);
+  \draw[->, thick] (B) -- (D);
+  \draw[->, thick] (D) -- node[left]{Parabolic slow-fast} (E1);
+  \draw[->, thick] (D) -- node[above]{Autonomous} (F);
+  \draw[->, thick] (D) -- node[above]{Nonautonomous} (G);
+  \draw[->, thick] (D) -- node[above]{Random} (H);
+  \draw[->, thick] (D) -- node[left]{Delay equations} (I);
+  \draw[->, thick] (D) -- node[right]{Quasilinear PDE} (J);
+  \draw[->, thick] (D) -- node[right]{Manifold with boundary} (K);
+  \draw[->, thick, dashed] (F) -- (L);
+\end{tikzpicture}
+\caption{Extension setting selector flowchart.}
+\label{fig:extension-settings}
+\end{figure}
 
 \subsection{Noncompact and Banach-dimensional bases}
 
