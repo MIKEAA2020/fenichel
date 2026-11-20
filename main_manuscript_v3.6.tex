@@ -49,22 +49,6 @@
 \date{2026-11-20}
 \begin{document}
 
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[node distance=2.2cm, auto,
-  nodest/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.9cm, align=center, font=\footnotesize}]
-  \node[nodest, fill=magenta!25] (M) {Base Manifold\\$M$};
-  \node[nodest, fill=blue!25, right=of M] (E) {Banach Bundle\\$E$ over $M$};
-  \node[nodest, fill=green!25, below right=of E] (S) {Stable Bundle\\$E_s$};
-  \node[nodest, fill=yellow!25, below left=of E] (U) {Unstable Bundle\\$E_u$};
-  \draw[->, thick] (E) edge[loop above] node{$B$} (E);
-  \draw[->, thick] (E) -- node[swap]{proj$_s$} (S);
-  \draw[->, thick] (E) -- node{proj$_u$} (U);
-\end{tikzpicture}
-\caption{Graphical abstract: base manifold $M$, Banach bundle $E\to M$ with hyperbolic splitting $E=E_s\oplus E_u$, and the normal cocycle $B$ governing fibre deformation. Persistence of a normally hyperbolic invariant manifold reduces to solving $\mathcal A\zeta=\zeta\circ f-B\zeta=q$ under bunching $\bar{\mathfrak b}^\pm_{k,\alpha}<1$.}
-\label{fig:graphical-abstract}
-\end{figure}
-
 \maketitle
 
 % ============================================================================
@@ -451,6 +435,7 @@ The operator $\mathcal A$ is invertible exactly when $1$ is not in the spectrum 
 
 \begin{figure}[h]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[node distance=1.6cm and 1.2cm, auto,
   decision/.style={draw, diamond, aspect=2, inner sep=1pt, font=\footnotesize},
   process/.style={draw, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize},
@@ -476,7 +461,8 @@ The operator $\mathcal A$ is invertible exactly when $1$ is not in the spectrum 
   \draw[->, thick] (H) -- (I);
   \draw[->, thick] (I) -- (J);
   \draw[->, thick] (J) -- (K);
-\end{tikzpicture}
+\end{tikzpicture}%
+}
 \caption{Spectral characterization decision tree.}
 \label{fig:spectral-decision}
 \end{figure}
@@ -784,32 +770,34 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[node distance=1.6cm and 0.8cm, auto,
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[node distance=1.2cm and 0.8cm, auto,
   decision/.style={draw, diamond, aspect=2, inner sep=1pt, font=\footnotesize},
-  process/.style={draw, rounded corners, minimum width=1.8cm, minimum height=0.7cm, align=center, font=\footnotesize},
+  process/.style={draw, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize},
   cnode/.style={draw, rectangle, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize}]
   \node[process, fill=blue!20] (A) {Choose Extension Setting};
   \node[decision, below=of A] (B) {Base manifold type};
-  \node[process, below left=of B] (C1) {Section 8.1 Noncompact\\Banach-dimensional base};
-  \node[process, below right=of B] (C2) {Compact finite-dim base};
+  \node[process, below left=of B] (C1) {§8.1 Noncompact\\Banach-dim. base};
+  \node[process, below right=of B] (C2) {Compact finite-dim. base};
   \node[decision, below=of C2] (D) {Extension type};
-  \node[process, below left=of D] (E1) {§8.3 Parabolic slow manifold};
-  \node[process, below=of D] (E2) {§8.2 Nonautonomous / random};
-  \node[process, below right=of D] (E3) {§8.4 Delay equations};
-  \node[process, above right=of D] (E4) {§8.5 Quasilinear PDE};
-  \node[process, below right=of D] (E5) {§8.6 Manifolds with boundary};
-  \node[process, below=of D] (E6) {Core Sections 3--5};
+  \node[process, below left=of D, xshift=-0.5cm] (E1) {§8.3 Parabolic slow mfld};
+  \node[process, below=of D, xshift=-1.8cm] (E2) {§8.2 Nonautonomous/random};
+  \node[process, below=of D, xshift=0cm] (E3) {§8.4 Delay equations};
+  \node[process, below=of D, xshift=1.8cm] (E4) {§8.5 Quasilinear PDE};
+  \node[process, below right=of D, xshift=0.5cm] (E5) {§8.6 Manifolds w/ boundary};
+  \node[process, below=of D, yshift=-2.2cm] (E6) {Core §§3--5};
   \draw[->, thick] (A) -- (B);
   \draw[->, thick] (B) -- node[above]{Noncompact} (C1);
   \draw[->, thick] (B) -- node[above]{Compact finite-dim} (C2);
   \draw[->, thick] (C2) -- (D);
-  \draw[->, thick] (D) -- node[left]{Parabolic} (E1);
-  \draw[->, thick] (D) -- node[above] {Nonautonomous/random} (E2);
-  \draw[->, thick] (D) -- node[right]{Delay equations} (E3);
-  \draw[->, thick] (D) -- node[right]{Quasilinear PDE} (E4);
-  \draw[->, thick] (D) -- node[right]{Manifolds with boundary} (E5);
-  \draw[->, thick] (D) -- node[below]{Core Sections 3--5} (E6);
-\end{tikzpicture}
+  \draw[->, thick] (D) -- (E1);
+  \draw[->, thick] (D) -- (E2);
+  \draw[->, thick] (D) -- (E3);
+  \draw[->, thick] (D) -- (E4);
+  \draw[->, thick] (D) -- (E5);
+  \draw[->, thick] (D) -- (E6);
+\end{tikzpicture}%
+}
 \caption{Extension setting selector flowchart.}
 \label{fig:extension-settings}
 \end{figure}
@@ -949,7 +937,7 @@ Principal jet obstruction & Periodic orbit resonance blocking surjectivity at or
 % ============================================================================
 \section*{Declarations}
 
-\noindent \textbf{CRediT.} Conceptualization: A. Abaee; Methodology: A. Abaee; Formal analysis: A. Abaee; Investigation: A. Abaee; Writing—original draft: A. Abaee; Writing—review and editing: A. Abaee; Approval of final version: A. Abaee.
+\noindent \textbf{CRediT.} Conceptualization, Methodology, Formal analysis, Investigation, Writing—original draft, Writing—review and editing, Approval of final version: A. Abaee.
 
 \vspace{0.5em}
 
