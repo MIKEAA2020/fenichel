@@ -49,18 +49,6 @@
 \date{2026-11-20}
 \begin{document}
 
-\maketitle
-
-% ============================================================================
-% ABSTRACT
-% ============================================================================
-\section*{Abstract}
-
-We establish persistence of normally hyperbolic invariant manifolds in Banach spaces through the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$. The framework decomposes into linear cohomological inversion, HPS invariant-section matching, roughness of exponential dichotomies, Perron constructions, and regularity obstructions in induced jet cocycles. The main new analytic contribution is a fractional jet-spectrum theorem: bounded invertibility of $\mathcal A$ on $C^{k,\alpha}$ follows from a subunit spectral radius of the exact Green summand operators on Hölder jet bundles. We prove a periodic jet-resonance obstruction to $C^k$-surjectivity, a two-sided invariant-section theorem with explicit graph transform, and corrected extension architectures for noncompact, nonautonomous, parabolic, delay, quasilinear, and boundary settings.
-
-\begin{center}
-\end{center}
-
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[node distance=2.2cm, auto,
@@ -73,9 +61,21 @@ We establish persistence of normally hyperbolic invariant manifolds in Banach sp
   \draw[->, thick] (E) -- node[swap]{proj$_s$} (S);
   \draw[->, thick] (E) -- node{proj$_u$} (U);
 \end{tikzpicture}
-\caption{Bundle splitting overview.}
-\label{fig:bundle-overview}
+\caption{Graphical abstract: base manifold $M$, Banach bundle $E\to M$ with hyperbolic splitting $E=E_s\oplus E_u$, and the normal cocycle $B$ governing fibre deformation. Persistence of a normally hyperbolic invariant manifold reduces to solving $\mathcal A\zeta=\zeta\circ f-B\zeta=q$ under bunching $\bar{\mathfrak b}^\pm_{k,\alpha}<1$.}
+\label{fig:graphical-abstract}
 \end{figure}
+
+\maketitle
+
+% ============================================================================
+% ABSTRACT
+% ============================================================================
+\section*{Abstract}
+
+We establish persistence of normally hyperbolic invariant manifolds in Banach spaces through the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$. The framework decomposes into linear cohomological inversion, HPS invariant-section matching, roughness of exponential dichotomies, Perron constructions, and regularity obstructions in induced jet cocycles. The main new analytic contribution is a fractional jet-spectrum theorem: bounded invertibility of $\mathcal A$ on $C^{k,\alpha}$ follows from a subunit spectral radius of the exact Green summand operators on Hölder jet bundles. We prove a periodic jet-resonance obstruction to $C^k$-surjectivity, a two-sided invariant-section theorem with explicit graph transform, and corrected extension architectures for noncompact, nonautonomous, parabolic, delay, quasilinear, and boundary settings.
+
+\begin{center}
+\end{center}
 
 \begin{enumerate}
 \item We introduce \textbf{orbit-wise bunching numbers} $\mathfrak b^\pm_s$ and \textbf{mixed (Hölder) bunching numbers} $\bar{\mathfrak b}^\pm_{k,\alpha}$ (Fekete limits of explicit suprema) and prove that $\mathcal A$ is an isomorphism of $C^{k,\alpha}$ whenever $\bar{\mathfrak b}^\pm_{k,\alpha}<1$. No regularity of the dichotomy projections is assumed: it is \textit{derived} from the same bunching condition by a fibre-contraction section theorem (Theorem 3.2, Lemma 3.3).
@@ -451,27 +451,31 @@ The operator $\mathcal A$ is invertible exactly when $1$ is not in the spectrum 
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[node distance=1.5cm and 1.2cm, auto,
-  decision/.style={draw, diamond, aspect=2, inner sep=1.5pt, font=\footnotesize},
+\begin{tikzpicture}[node distance=1.6cm and 1.2cm, auto,
+  decision/.style={draw, diamond, aspect=2, inner sep=1pt, font=\footnotesize},
   process/.style={draw, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize},
   terminal/.style={draw, rectangle, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize}]
   \node[process, fill=blue!20] (A) {Transfer operator $\mathcal S$};
   \node[decision, below=of A] (B) {Spectral radius $<1$?};
   \node[terminal, fill=green!20, left=of B] (C) {$\mathcal A$ is isomorphism};
   \node[decision, right=of B] (D) {$1\in\sigma$?};
-  \node[decision, below=of D] (E) {Green series converges?};
+  \node[process, fill=yellow!20, below=of D] (E) {Green series converges};
   \node[terminal, fill=green!20, below=of E] (F) {$\mathcal A$ is isomorphism};
   \node[terminal, fill=red!20, right=of E] (G) {$\mathcal A$ not isomorphism};
   \node[process, fill=orange!20, right=of G] (H) {Sharp converse: (R) \& (RC)};
   \node[terminal, fill=yellow!20, below=of H] (I) {$\rho^\pm_{k,\alpha}<1$};
+  \node[terminal, fill=cyan!20, below=of I] (J) {Spectrum rotation invariant};
+  \node[terminal, fill=magenta!20, below=of J] (K) {Annulus in unit disc};
   \draw[->, thick] (A) -- (B);
   \draw[->, thick] (B) -- node[above]{Yes} (C);
   \draw[->, thick] (B) -- node[above]{No} (D);
   \draw[->, thick] (D) -- node[above]{No} (E);
   \draw[->, thick] (D) -- node[right]{Yes} (G);
   \draw[->, thick] (E) -- (F);
-  \draw[->, thick] (H) -- (I);
   \draw[->, thick, dashed] (G) -- node[above]{(R),(RC)} (H);
+  \draw[->, thick] (H) -- (I);
+  \draw[->, thick] (I) -- (J);
+  \draw[->, thick] (J) -- (K);
 \end{tikzpicture}
 \caption{Spectral characterization decision tree.}
 \label{fig:spectral-decision}
@@ -786,29 +790,25 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
   cnode/.style={draw, rectangle, rounded corners, minimum width=2cm, minimum height=0.7cm, align=center, font=\footnotesize}]
   \node[process, fill=blue!20] (A) {Choose Extension Setting};
   \node[decision, below=of A] (B) {Base manifold type};
-  \node[process, left=of B] (C) {Section 8.1 Noncompact base};
-  \node[process, right=of B] (C2) {Section 8.1 Noncompact base};
-  \node[decision, below=of B] (D) {Time dependence};
-  \node[process, below left=of D] (E1) {Section 8.3 Parabolic};
-  \node[decision, below right=of D] (F) {Problem type};
-  \node[process, below=of F] (G) {Section 8.2 Nonautonomous};
-  \node[process, below=of F] (H) {Section 8.3 Random};
-  \node[process, below left=of F] (I) {Section 8.4 Delay};
-  \node[process, below right=of F] (J) {Section 8.5 Quasilinear};
-  \node[process, below=of F] (K) {Section 8.6 Boundary};
-  \node[process, below=of F, yshift=-1.5cm] (L) {Core Sections 3--5};
+  \node[process, below left=of B] (C1) {Section 8.1 Noncompact\\Banach-dimensional base};
+  \node[process, below right=of B] (C2) {Compact finite-dim base};
+  \node[decision, below=of C2] (D) {Extension type};
+  \node[process, below left=of D] (E1) {§8.3 Parabolic slow manifold};
+  \node[process, below=of D] (E2) {§8.2 Nonautonomous / random};
+  \node[process, below right=of D] (E3) {§8.4 Delay equations};
+  \node[process, above right=of D] (E4) {§8.5 Quasilinear PDE};
+  \node[process, below right=of D] (E5) {§8.6 Manifolds with boundary};
+  \node[process, below=of D] (E6) {Core Sections 3--5};
   \draw[->, thick] (A) -- (B);
-  \draw[->, thick] (B) -- node[above]{Compact finite-dim} (C);
-  \draw[->, thick] (B) -- node[above]{Noncompact Banach-dim} (C2);
-  \draw[->, thick] (B) -- (D);
-  \draw[->, thick] (D) -- node[left]{Parabolic slow-fast} (E1);
-  \draw[->, thick] (D) -- node[above]{Autonomous} (F);
-  \draw[->, thick] (D) -- node[above]{Nonautonomous} (G);
-  \draw[->, thick] (D) -- node[above]{Random} (H);
-  \draw[->, thick] (D) -- node[left]{Delay equations} (I);
-  \draw[->, thick] (D) -- node[right]{Quasilinear PDE} (J);
-  \draw[->, thick] (D) -- node[right]{Manifold with boundary} (K);
-  \draw[->, thick, dashed] (F) -- (L);
+  \draw[->, thick] (B) -- node[above]{Noncompact} (C1);
+  \draw[->, thick] (B) -- node[above]{Compact finite-dim} (C2);
+  \draw[->, thick] (C2) -- (D);
+  \draw[->, thick] (D) -- node[left]{Parabolic} (E1);
+  \draw[->, thick] (D) -- node[above] {Nonautonomous/random} (E2);
+  \draw[->, thick] (D) -- node[right]{Delay equations} (E3);
+  \draw[->, thick] (D) -- node[right]{Quasilinear PDE} (E4);
+  \draw[->, thick] (D) -- node[right]{Manifolds with boundary} (E5);
+  \draw[->, thick] (D) -- node[below]{Core Sections 3--5} (E6);
 \end{tikzpicture}
 \caption{Extension setting selector flowchart.}
 \label{fig:extension-settings}
