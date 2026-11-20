@@ -777,21 +777,21 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
 \begin{figure}[h]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[node distance=2.2cm and 1.5cm, auto,
-  decision/.style={draw, diamond, aspect=2.5, inner sep=1.5pt, font=\footnotesize},
-  process/.style={draw, rounded corners, minimum width=2.5cm, minimum height=0.8cm, align=center, font=\footnotesize},
-  terminal/.style={draw, rectangle, rounded corners, minimum width=2.8cm, minimum height=0.8cm, align=center, font=\footnotesize}]
-  \node[process, fill=blue!20] (A) {Choose Extension Setting};
-  \node[decision, below=of A] (B) {Base manifold type};
-  \node[process, below left=of B, xshift=-2.5cm] (C1) {§8.1 Noncompact\\Banach-dim. base};
-  \node[process, below right=of B, xshift=2.5cm] (C2) {Compact finite-dim.\\base};
-  \node[decision, below=of C2] (D) {Extension type};
-  \node[process, below left=of D, xshift=-3.5cm] (E1) {§8.3 Parabolic slow mfld};
-  \node[process, below=of D, xshift=-1.5cm] (E2) {§8.2 Nonautonomous\\random};
-  \node[process, below=of D, xshift=1.5cm] (E3) {§8.4 Delay equations};
-  \node[process, below right=of D, xshift=3.5cm] (E4) {§8.5 Quasilinear PDE};
-  \node[process, below right=of D, xshift=0cm, yshift=-1.2cm] (E5) {§8.6 Manifolds w/ boundary};
-  \node[process, below=of D, yshift=-2.8cm] (E6) {Core §§3--5};
+\begin{tikzpicture}[auto,
+  decision/.style={draw, diamond, aspect=3, inner sep=2pt, font=\footnotesize},
+  process/.style={draw, rounded corners, minimum width=3cm, minimum height=0.9cm, align=center, font=\footnotesize},
+  terminal/.style={draw, rectangle, rounded corners, minimum width=3.2cm, minimum height=0.9cm, align=center, font=\footnotesize}]
+  \node[process, fill=blue!20] (A) at (0,0) {Choose Extension Setting};
+  \node[decision] (B) at (0,-4) {Base manifold type};
+  \node[process] (C1) at (-6,-9) {§8.1 Noncompact\\Banach-dim. base};
+  \node[process] (C2) at (6,-9) {Compact finite-dim.\\base};
+  \node[decision] (D) at (6,-15) {Extension type};
+  \node[process] (E1) at (-10,-21) {§8.3 Parabolic slow mfld};
+  \node[process] (E2) at (-5,-21) {§8.2 Nonautonomous\\random};
+  \node[process] (E3) at (5,-21) {§8.4 Delay equations};
+  \node[process] (E4) at (10,-21) {§8.5 Quasilinear PDE};
+  \node[process] (E5) at (12,-24) {§8.6 Manifolds w/ boundary};
+  \node[process] (E6) at (0,-28) {Core §§3--5};
   \draw[->, thick] (A) -- (B);
   \draw[->, thick] (B) -- node[above]{Noncompact} (C1);
   \draw[->, thick] (B) -- node[above]{Compact finite-dim} (C2);
