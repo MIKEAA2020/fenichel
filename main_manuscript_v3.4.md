@@ -1,5 +1,7 @@
 # Cohomological Inverses and Fractional Jet Spectra in Banach-Space Normally Hyperbolic Persistence
 
+**Author:** Amin Abaee — independent researcher, Tehran, Iran. ORCID: [0000-0002-0019-1842](https://orcid.org/0000-0002-0019-1842). Email: [amin_abaee@ut.ac.ir](mailto:amin_abaee@ut.ac.ir).
+
 ---
 
 ## Abstract
@@ -714,6 +716,22 @@ The following table maps the main-text theorems to the supporting modules of the
 | Mixed graph transform | Two-sided invariant section: push stable forward, pull unstable backward |
 | 1-bunching $\mathfrak b_1^\pm<1$ | Condition ensuring the invariant set is a graph (not just a lamination) |
 | Principal jet obstruction | Periodic orbit resonance blocking surjectivity at order $k$ |
+
+---
+
+## Declarations
+
+**Author information.** Amin Abaee (independent researcher, Tehran, Iran). ORCID: [0000-0002-0019-1842](https://orcid.org/0000-0002-0019-1842). Email: [amin_abaee@ut.ac.ir](mailto:amin_abaee@ut.ac.ir).
+
+**Funding.** None.
+
+**Competing interests.** None.
+
+**AI use.** Ernie (Baidu) and Deepseek AI assisted with computations, numerical checks and literature review. The author reviewed and edited the outputs and takes full responsibility for the work.
+
+**Data availability.** No separate data set is associated with this manuscript; the mathematical content, numerical checks, and literature entries are reported in the manuscript body and appendices and are archived in the accompanying source files.
+
+**Ethics.** This manuscript concerns mathematical analysis of dynamical systems and does not involve human or animal participants, their data, or clinical material; therefore ethical approval and the corresponding informed consent were not applicable.
 
 ---
 
