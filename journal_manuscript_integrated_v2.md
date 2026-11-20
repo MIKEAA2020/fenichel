@@ -2095,6 +2095,8 @@ generates a uniformly exponentially dichotomous analytic semigroup. In particula
 
 together with uniform bounds on the associated spectral or dichotomy projections.
 
+\textbf{Hypotheses.} (P1) \textit{smooth dependence}. For a fixed $T>0$ the time-$T$ map $F_\varepsilon=\Phi^\varepsilon_T$ of the semiflow on $X_\theta\times Y$ is $C^{r+1,\beta}_b$ near the critical manifold. (P2) \textit{critical manifold}. $M_0=\{(h_0(v),v):v\in Y_0\}$ with $Ah_0(v)+f(h_0(v),v,0)=0$, $h_0\in C^{r+1,\beta}_b(Y_0;X_1)$, $Y_0\subset Y$ complete with a uniform atlas (e.g. $Y_0=Y$). (P3) \textit{uniform dichotomy}. $L_v=A+D_uf(h_0(v),v,0)$ generates an analytic semigroup, and $\|e^{tL_v}|_{E^s_v}\|\le Ce^{-\eta t}$ ($t\ge0$), $\|e^{-tL_v}|_{E^u_v}\|\le Ce^{-\eta t}$ with $E^u_v$ finite-dimensional, uniformly in $v$, and the spectral projections $P^{s,u}_v$ (Riesz projections of $L_v$) are $C^{r,\beta}_b$ in $v$. (This follows from a uniform resolvent bound on the strip $\{|\mathrm{Re}\,z|\le\eta\}$ and uniform sectoriality; the hypothesis stated in v2, a resolvent bound on $\{\mathrm{Re}\,z\ge-\eta\}$, would exclude any unstable part.)
+
 The Perron operator is formulated in weighted mild-solution spaces such as
 
 \[
@@ -4337,7 +4339,7 @@ This theorem supplies the linear inverse needed for a noncompact graph transform
 
 ## Appendix J. External two-sided HPS input and reduction to the manuscript's setting
 
-This appendix records the exact role of the external HPS theorem in the proof. It does not reprove the two-sided Hadamard matching lemma. Instead, it states the structural theorem imported from the HPS/Banach-space invariant-manifold literature and verifies that the hypotheses in the body of the manuscript reduce to that theorem in tubular coordinates.
+This appendix records the exact role of the external HPS theorem in the proof. It does not reprove the two-sided Hadamard matching lemma. Instead, it states the structural theorem imported from the HPS/Banach-space invariant-manifold literature and verifies that the hypotheses in the body of the manuscript reduce to that theorem in tubular coordinates. The imported structural input supplies the two-sided invariant sections whose existence and regularity is established by Theorems 5.3–5.6; these theorems guarantee the admissible invariant graphs that feed into the HPS reduction. The compatibility of forward and backward base correspondences is part of the imported theorem; it is not derived from separate stable-forward and unstable-backward component equations.
 
 ### J.1. External structural theorem
 
@@ -4366,6 +4368,8 @@ and that the normal cocycle has an exponential dichotomy satisfying the required
 The fixed point is obtained by the full two-sided admissible Hadamard graph transform. In particular, the compatibility of the forward and backward base correspondences is part of the theorem; it is not derived from separate stable-forward and unstable-backward component equations.
 
 For finite-dimensional fibres this is the graph-transform theorem of Hirsch, Pugh, and Shub [2]. Banach-space versions and the corresponding graph-transform/Perron constructions are developed in Bates--Lu [4] and Bates--Lu--Zeng [9].
+
+**Mapping to manuscript theorems.** The external structural theorem supplies the two-sided admissible invariant sections whose existence and uniqueness are established by **Theorem 5.3** (two-sided invariant section theorem), which guarantees the admissible invariant graph and its normal bundle splitting. **Theorem 5.4** extends this to the compact persistence theorem via the normal bundle construction of Appendix A/B. **Theorem 5.5** proves parameter regularity (Lipschitz and differentiability-with-loss) of the invariant section using the parameter expansions of Appendix F. **Theorem 5.6** addresses sharpness in skew-product and toral classes, using the fractional jet-spectrum results of Appendix K. The present tubular-bundle formulation of Sections 5.1–5.3 is a direct reduction of the external structural theorem to the Banach-bundle setting of the manuscript.
 
 ### J.2. Reduction from the present tubular-bundle formulation
 

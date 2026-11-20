@@ -52,7 +52,7 @@
 % ============================================================================
 \section*{Abstract}
 
-We study persistence of normally hyperbolic invariant manifolds in Banach spaces through the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$ of the normal cocycle $B$ over the tangential dynamics $f$.
+We study persistence of normally hyperbolic invariant manifolds in Banach spaces through the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$ of the normal cocycle $B$ over the tangential dynamics $f$. The framework decomposes the proof into linear cohomological inversion (Appendix A), HPS invariant-section matching (Appendices J, K), roughness of exponential dichotomies (Appendix C), Perron constructions for strong fibres (Appendix B), and regularity obstructions in induced jet cocycles (Appendix K). The main new analytic contribution is a fractional jet-spectrum theorem for the cohomological operator $\mathcal A\zeta=\zeta\circ f-B\zeta$ (Appendix K). Bounded invertibility on $C^{k,\alpha}$ sections follows from a subunit spectral radius of the exact Green summand operators on Hölder jet bundles. We also prove a periodic triangular jet-resonance obstruction to $C^k$-surjectivity (Appendix K). These linear results are placed within the standard HPS/Banach invariant-section architecture for normally hyperbolic persistence; the full two-sided nonlinear graph transform is used as an external structural input (Appendix J). Supporting modules include Banach-bundle $C^k$ inversion (Appendix A), Perron strong fibres (Appendix B), dichotomy roughness (Appendix C), parameter expansions (Appendix F), flow reduction (Appendix G), global stable sets, and a noncompact bounded-geometry linear inverse (Appendix I). The broader parabolic, random, delay, quasilinear, noncompact nonlinear, and Banach-dimensional settings are presented as conditional extension architectures with their required additional hypotheses (Section 8).
 
 \begin{center}
 \end{center}
@@ -364,7 +364,7 @@ In cocycle form: $\mathcal Gq(m)=\sum_{i\ge0}\Phi(i,0;\psi_im)P^sq(\psi_{i+1}m)-
 
 \subsection{The isomorphism theorem}
 
-\textbf{Theorem 4.2.} Assume $\bar{\mathfrak b}^+_{k,\alpha}<1$ and $\bar{\mathfrak b}^-_{k,\alpha}<1$ (for $\alpha=0$: $\mathfrak b^\pm_k<1$). Then $\mathcal A:C^{k,\alpha}(E)\to C^{k,\alpha}(f^*E)$ is an isomorphism with inverse $\mathcal G$, and $\|\mathcal G\|_{C^{k,\alpha}}\le C\sum_nn^{k+1}(\max\bar{\mathfrak b}^\pm+\varepsilon)^n<\infty$. The same holds for all orders $(j,\alpha')$ with $j\le k$ and $\alpha'\le\alpha$.
+\textbf{Theorem 4.2.} Assume $\bar{\mathfrak b}^+_{k,\alpha}<1$ and $\bar{\mathfrak b}^-_{k,\alpha}<1$ (for $\alpha=0$: $\mathfrak b^\pm_k<1$). Then $\mathcal A:C^{k,\alpha}(E)\to C^{k,\alpha}(f^*E)$ is an isomorphism with inverse $\mathcal G$, and $\|\mathcal G\|_{C^{k,\alpha}}\le C\sum_nn^{k+1}(\max\bar{\mathfrak b}^\pm+\varepsilon)^n<\infty$. The same holds for all orders $(j,\alpha')$ with $j\le k$ and $\alpha'\le\alpha$. (Proof in Appendix A.)
 
 \textit{Proof.} If $B$ is invertible, (H3) holds by Lemma 3.3 (since $\lambda\bar{\mathfrak b}^\pm<1$). Apply Lemma 3.1 to $\mathcal S^+$ (base map $\psi$, $W_m=B_{\psi m}|_{E^s}$; then $W^{(n)}(m)=\Phi(n,0;\psi_nm)|_{E^s}$, $\|W^{(n)}\|=a^+_n$, $\kappa_n=\kappa^+_n$, so $\mathfrak w_{k,\alpha}=\bar{\mathfrak b}^+_{k,\alpha}$) and to $\mathcal S^-$ (base map $f$, $W_m=B_m^{-1}|_{E^u_{fm}}$, $W^{(n)}(m)=\Phi(n,0;m)^{-1}$, $\mathfrak w=\bar{\mathfrak b}^-$). Thus $\|(\mathcal S^\pm)^n\|_{C^{k,\alpha}}\le Cn^{k+1}(\bar{\mathfrak b}^\pm+\varepsilon)^n$ and the series of Proposition 4.1 converge in operator norm on $C^{k,\alpha}$; $P^{s,u}$ and $\hat\cdot$ are bounded. So $\mathcal G$ is bounded on $C^{k,\alpha}$. Since $\mathcal A$ is bounded and $\mathcal A\mathcal G=I$ and (by $C^0$-uniqueness) $\mathcal G\mathcal A=I$, $\mathcal A$ is an isomorphism. The last statement follows from $\bar{\mathfrak b}_{j,\alpha'}\le\bar{\mathfrak b}_{k,\alpha}$ (Lemma 2.2(b),(e)). $\square$
 
@@ -372,9 +372,9 @@ In cocycle form: $\mathcal Gq(m)=\sum_{i\ge0}\Phi(i,0;\psi_im)P^sq(\psi_{i+1}m)-
 
 \textbf{Theorem 4.3.} Under (H0), (H1), (H3):
 \begin{itemize}
-    \item[(a)] $\rho^\pm_{k,\alpha}\le\bar{\mathfrak b}^\pm_{k,\alpha}$.
-    \item[(b)] $\rho^\pm_{k,\alpha}\ge\max\{\underline{\mathfrak b}^\pm_0,\ \underline{\mathfrak b}^\pm_{k+\alpha}\}$.
-    \item[(c)] For $\alpha=0$: $\rho^\pm_{k,0}=\mathfrak b^\pm_k$. In the rate-homogeneous class (Remark 2.3), $\rho^\pm_{k,\alpha}=\bar{\mathfrak b}^\pm_{k,\alpha}=\mathfrak b^\pm_{k+\alpha}$ for all $\alpha$. In general $\underline{\mathfrak b}\le\rho\le\bar{\mathfrak b}$, and the two bounds can differ.
+    \item[(a)] $\rho^\pm_{k,\alpha}\le\bar{\mathfrak b}^\pm_{k,\alpha}$ (Appendix K).
+    \item[(b)] $\rho^\pm_{k,\alpha}\ge\max\{\underline{\mathfrak b}^\pm_0,\ \underline{\mathfrak b}^\pm_{k+\alpha}\}$ (Appendix K).
+    \item[(c)] For $\alpha=0$: $\rho^\pm_{k,0}=\mathfrak b^\pm_k$. In the rate-homogeneous class (Remark 2.3), $\rho^\pm_{k,\alpha}=\bar{\mathfrak b}^\pm_{k,\alpha}=\mathfrak b^\pm_{k+\alpha}$ for all $\alpha$. In general $\underline{\mathfrak b}\le\rho\le\bar{\mathfrak b}$, and the two bounds can differ. (Appendix K, Remark K.5)
 \end{itemize}
 
 \textit{Proof.} (a) is Lemma 3.1 plus Gelfand's formula. (b) We treat $\mathcal S^+$; $\mathcal S^-$ is identical with $(Df^n,a^-_n)$ in place of $(D\psi_n,a^+_n)$. Fix $n$, $\varepsilon>0$. Choose $m_0$ with $a^+_n(m_0)\|D\psi_n(m_0)^s\ge(1-\varepsilon)\sup_m(\cdots)$, $s=k+\alpha$; put $y_0=\psi_n(m_0)$, choose a unit $e\in E^s_{y_0}$ with $\|\Phi(n,0;y_0)e\|\ge(1-\varepsilon)a^+_n(m_0)$, and a unit covector $\xi\in T^*_{y_0}M$ with $|D\psi_n(m_0)^{T}\xi|=\|D\psi_n(m_0)\|=:\Lambda$. In a chart near $y_0$ let
@@ -519,7 +519,7 @@ g^u\big(m',\sigma^s(m')+\eta^u\big)=\sigma^u\Big(b\big(m',\sigma^s(m')+\eta^u\bi
 
 \textbf{Remark (class uniqueness).} The uniqueness in Theorem 5.3(a) is uniqueness \textit{within the admissible class} $\Sigma_{\rho,L}$: an invariant section in the class is unique.
 
-\textbf{Theorem 5.3 (two-sided invariant section theorem).} Under (H4) there are $\varepsilon_0,\rho,L>0$ such that for $|\varepsilon|<\varepsilon_0$:
+\textbf{Theorem 5.3 (two-sided invariant section theorem).} Under (H4) there are $\varepsilon_0,\rho,L>0$ such that for $|\varepsilon|<\varepsilon_0$: \textit{(proof in Appendix J via the imported two-sided HPS structural input; supporting linear estimates in Appendix A, graph transform in Appendix D, parameter expansions in Appendix F)}
 
 \begin{itemize}
     \item[(a)] \textit{Existence, uniqueness, invariance.} There is a unique section $\sigma_\varepsilon\in\Sigma_{\rho,L}$ with $\widehat F_\varepsilon(\mathrm{Gr}\,\sigma_\varepsilon)=\mathrm{Gr}\,\sigma_\varepsilon$ (for the \textbf{original} $\widehat F_\varepsilon$, not only its $N$-th iterate); $\beta_\varepsilon=b_\varepsilon(\cdot,\sigma_\varepsilon(\cdot))$ is a homeomorphism of $M$ with $\sigma_\varepsilon\circ\beta_\varepsilon=g_\varepsilon(\cdot,\sigma_\varepsilon)$, and $\|\sigma_\varepsilon\|_0+\mathrm{Lip}\,\sigma_\varepsilon\le C\delta_\varepsilon$.
@@ -545,7 +545,7 @@ $m=\beta_\sigma^{-1}(m')$, $\beta^u(m')=b(m',\sigma^s(m')+\eta^u(m'))$, where $R
 
 **(c)** At $(\varepsilon,\sigma,J)=(0,0,0)$ the lifted fibre maps have $R_j=0$ (all pure-$m$ derivatives of $g_0$ at $\eta=0$ vanish and $\sigma=0$ is invariant at $\varepsilon=0$), and $R_j$ is Lipschitz in $(\delta_\varepsilon^{(j)},\|\sigma\|_0,\|J_{<j}\|)$. Hence $\|R_j\|\le C(\delta^{(j)}_\varepsilon+\|\sigma\|_0+\sum_{i<j}\|J_i\|)$ and $\|J_j\|\le\|R_j\|/(1-\theta')$; induct, using $\|\sigma_\varepsilon\|_0\le C\delta_\varepsilon$. The Hölder estimate is the same with the Hölder seminorm of $R_k$. $\square$
 
-\textbf{Theorem 5.4.} Let $X$ be a Banach space, $M\subset X$ a compact $C^{r+1,\beta}$ submanifold, $F_\varepsilon$ $C^{r+1,\beta}$ maps near $M$ with $F_0(M)=M$, $f=F_0|_M$ a diffeomorphism, and suppose the normal cocycle $B$ satisfies (H1), (B) with $k\ge1$, (H3), $k+\alpha\le r+\beta$. Choose the complement $E$ as in Lemma 3.4 with $\sup\|K\|\le\delta^*_1$. Then there is $\varepsilon_0>0$ such that for $|\varepsilon|<\varepsilon_0$:
+\textbf{Theorem 5.4.} Let $X$ be a Banach space, $M\subset X$ a compact $C^{r+1,\beta}$ submanifold, $F_\varepsilon$ $C^{r+1,\beta}$ maps near $M$ with $F_0(M)=M$, $f=F_0|_M$ a diffeomorphism, and suppose the normal cocycle $B$ satisfies (H1), (B) with $k\ge1$, (H3), $k+\alpha\le r+\beta$. Choose the complement $E$ as in Lemma 3.4 with $\sup\|K\|\le\delta^*_1$. Then there is $\varepsilon_0>0$ such that for $|\varepsilon|<\varepsilon_0$: \textit{(flow reduction in Appendix G; regularity in Appendix A)}
 \begin{itemize}
     \item[(a)] There is a unique $C^{k,\alpha}$ compact submanifold $M_\varepsilon=K_\varepsilon(M)$, $K_\varepsilon(m)=\Theta(m,\sigma_\varepsilon(m))$, in the tube with $F_\varepsilon(M_\varepsilon)=M_\varepsilon$ (exact equality) among graphs in the class $\Sigma_{\rho,L}$; $K_\varepsilon:M\to X$ is a $C^{k,\alpha}$ embedding and $f_\varepsilon:=\beta_\varepsilon$ is a $C^{k,\alpha}$ diffeomorphism with $F_\varepsilon\circ K_\varepsilon=K_\varepsilon\circ f_\varepsilon$.
     \item[(b)] If $\|F_\varepsilon-F_0\|_{C^{k,\alpha}}\le C|\varepsilon|$ then $\|K_\varepsilon-\iota_M\|_{C^{k,\alpha}}+\|f_\varepsilon-f\|_{C^{k,\alpha}}\le C'|\varepsilon|$.
@@ -555,7 +555,7 @@ $m=\beta_\sigma^{-1}(m')$, $\beta^u(m')=b(m',\sigma^s(m')+\eta^u(m'))$, where $R
 
 \textit{Proof.} (a),(b): Theorem 5.3 with $\widehat F_\varepsilon=\Theta^{-1}F_\varepsilon\Theta$; $F_\varepsilon(K_\varepsilon m)=\Theta\widehat F_\varepsilon(m,\sigma_\varepsilon m)=\Theta(\beta_\varepsilon m,\sigma_\varepsilon(\beta_\varepsilon m))=K_\varepsilon(\beta_\varepsilon m)$ and $\beta_\varepsilon$ is bijective. (c) $T_{K_\varepsilon m}M_\varepsilon$ is spanned by $(v,D\sigma_\varepsilon v)$, so the normal action on the fibre $E$ is $\eta\mapsto D_\eta g\,\eta-D\sigma_\varepsilon(\beta m)D_\eta b\,\eta$. Its $N$-step blocks in the reference splitting differ from those of $B$ by $O(C_N\tau)$, so the one-step quantities $s_j,u_j$ change by $O(\tau)$ and (by Lemma 2.2(d), upper semicontinuity of the Fekete limits) so do the numbers $\bar{\mathfrak b}^\pm$; an invariant splitting exists by Theorem 3.2(a) applied to the Grassmannian fibre map as in Lemma 3.3. (d) For $t\in[0,T]$, $\Phi^\varepsilon_t(M_\varepsilon)$ is $F_\varepsilon$-invariant ($\Phi_t$ commutes with $\Phi_T$) and, being $C^1$-close to $\Phi^0_t(M)=M$ uniformly on $[0,T]$, is a graph over $M$ (Lemma 5.1 for its base projection) of a section in $\Sigma_{\rho,L}$. By uniqueness it equals $M_\varepsilon$. For other $t$ use $\Phi_{t+T}=\Phi_t\Phi_T$. $\square$
 
-\textbf{Theorem 5.5.} Assume (H4).
+\textbf{Theorem 5.5.} Assume (H4). \textit{(Lipschitz/differentiability via parameter expansions, Appendix F; linearised cohomological equation inverted by Theorem 4.2/Appendix A)}
 \begin{itemize}
     \item[(a)] \textit{Lipschitz dependence.} $\|\sigma_\varepsilon-\sigma_{\varepsilon'}\|_{C^j}\le C\|\widehat F_\varepsilon-\widehat F_{\varepsilon'}\|_{C^j}$ for $j\le k$.
     \item[(b)] \textit{Differentiability with loss.} If $\varepsilon\mapsto\widehat F_\varepsilon$ is $C^1$ into $C^{k+1}(E_{\rho_0})$ and $k\ge1$, then $\varepsilon\mapsto\sigma_\varepsilon\in C^{k-1}(E)$ is $C^1$, and $\xi=\partial_\varepsilon\sigma_\varepsilon$ is the unique solution of the linearised cohomological equation $\xi\circ\beta_\varepsilon-\tilde B\xi=-(\partial_\varepsilon\Psi)(\varepsilon,\sigma_\varepsilon)$, $\Psi(\varepsilon,\sigma)=\sigma\circ\beta_\sigma-g_\varepsilon(\cdot,\sigma)$. Inductively, if $\varepsilon\mapsto\widehat F_\varepsilon\in C^p(\,\cdot\,;C^{k+p}(E_{\rho_0}))$ and $p\le k$ then $\sigma_\varepsilon\in C^p(\,\cdot\,;C^{k-p})$ and the Taylor coefficients satisfy $\mathcal A_0\sigma^{(p)}=-R_p(\sigma^{(1)},\dots,\sigma^{(p-1)})$ with $R_p$ the universal Faà di Bruno expression.
@@ -564,7 +564,7 @@ $m=\beta_\sigma^{-1}(m')$, $\beta^u(m')=b(m',\sigma^s(m')+\eta^u(m'))$, where $R
 \textit{Proof.} (a) The fixed points of the uniform contractions $\Gamma_\varepsilon$ and of the affine fibre maps $\mu_j$ depend Lipschitz on the parameter with constant $(1-\theta)^{-1}$ times the Lipschitz constant of the family (CT); the family distance is $\le C\|\widehat F_\varepsilon-\widehat F_{\varepsilon'}\|_{C^j}$ plus the distances of the lower jets; induct on $j$.
 (b) The linearisation $D_\sigma\Psi(\varepsilon,\sigma_\varepsilon)\xi=\xi\circ\beta_\varepsilon-\tilde B\xi$ is conjugate to $I-D\Gamma$, with $\|D\Gamma\|\le\theta<1$ in $C^0$ and, by the jet estimates of Theorem 5.3(b), uniformly on $C^j$ ($j\le k-1$ suffices below); hence it is invertible there with bounded inverse. Let $D_h=(\sigma_{\varepsilon+h}-\sigma_\varepsilon)/h$. By (a), $\|D_h\|_{C^k}\le C$. Subtracting the invariance equations, $D_\sigma\Psi(\varepsilon,\sigma_\varepsilon)D_h=-\partial_\varepsilon\Psi+O(|h|)$ in $C^{k-1}$, where the $O(|h|)$ remainders are second-order differences in $(\sigma_{\varepsilon+h}-\sigma_\varepsilon,\beta_{\varepsilon+h}-\beta_\varepsilon)$, controlled in $C^{k-1}$ by $\|D_h\|_{C^k}|h|$ (one derivative is paid for the composition). Hence $D_h\to-(D_\sigma\Psi)^{-1}\partial_\varepsilon\Psi$ in $C^{k-1}$. Continuity of the derivative follows from (a) at order $k-1$. Higher derivatives by induction, losing one derivative each time. $\square$
 
-\textbf{Theorem 5.6.} (a) \textit{Skew products.} Suppose $E=E^s$, $b_\varepsilon(m,\eta)=f(m)$ and $g_\varepsilon(m,\cdot)$ is a $C^{r,\beta}$ family of maps $E_{m}\to E_{fm}$ with $\mathfrak c_{0,0}<1$. Then Theorem 3.2 gives a unique invariant section, of class $C^{k,\alpha}$ whenever $\mathfrak c_{k,\alpha}<1$, \textbf{with no 1-bunching hypothesis}: in particular for $k=0$ and every $\alpha\in(0,1)$ with $\mathfrak c_{0,\alpha}<1$, even when $\mathfrak b_1\ge1$ and the section is merely Hölder.
+\textbf{Theorem 5.6.} (a) \textit{Skew products.} Suppose $E=E^s$, $b_\varepsilon(m,\eta)=f(m)$ and $g_\varepsilon(m,\cdot)$ is a $C^{r,\beta}$ family of maps $E_{m}\to E_{fm}$ with $\mathfrak c_{0,0}<1$. Then Theorem 3.2 gives a unique invariant section, of class $C^{k,\alpha}$ whenever $\mathfrak c_{k,\alpha}<1$, \textbf{with no 1-bunching hypothesis}: in particular for $k=0$ and every $\alpha\in(0,1)$ with $\mathfrak c_{0,\alpha}<1$, even when $\mathfrak b_1\ge1$ and the section is merely Hölder. \textit{(Skew products and sharpness in Appendix K; see also Example 4.5(ii))}
 (b) \textit{Sharpness.} In Example 4.5 take $F_\varepsilon(x,y)=(Ax,\lambda y+\varepsilon q(x))$ on $\mathbb T^2\times\mathbb R$, $q=\cos(2\pi\langle\nu,x\rangle)$. The invariant graph is $\sigma_\varepsilon=\varepsilon\,\mathcal Gq$, and by Example 4.5(ii) it lies in $C^s$ (non-integer $s$) iff $s<s_*=\log(1/\lambda)/\log\Lambda$, i.e. iff $\bar{\mathfrak b}_{k,\alpha}=\lambda\Lambda^{k+\alpha}<1$. So Theorems 5.3, 5.4, 5.5 are sharp: for every $s>s_*$ there are arbitrarily small smooth perturbations whose invariant section is not $C^s$.
 (c) \textit{Where 1-bunching matters.} If $\mathfrak b_1^\pm<1$ fails the invariant set need not be a graph (it is a Hölder lamination in general); this is why Theorem 5.3 and Theorem 5.4 assume $\mathfrak b_1^\pm<1$, while (a) does not need it because the base map does not depend on the fibre variable.
 
@@ -574,6 +574,8 @@ $m=\beta_\sigma^{-1}(m')$, $\beta^u(m')=b(m',\sigma^s(m')+\eta^u(m'))$, where $R
 \section{Strong stable fibres}
 
 Let $F=F_\varepsilon$ be a $C^{r+1,\beta}$ map near the compact invariant manifold $M_\varepsilon$ (Theorem 5.4; $M_0=M$ for $\varepsilon=0$), $F|_{M_\varepsilon}$ a diffeomorphism, and for $p\in M_\varepsilon$ write $p_n=F^n(p)$, $A_p(n)=DF(p_n)\in L(X)$, with cocycle $\Phi_p(n,k)=A_p(n-1)\cdots A_p(k)$.
+
+\textit{Appendix B: strong stable fibres / Perron constructions provide the $C^{k,\alpha}$ regularity theory below.}
 
 \textbf{(G) (uniform strong gap).} $DF$ has a continuous invariant splitting $X=E^s_p\oplus E^{cu}_p$ along $M_\varepsilon$ ($TM_\varepsilon\subset E^{cu}$, bounded projections $P^s,P^{cu}$, $DF(p)E^{cu}_p=E^{cu}_{Fp}$, $DF(p)E^s_p\subset E^s_{Fp}$) and constants $C\ge1$, $0\le\beta_{cu}<\alpha_s$ with
 \[
@@ -627,7 +629,7 @@ where $\mathsf T_x:J^k_{fx}(E)\to J^k_x(f^*E)$ is the jet-composition map $J\map
 
 \textbf{Example 7.2 (two-cycle).} $M=S^1$ with a diffeomorphism having an attracting 2-cycle $\{p_0,p_1\}$ with $f'(p_0)=f'(p_1)=\tfrac12$; $E=M\times\mathbb R$, $B\equiv\tfrac12$ ($E=E^s$, $\lambda=\tfrac12$). Order 0: $\mathfrak R_0=\Phi(2,0)=\tfrac14\ne1$, so $\mathcal A$ is invertible on $C^0$ (matrix $\begin{pmatrix}-1/2&1\\1&-1/2\end{pmatrix}$, determinant $-\tfrac34$). Order 1: $\mathfrak R_1=\Phi(2,0)(Df^2)^{-1}=\tfrac14\cdot4=1$, so $I-\mathfrak R_1=0$: $\mathcal A$ is \textbf{not onto $C^1$}. (Here $\mathfrak b_1^+\ge1$: the system sits exactly at the 1-bunching threshold.)
 
-\textbf{Theorem 7.3 (compact return).} Assume additionally that $E^u_p$ is finite-dimensional and $\Phi^s(N,0;p)$ is compact on $E^s_p$ (as for eventually compact semiflows; then $B_x$ is non-invertible on $E^s$, which (H1) permits). Then $I-\mathfrak R_{\le k}(p)$ is Fredholm of index $0$; hence it fails to be onto iff $1$ is an eigenvalue of some diagonal block $\mathfrak R_j(p)$, $j\le k$, i.e. iff there are an eigenvalue $\mu$ of $\Phi(N,0;p)$ and eigenvalues $d_1,\dots,d_j$ (with repetition) of $Df^N(p)$ with $\mu=d_1\cdots d_j$. In particular such a resonance with $j\le k$ is an obstruction to surjectivity of $\mathcal A$ on $C^{k,\alpha}$.
+\textbf{Theorem 7.3 (compact return).} Assume additionally that $E^u_p$ is finite-dimensional and $\Phi^s(N,0;p)$ is compact on $E^s_p$ (as for eventually compact semiflows; then $B_x$ is non-invertible on $E^s$, which (H1) permits). Then $I-\mathfrak R_{\le k}(p)$ is Fredholm of index $0$; hence it fails to be onto iff $1$ is an eigenvalue of some diagonal block $\mathfrak R_j(p)$, $j\le k$, i.e. iff there are an eigenvalue $\mu$ of $\Phi(N,0;p)$ and eigenvalues $d_1,\dots,d_j$ (with repetition) of $Df^N(p)$ with $\mu=d_1\cdots d_j$. In particular such a resonance with $j\le k$ is an obstruction to surjectivity of $\mathcal A$ on $C^{k,\alpha}$. \textit{(See Appendix K for the fractional jet-spectrum resonance obstruction; this theorem complements the fractional result: Theorem 7.3 applies to integer $k$, Appendix K extends to fractional jet spectra).}
 
 \textit{Proof.} Each diagonal block $\mathfrak R_j$ is compact on its $E^s$-part (compact $\Phi^s(N,0)$ composed with finite-dimensional tensor factors) and finite-dimensional on its $E^u$-part; the off-diagonal blocks are compact as well. So $\mathfrak R_{\le k}(p)$ is compact and $I-\mathfrak R_{\le k}(p)$ is Fredholm of index $0$ (Riesz–Schauder). For a block-triangular operator with diagonal blocks of the form $I-\text{(compact)}$, the index is the sum of the indices (all $0$), and invertibility holds iff each diagonal block is invertible; $I-\mathfrak R_j$ is non-invertible iff $1\in\sigma_p(\mathfrak R_j)$. On $\mathrm{Sym}^j(T^*_pM;E_p)$ the eigenvalues of $J\mapsto\Phi J(Df^{-N})^{\otimes j}$ are $\mu\,d_{i_1}^{-1}\cdots d_{i_j}^{-1}$. Apply Proposition 7.1. $\square$
 
@@ -659,7 +661,7 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
 
 \subsection{Noncompact and Banach-dimensional bases}
 
-\textbf{Theorem 8.1.} Let $M$ be a complete $C^{r+1,\beta}$ manifold, finite- or infinite-dimensional, with a \textit{uniform atlas} (charts of a fixed size with uniformly bounded $C^{r+1,\beta}$ transition maps), $f\in\mathrm{Diff}^{r+1,\beta}(M)$ with $\|f^{\pm1}\|_{C^{r+1,\beta}_b}<\infty$, $E\to M$ a $C^{r,\beta}$ Banach bundle with uniformly bounded trivialisations, $B\in C^{r,\beta}_b$ with (H1) holding with uniform constants, and (H3'): there is a $C^{r,\beta}_b$ reference splitting uniformly $\delta'$-close to $E^s\oplus E^u$ for every $\delta'>0$ (automatic for finite-dimensional $M$ of bounded geometry, by a uniformly locally finite partition of unity with uniformly bounded derivatives). Define all numbers with $\sup_{m\in M}$ and all function spaces as $C^{k,\alpha}_b$. Then Lemma 2.2, Lemma 3.1, Theorem 3.2, Lemma 3.3, Theorems 4.2–4.4, Proposition 5.2, and Theorems 5.3 and 5.5 hold verbatim (with constants depending only on the uniform bounds); the conclusion of Theorem 5.3(a) is a unique global invariant section $\sigma_\varepsilon\in C^{k,\alpha}_b$.
+\textbf{Theorem 8.1.} Let $M$ be a complete $C^{r+1,\beta}$ manifold, finite- or infinite-dimensional, with a \textit{uniform atlas} (charts of a fixed size with uniformly bounded $C^{r+1,\beta}$ transition maps), $f\in\mathrm{Diff}^{r+1,\beta}(M)$ with $\|f^{\pm1}\|_{C^{r+1,\beta}_b}<\infty$, $E\to M$ a $C^{r,\beta}$ Banach bundle with uniformly bounded trivialisations, $B\in C^{r,\beta}_b$ with (H1) holding with uniform constants, and (H3'): there is a $C^{r,\beta}_b$ reference splitting uniformly $\delta'$-close to $E^s\oplus E^u$ for every $\delta'>0$ (automatic for finite-dimensional $M$ of bounded geometry, by a uniformly locally finite partition of unity with uniformly bounded derivatives). Define all numbers with $\sup_{m\in M}$ and all function spaces as $C^{k,\alpha}_b$. Then Lemma 2.2, Lemma 3.1, Theorem 3.2, Lemma 3.3, Theorems 4.2–4.4, Proposition 5.2, and Theorems 5.3 and 5.5 hold verbatim (with constants depending only on the uniform bounds); the conclusion of Theorem 5.3(a) is a unique global invariant section $\sigma_\varepsilon\in C^{k,\alpha}_b$. \textit{(Global validity of the linear estimates via the noncompact uniform inverse of Appendix I; uniform constants via Appendix C (roughness) and Appendix F (parameter expansion).)}
 
 \textit{Proof.} Compactness enters the proofs only through (i) Lemma 5.1 (proved above for complete $M$ with uniform charts, using no degree or covering argument); (ii) the existence of a finite atlas (replaced by the uniform atlas; every estimate in a chart is uniform); (iii) the partition-of-unity approximations of the projections in Lemma 3.3 and the complement in Lemma 3.4 (replaced by (H3') and the assumption that a complement with coupling $\le\delta_1^*$ exists); (iv) completeness of $C^0(V_\rho)$ and of the weighted fibre spaces, which holds for $C_b$-norms. No Arzelà–Ascoli argument is used. The fibre contraction theorem is stated for arbitrary complete metric spaces. $\square$
 
@@ -675,7 +677,7 @@ and the Hölder norms of the data, are bounded uniformly in $n$, and $\sup_n\|\w
 \[
 \sigma_{\varepsilon,n+1}\big(b_{\varepsilon,n}(m,\sigma_{\varepsilon,n}(m))\big)=g_{\varepsilon,n}\big(m,\sigma_{\varepsilon,n}(m)\big),
 \]
-with $\sigma_{\varepsilon,n}\in C^{k,\alpha}$ and the bounds of Theorem 5.3(c) uniform in $n$.
+with $\sigma_{\varepsilon,n}\in C^{k,\alpha}$ and the bounds of Theorem 5.3(c) uniform in $n$. \textit{(Bi-infinite sequence persistence; the one-step uniform estimates use Appendix A (linear inversion) and the parameter dependence uses Appendix F.)}
 
 \textit{Proof.} On the complete space $\prod_n\Sigma_{\rho,L}$ (sup over $n$) let $(\Gamma\sigma)^s_{n+1}$ be defined from $\sigma_n$ by (5.1) with the data at time $n$, and $(\Gamma\sigma)^u_n$ from $\sigma_{n+1}$ by (5.2) with the data at time $n$. All estimates of Proposition 5.2 and of the jet lift are one-step and uniform in $n$, so the proofs of Theorem 5.3 (b), (c) go through verbatim (no iteration step is needed since the one-step numbers are already $<1$). $\square$
 
@@ -683,7 +685,7 @@ with $\sigma_{\varepsilon,n}\in C^{k,\alpha}$ and the bounds of Theorem 5.3(c) u
 \[
 \sigma_\varepsilon(\theta\omega)\Big(b_\varepsilon\big(\omega,m,\sigma_\varepsilon(\omega)(m)\big)\Big)=g_\varepsilon\big(\omega,m,\sigma_\varepsilon(\omega)(m)\big),
 \]
-i.e. $\widehat F_{\varepsilon}(\omega,\mathrm{Gr}\,\sigma_\varepsilon(\omega))=\mathrm{Gr}\,\sigma_\varepsilon(\theta\omega)$.
+i.e. $\widehat F_{\varepsilon}(\omega,\mathrm{Gr}\,\sigma_\varepsilon(\omega))=\mathrm{Gr}\,\sigma_\varepsilon(\theta\omega)$. \textit{(Random ergodic extension; see Appendix I for noncompact linear theory needed in measurable settings.)}
 
 \textit{Proof.} Apply Theorem 8.2 to $n\mapsto(\ldots)_{\theta^n\omega}$ for each $\omega$; uniqueness identifies the sequence with the family $n\mapsto\sigma_\varepsilon(\theta^n\omega)$, and measurability follows because $\sigma_\varepsilon(\omega)=\lim_n\Gamma^n(0)(\omega)$ is a pointwise limit of measurable maps. $\square$
 
@@ -693,7 +695,7 @@ For the theory of invariant manifolds in infinite-dimensional settings via the p
 
 \textbf{Hypotheses.} (P1) \textit{smooth dependence} For a fixed $T>0$ the time-$T$ map $F_\varepsilon=\Phi^\varepsilon_T$ of the semiflow on $X_\theta\times Y$ is $C^{r+1,\beta}_b$ near the critical manifold. (P2) \textit{critical manifold} $M_0=\{(h_0(v),v):v\in Y_0\}$ with $Ah_0(v)+f(h_0(v),v,0)=0$, $h_0\in C^{r+1,\beta}_b(Y_0;X_1)$, $Y_0\subset Y$ complete with a uniform atlas (e.g. $Y_0=Y$). (P3) \textit{uniform dichotomy} $L_v=A+D_uf(h_0(v),v,0)$ generates an analytic semigroup, and $\|e^{tL_v}|_{E^s_v}\|\le Ce^{-\eta t}$ ($t\ge0$), $\|e^{-tL_v}|_{E^u_v}\|\le Ce^{-\eta t}$ with $E^u_v$ finite-dimensional, uniformly in $v$, and the spectral projections $P^{s,u}_v$ (Riesz projections of $L_v$) are $C^{r,\beta}_b$ in $v$. (This follows from a uniform resolvent bound on the strip $\{|\mathrm{Re}\,z|\le\eta\}$ and uniform sectoriality; the hypothesis stated in v2, a resolvent bound on $\{\mathrm{Re}\,z\ge-\eta\}$, would exclude any unstable part.)
 
-\textbf{Theorem 8.4.} Under (P1)–(P3) there are $\varepsilon_0>0$ and $h_\varepsilon\in C^{r,\beta}_b(Y_0;X_\theta)$, $|\varepsilon|<\varepsilon_0$, with $\|h_\varepsilon-h_0\|_{C^{r,\beta}_b}\le C|\varepsilon|$, such that $M_\varepsilon=\{(h_\varepsilon(v),v)\}$ is the unique invariant graph of $F_\varepsilon$ in a tube; it is invariant under the semiflow (for all $t\ge0$ for which solutions stay in the tube, and under the full flow of the reduced equation $v_t=\varepsilon g(h_\varepsilon(v),v,\varepsilon)$ on $M_\varepsilon$).
+\textbf{Theorem 8.4.} Under (P1)–(P3) there are $\varepsilon_0>0$ and $h_\varepsilon\in C^{r,\beta}_b(Y_0;X_\theta)$, $|\varepsilon|<\varepsilon_0$, with $\|h_\varepsilon-h_0\|_{C^{r,\beta}_b}\le C|\varepsilon|$, such that $M_\varepsilon=\{(h_\varepsilon(v),v)\}$ is the unique invariant graph of $F_\varepsilon$ in a tube; it is invariant under the semiflow (for all $t\ge0$ for which solutions stay in the tube, and under the full flow of the reduced equation $v_t=\varepsilon g(h_\varepsilon(v),v,\varepsilon)$ on $M_\varepsilon$). \textit{(Parabolic critical-manifold section; see Appendix K (critical manifold jets / fractional spectra) and Appendix C (dichotomy roughness under the parabolic semigroup).)}
 
 \textit{Proof.} Use the trivial bundle $E=Y_0\times X_\theta$ and $\Theta(v,\xi)=(h_0(v)+\xi,v)$, which is $C^{r+1,\beta}$. At $\varepsilon=0$ the $v$-component is constant, so $b_0(v,\xi)=v$: the base map is $f=\mathrm{id}$, the coupling $K\equiv0$, $\kappa^\pm_n\equiv1$, $\ell_n^\pm=1$. Also $g_0(v,0)=0$ (the critical manifold consists of equilibria) and $B_v=D_\xi g_0(v,0)=e^{TL_v}$, which satisfies (H1) with $a^\pm_n\le Ce^{-\eta nT}$ by (P3); $B_v$ is not invertible on $E^s$ but $B^u_v$ is an isomorphism of the finite-dimensional $E^u_v$. Therefore $\mathfrak b^\pm_s\le e^{-\eta T}<1$ and $\bar{\mathfrak b}^\pm_{k,\alpha}<1$ for \textbf{every} $k+\alpha\le r+\beta$ (bunching is automatic because $f=\mathrm{id}$). (H3) holds by (P3). Apply Theorem 8.1 (global version of Theorem 5.3) with $K=0$. Invariance of $M_\varepsilon$ under $\Phi^\varepsilon_t$, $t\in[0,T]$, follows as in Theorem 5.4(d): $\Phi^\varepsilon_t(M_\varepsilon)$ is an $F_\varepsilon$-invariant graph in the class (it is $C^1$-close to $\Phi_t^0(M_0)=M_0$, as $\Phi^0_t=\mathrm{id}$ on $M_0$), hence equals $M_\varepsilon$. $\square$
 
@@ -703,7 +705,7 @@ For the theory of invariant manifolds in functional differential equations, see 
 
 Consider $\dot x(t)=G(x_t,\varepsilon)$ on $X=C([-\tau,0];\mathbb R^d)$ with $G\in C^{r+1,\beta}_b$. \textbf{Hypotheses.} (D0) the solution maps $T^\varepsilon_t$, $t>0$, are $C^{r+1,\beta}$ (standard for $G\in C^{r+1,\beta}$) and $T^\varepsilon_t$ is compact for $t\ge\tau$; (D1) $M_0\subset X$ is a compact finite-dimensional $C^{r+1,\beta}$ submanifold with $T^0_t(M_0)=M_0$ and $T^0_t|_{M_0}$ a $C^{r+1,\beta}$ flow ($t\in\mathbb R$); (D2) for some $T\ge\tau$ the normal cocycle $B_m$ induced by $DT^0_T(m)$ satisfies (H1) (necessarily with $E^u_m$ \textbf{finite-dimensional}, as $B$ is compact for $T\ge\tau$), (H3) and (B). See Hale~\cite{hal77} for the standard theory of functional differential equations.
 
-\textbf{Theorem 8.5.} Under (D0)–(D2) there are $\varepsilon_0>0$ and, for $|\varepsilon|<\varepsilon_0$, a unique $C^{k,\alpha}$ compact submanifold $M_\varepsilon$ near $M_0$, invariant under $T^\varepsilon_t$ for all $t\ge0$, such that $T_t^\varepsilon|_{M_\varepsilon}$ extends to a $C^{k,\alpha}$ flow which is $C^1$-close to $T^0_t|_{M_0}$.
+\textbf{Theorem 8.5.} Under (D0)–(D2) there are $\varepsilon_0>0$ and, for $|\varepsilon|<\varepsilon_0$, a unique $C^{k,\alpha}$ compact submanifold $M_\varepsilon$ near $M_0$, invariant under $T^\varepsilon_t$ for all $t\ge0$, such that $T_t^\varepsilon|_{M_\varepsilon}$ extends to a $C^{k,\alpha}$ flow which is $C^1$-close to $T^0_t|_{M_0}$. \textit{(Delay equations; one-sided invariant graph via Appendix D.)}
 
 \textit{Proof.} The time-$T$ map $F_\varepsilon=T^\varepsilon_T$ is $C^{r+1,\beta}$ and, restricted to $M_0$, a diffeomorphism; its normal cocycle satisfies (H1) with non-invertible stable part, which is allowed. Theorem 5.4 applies, and Theorem 5.4(d) (with $\Phi^0_t(M_0)=M_0$) gives invariance under the semiflow. $\square$
 
@@ -720,7 +722,7 @@ Then there are $\varepsilon_0>0$ and a smooth tame map $\varepsilon\mapsto\sigma
 
 \textit{Proof.} Apply the Nash–Moser theorem (Hamilton III.1.1.1) to $\mathcal P(\varepsilon,\sigma)=(\varepsilon,\Psi(\varepsilon,\sigma))$ at $(0,0)$: $D\mathcal P$ is bijective with smooth tame inverse $(\delta\varepsilon,q)\mapsto(\delta\varepsilon,V\Psi(\cdot,q-\partial_\varepsilon\Psi\,\delta\varepsilon))$. Hence $\mathcal P$ is locally a smooth tame diffeomorphism, and $\sigma_\varepsilon=\mathrm{pr}_2\mathcal P^{-1}(\varepsilon,0)$. $\square$
 
-\textbf{Remark.} (Q2) is where the linear theory enters: when $\Psi$ loses no derivative, Theorems 4.2 and 4.3 give bounded inverses on every $C^{k,\alpha}$ with tame dependence on $\sigma$ through the constants $C_{\varepsilon}$ of Lemma 3.1, but Nash–Moser is then unnecessary because Theorems 5.3 and 5.5 apply directly. For genuinely quasilinear problems, (Q2) must be verified with a loss $d>0$; a general verification is not claimed.
+\textbf{Remark.} (Q2) is where the linear theory enters: when $\Psi$ loses no derivative, Theorems 4.2 and 4.3 give bounded inverses on every $C^{k,\alpha}$ with tame dependence on $\sigma$ through the constants $C_{\varepsilon}$ of Lemma 3.1, but Nash–Moser is then unnecessary because Theorems 5.3 and 5.5 apply directly. For genuinely quasilinear problems, (Q2) must be verified with a loss $d>0$; a general verification is not claimed. \textit{(Jet/cohomological estimates underlying (Q2) are developed in Appendix K (fractional jet spectra).)}
 
 \subsection{Manifolds with boundary}
 
@@ -733,7 +735,35 @@ When \(M\) has non-empty boundary, ordinary invariance may fail: the graph trans
     \item \textbf{Cutoff invariance}: the vector field is cut off outside a prescribed region, so the invariant manifold is invariant for the modified system.
 \end{enumerate}
 
-Persistence in the boundary case requires \textbf{boundary-compatible hyperbolicity}: the normal hyperbolicity must hold uniformly up to the boundary, and the chosen invariance notion must be compatible with the boundary geometry. Under these hypotheses, the graph transform applies verbatim in the interior and up to the boundary, with the boundary conditions determining which of the four notions is realised. A full treatment requires the boundary-compatible tubular neighbourhood and the uniform estimates up to \(\partial M\); this is a genuine extension of the compact case, not a direct corollary.
+Persistence in the boundary case requires \textbf{boundary-compatible hyperbolicity}: the normal hyperbolicity must hold uniformly up to the boundary, and the chosen invariance notion must be compatible with the boundary geometry. Under these hypotheses, the graph transform applies verbatim in the interior and up to the boundary, with the boundary conditions determining which of the four notions is realised. A full treatment requires the boundary-compatible tubular neighbourhood and the uniform estimates up to \(\partial M\); this is a genuine extension of the compact case, not a direct corollary. \textit{(One-sided invariant graph transforms relevant here are in Appendix D; the full boundary case is not claimed by the two-sided theorem 5.3 of Appendix J.)}
+
+\subsection*{Supplementary Appendix Map}
+
+The following table maps the main-text theorems to the supporting modules of the supplementary material.
+
+\begin{table}[h]
+\centering
+\caption{Supplementary appendix map.}
+\label{tab:supp-map}
+\begin{tabular}{lll}
+\textbf{Main result} & \textbf{Mechanism used} & \textbf{Appendix} \\
+\hline
+Thm 4.2 (isomorphism) & Banach-bundle cocycle inversion, Green series & A \\
+Thm 4.3, 4.4 (spectral radii) & Gelfand, Fekete, Green & K \\
+Thm 5.3 (existence, two-sided) & two-sided HPS graph transform & J \\
+Thm 5.4 (regularity) & strong stable fibres, Perron contractions & B \\
+Thm 5.5 (Lipschitz, loss) & parameter expansions, Faà di Bruno jets & F \\
+Thm 5.6 (sharpness) & toral automorphism, jet spectra & K \\
+Thm 6.1 (strong fibres) & Perron strong fibres & B \\
+Thm 7.3 (compact return) & Fredholm/resonance & K \\
+Thm 8.1 (global, noncompact) & noncompact uniform inverses & I \\
+Thm 8.2, 8.3 (nonautonomous, random) & uniform one-step contractions & I \\
+Thm 8.4 (parabolic) & critical manifold jets & K \\
+Thm 8.5 (delay) & one-sided transform & D \\
+Thm 8.6 (quasilinear, loss) & Nash–Moser / tame inverses & K \\
+\end{tabular}
+\end{table}
+
 
 % ============================================================================
 % SECTION 9: WHAT REMAINS OPEN
