@@ -8,10 +8,11 @@ We study persistence of normally hyperbolic invariant manifolds in Banach spaces
 
 ```mermaid
 graph LR
-    M[Base Manifold M] -->|f| M
-    E[Banach Bundle E→M] -->|B| E
-    E -->|π_s,π_u| S[Stable Bundle E^s]
-    E -->|π_s,π_u| U[Unstable Bundle E^u]
+    M[Base Manifold M]
+    E[Banach Bundle E over M]
+    E -->|B| E
+    E -->|proj_s, proj_u| S[Stable Bundle E^s]
+    E -->|proj_s, proj_u| U[Unstable Bundle E^u]
     style M fill:#f9f,stroke:#333,stroke-width:2px
     style E fill:#bbf,stroke:#333,stroke-width:2px
     style S fill:#cfc,stroke:#333,stroke-width:1px
@@ -277,13 +278,13 @@ where $\chi$ is a cutoff and $\tilde e$ a local $C^{r,\beta}$ section with $\til
 
 ```mermaid
 graph TD
-    A[Transfer operator 𝒮± on C^{k,α}] --> B{ρ(𝒮±) < 1?}
-    B -->|Yes| C[𝒜 is isomorphism]
-    B -->|No| D{1 ∈ σ(𝒮±)?}
+    A[Transfer operator S] --> B{Spectral radius < 1?}
+    B -->|Yes| C[A is isomorphism]
+    B -->|No| D{1 in spectrum?}
     D -->|No| E[Green series converges]
-    E --> F[𝒜 is isomorphism]
-    D -->|Yes| G[𝒜 is not isomorphism]
-    H[Sharp converse] -->|(R) + (RC)| I[𝒜 isom. ⇒ ρ<1]
+    E --> F[A is isomorphism]
+    D -->|Yes| G[A is not isomorphism]
+    H[Sharp converse] -->|(R) + (RC)| I[A isom implies rho<1]
     I --> J[Spectrum rotation invariant]
     J --> K[Annulus in unit disc]
     style A fill:#bbf,stroke:#333
@@ -374,12 +375,12 @@ $$g^u\big(m',\sigma^s(m')+\eta^u\big)=\sigma^u\Big(b\big(m',\sigma^s(m')+\eta^u\
 
 ```mermaid
 graph LR
-    A[σ ∈ Σ] -->|Step 1: Push stable forward| B[(Γσ)^s via β_σ^-1]
-    A -->|Step 2: Pull unstable back| C[(Γσ)^u via eq. 5.2]
-    B --> D[Γσ = (Γσ)^s + (Γσ)^u]
+    A[Section sigma] -->|Step 1: Push stable forward| B[Gamma sigma stable via beta inverse]
+    A -->|Step 2: Pull unstable back| C[Gamma sigma unstable via eq 5.2]
+    B --> D[Gamma sigma = sum of parts]
     C --> D
-    D -->|Contraction θ<1| E[Fixed point σ_ε]
-    E -->|Invariance| F[Graph σ_ε is F̂_ε-invariant]
+    D -->|Contraction| E[Fixed point sigma_epsilon]
+    E -->|Invariance| F[Graph is invariant]
     style A fill:#bbf,stroke:#333
     style D fill:#dfd,stroke:#333
     style E fill:#ff9,stroke:#333,stroke-width:2px
@@ -566,18 +567,18 @@ The compact invertible theorem is the model case. The table summarises the repla
 
 ```mermaid
 flowchart TD
-    A[Choose Extension Setting] --> B{Base manifold?}
-    B -->|Compact finite-dim| C[§8.1 Noncompact base]
+    A[Choose Extension Setting] --> B{Base manifold type}
+    B -->|Compact finite-dim| C[Section 8.1 Noncompact base]
     B -->|Noncompact / Banach-dim| C
-    B -->|Compact finite-dim| D{Time dependence?}
-    D -->|Autonomous| E{Problem type?}
-    D -->|Nonautonomous| F[§8.2 Nonautonomous]
-    D -->|Random| G[§8.3 Random]
-    E -->|Parabolic/slow-fast| H[§8.3 Parabolic]
-    E -->|Delay equations| I[§8.4 Delay]
-    E -->|Quasilinear PDE| J[§8.5 Quasilinear]
-    E -->|Manifold with boundary| K[§8.6 Boundary]
-    E -->|Standard NHIM| L[Core §§3-5]
+    B -->|Compact finite-dim| D{Time dependence}
+    D -->|Autonomous| E{Problem type}
+    D -->|Nonautonomous| F[Section 8.2 Nonautonomous]
+    D -->|Random| G[Section 8.3 Random]
+    E -->|Parabolic/slow-fast| H[Section 8.3 Parabolic]
+    E -->|Delay equations| I[Section 8.4 Delay]
+    E -->|Quasilinear PDE| J[Section 8.5 Quasilinear]
+    E -->|Manifold with boundary| K[Section 8.6 Boundary]
+    E -->|Standard NHIM| L[Core Sections 3-5]
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style L fill:#dfd,stroke:#333,stroke-width:2px
     style C fill:#bbf,stroke:#333
