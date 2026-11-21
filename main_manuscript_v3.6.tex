@@ -777,31 +777,32 @@ Manifolds with boundary (§8.6) & Green operator with boundary conditions & $C^k
 \begin{figure}[h]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[node distance=2.4cm and 1.8cm, 
+\begin{tikzpicture}[node distance=2.8cm and 3.4cm,
   decision/.style={draw, diamond, aspect=2.5, inner sep=1.5pt, font=\footnotesize},
-  process/.style={draw, rounded corners, minimum width=2.5cm, minimum height=0.8cm, align=center, font=\footnotesize},
-  terminal/.style={draw, rectangle, rounded corners, minimum width=2.8cm, minimum height=0.8cm, align=center, font=\footnotesize}]
+  process/.style={draw, rounded corners, minimum width=2.5cm, minimum height=0.8cm, align=center, font=\footnotesize}]
   \node[process, fill=blue!20] (A) {Choose Extension Setting};
   \node[decision, below=of A] (B) {Base manifold type};
-  \node[process, below left=of B, xshift=-2.8cm] (C1) {§8.1 Noncompact\\Banach-dim. base};
-  \node[process, below right=of B, xshift=2.8cm] (C2) {Compact finite-dim.\\base};
-  \node[decision, below=of C2] (D) {Extension type};
-  \node[process, below left=of D, xshift=-3.8cm] (E1) {§8.3 Parabolic slow mfld};
-  \node[process, below=of D, xshift=-1.8cm] (E2) {§8.2 Nonautonomous\\random};
-  \node[process, below=of D, xshift=1.8cm] (E3) {§8.4 Delay equations};
-  \node[process, below right=of D, xshift=3.8cm] (E4) {§8.5 Quasilinear PDE};
-  \node[process, below right=of D, xshift=0cm, yshift=-1.4cm] (E5) {§8.6 Manifolds w/ boundary};
-  \node[process, below=of D, yshift=-3.2cm] (E6) {Core §§3--5};
+  \node[process, below left=of B] (C1) {§8.1 Noncompact\\Banach-dim. base};
+  \node[decision, below right=of B] (D) {Time dependence};
+  \node[decision, below left=of D] (E) {Problem type};
+  \node[process, below=of D] (E2) {§8.2 Nonautonomous};
+  \node[process, below right=of D] (E2b) {§8.2 Random};
+  \node[process, below=of E, xshift=-10cm] (E1) {§8.3 Parabolic};
+  \node[process, below=of E, xshift=-5cm] (E3) {§8.4 Delay};
+  \node[process, below=of E] (E4) {§8.5 Quasilinear};
+  \node[process, below=of E, xshift=5cm] (E5) {§8.6 Boundary};
+  \node[process, below=of E, xshift=10cm] (E6) {Core §§3--5};
   \draw[->, thick] (A) -- (B);
   \draw[->, thick] (B) -| node[above]{Noncompact} (C1);
-  \draw[->, thick] (B) -| node[above]{Compact finite-dim} (C2);
-  \draw[->, thick] (C2) -| (D);
-  \draw[->, thick] (D) -| (E1);
-  \draw[->, thick] (D) -| (E2);
-  \draw[->, thick] (D) -| (E3);
-  \draw[->, thick] (D) -| (E4);
-  \draw[->, thick] (D) -| (E5);
-  \draw[->, thick] (D) -| (E6);
+  \draw[->, thick] (B) -| node[above]{Compact finite-dim} (D);
+  \draw[->, thick] (D) -| node[left]{Autonomous} (E);
+  \draw[->, thick] (D) -| node[above]{Nonautonomous} (E2);
+  \draw[->, thick] (D) -| node[above]{Random} (E2b);
+  \draw[->, thick] (E) -| node[above]{Parabolic slow-fast} (E1);
+  \draw[->, thick] (E) -| node[above]{Delay equations} (E3);
+  \draw[->, thick] (E) -| node[above]{Quasilinear PDE} (E4);
+  \draw[->, thick] (E) -| node[above]{Manifold w/ boundary} (E5);
+  \draw[->, thick] (E) -| node[above]{Standard NHIM} (E6);
 \end{tikzpicture}%
 }
 \caption{Extension setting selector flowchart.}
