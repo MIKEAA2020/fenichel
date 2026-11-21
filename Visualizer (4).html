@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+(function() {
+  function sendError(msg, stack, lineno, colno) {
+    try {
+      window.parent.postMessage({
+        type: "BDS_VISUALIZER_ERROR",
+        message: String(msg || "Script error"),
+        stack: stack ? String(stack) : null,
+        lineno: lineno ?? null,
+        colno: colno ?? null
+      }, "*");
+    } catch(e) {}
+  }
+  window.addEventListener("error", function(e) {
+    sendError(e.message, e.error ? e.error.stack : null, e.lineno, e.colno);
+  });
+  window.addEventListener("unhandledrejection", function(e) {
+    var reason = e.reason;
+    var msg = reason ? (reason.message || String(reason)) : "Unhandled Promise Rejection";
+    var stack = reason && reason.stack ? reason.stack : null;
+    sendError(msg, stack);
+  });
+})();
+</script>
+    <style>
+:root {
+  --v-bg: #ffffff;
+  --v-panel: #ffffff;
+  --v-border: #e5e5e5;
+  --v-border-strong: #d1d5db;
+  --v-accent: #4d6bfe;
+  --v-accent-glow: rgba(77, 107, 254, 0.1);
+  --v-text: #0d0d0d;
+  --v-text-secondary: #6b6b6b;
+  --v-text-dim: #999999;
+  --v-radius: 12px;
+  --v-radius-sm: 8px;
+  --v-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+}
+body {
+  margin: 0;
+  padding: clamp(12px, 2vw, 28px);
+  background: var(--v-bg);
+  color: var(--v-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--v-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--v-border-strong);
+}
+.v-card {
+  background: var(--v-panel);
+  border: 1px solid var(--v-border);
+  border-radius: var(--v-radius);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: var(--v-shadow);
+  animation: v-fade-in 0.25s ease-out;
+}
+.v-glass {
+  background: transparent;
+  border: 1px solid var(--v-border);
+  border-radius: var(--v-radius-sm);
+}
+.v-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--v-text);
+  border-bottom: 2px solid var(--v-border);
+  padding-bottom: 6px;
+  display: inline-block;
+}
+.v-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+.v-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--v-text-secondary);
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--v-border);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  margin: 8px 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--v-accent);
+  border: 2px solid var(--v-panel);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--v-accent);
+  border: 2px solid var(--v-panel);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  background: var(--v-bg);
+  color: var(--v-text);
+  border: 1px solid var(--v-border);
+  border-radius: var(--v-radius-sm);
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--v-accent);
+  box-shadow: 0 0 0 2px var(--v-accent-glow);
+}
+select {
+  cursor: pointer;
+}
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+.v-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.v-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8125rem;
+  color: var(--v-accent);
+  font-weight: 700;
+  background: var(--v-accent-glow);
+  padding: 3px 10px;
+  border-radius: var(--v-radius-sm);
+}
+button.v-btn {
+  background: var(--v-accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--v-radius-sm);
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+}
+button.v-btn:hover {
+  filter: brightness(0.9);
+  transform: translateY(-1px);
+}
+button.v-btn:active {
+  transform: translateY(0);
+}
+button.v-btn-outline {
+  background: transparent;
+  color: var(--v-accent);
+  border: 1px solid var(--v-accent);
+}
+button.v-btn-outline:hover {
+  background: var(--v-accent-glow);
+}
+.v-animate-float {
+  animation: v-float 3s ease-in-out infinite;
+}
+@keyframes v-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+pre, code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8125rem;
+}
+pre {
+  background: var(--v-bg);
+  border: 1px solid var(--v-border);
+  border-radius: var(--v-radius-sm);
+  padding: 12px 16px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+code {
+  background: var(--v-accent-glow);
+  color: var(--v-accent);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+}
+input[type="checkbox"] {
+  accent-color: var(--v-accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+canvas {
+  width: 100%;
+  border: 1px solid var(--v-border-strong);
+  border-radius: var(--v-radius-sm);
+  background: var(--v-panel);
+}
+@keyframes v-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  </style>
+  </head>
+  <body><div class="v-card" style="padding: 30px; background: #ffffff; display: flex; justify-content: center;">
+  <svg viewBox="0 0 1280 720" width="100%" style="max-width: 1150px; height: auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Extension setting selector flowchart">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+      </marker>
+      <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.08"/>
+      </filter>
+    </defs>    <!-- Directed edges -->    <g fill="none" stroke="#333333" stroke-width="1.2" marker-end="url(#arrow)">
+      <path d="M 640 80 V 110" />
+      <path d="M 540 154 H 320 V 180" />
+      <path d="M 640 198 V 250" />
+      <path d="M 540 294 H 320 V 410" />
+      <path d="M 640 338 V 430" />
+      <path d="M 740 294 H 960 V 430" />
+      <path d="M 320 540 V 580" />
+      <path d="M 500 540 V 580" />
+      <path d="M 680 540 V 580" />
+      <path d="M 860 540 V 580" />
+      <path d="M 1040 540 V 580" />
+    </g>    <!-- Undirected bus -->    <g fill="none" stroke="#333333" stroke-width="1.2">
+      <path d="M 320 498 V 540" />
+      <path d="M 320 540 H 1040" />
+    </g>    <!-- Edge labels -->    <g font-family="Georgia, 'Times New Roman', serif" font-size="11.5" font-style="italic" fill="#333333">
+      <text x="430" y="148" text-anchor="middle">Noncompact</text>
+      <text x="652" y="224" text-anchor="start">Compact finite-dim</text>
+      <text x="430" y="288" text-anchor="middle">Autonomous</text>
+      <text x="652" y="384" text-anchor="start">Nonautonomous</text>
+      <text x="850" y="288" text-anchor="middle">Random</text>
+      <text x="320" y="556" text-anchor="middle">Parabolic slow-fast</text>
+      <text x="500" y="556" text-anchor="middle">Delay equations</text>
+      <text x="680" y="556" text-anchor="middle">Quasilinear PDE</text>
+      <text x="860" y="556" text-anchor="middle">Manifold w/ boundary</text>
+      <text x="1040" y="556" text-anchor="middle">Standard NHIM</text>
+    </g>    <!-- Nodes -->    <g filter="url(#shadow)" stroke="#333333" stroke-width="1.5">
+      <rect x="520" y="30" width="240" height="50" rx="6" fill="#fae3f3" stroke-width="2" />
+      <polygon points="640,110 740,154 640,198 540,154" fill="#ffffff" />
+      <polygon points="640,250 740,294 640,338 540,294" fill="#ffffff" />
+      <polygon points="320,410 420,454 320,498 220,454" fill="#ffffff" />      <rect x="200" y="180" width="240" height="50" rx="6" fill="#dde5f8" />
+      <rect x="520" y="430" width="240" height="50" rx="6" fill="#dde5f8" />
+      <rect x="840" y="430" width="240" height="50" rx="6" fill="#dde5f8" />      <rect x="240" y="580" width="160" height="50" rx="6" fill="#dde5f8" />
+      <rect x="420" y="580" width="160" height="50" rx="6" fill="#dde5f8" />
+      <rect x="600" y="580" width="160" height="50" rx="6" fill="#dde5f8" />
+      <rect x="780" y="580" width="160" height="50" rx="6" fill="#dde5f8" />
+      <rect x="960" y="580" width="160" height="50" rx="6" fill="#dff5d8" stroke-width="2" />
+    </g>    <!-- Node text -->    <g font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1a1a1a" text-anchor="middle">
+      <text x="640" y="60" font-size="15" font-weight="bold">Choose Extension Setting</text>
+      <text x="640" y="158">Base manifold type</text>
+      <text x="640" y="298">Time dependence</text>
+      <text x="320" y="458">Problem type</text>
+<text x="320" y="197">§8.1 Noncompact</text>
+<text x="320" y="215">Banach-dim. base</text>
+
+<text x="640" y="460">§8.2 Nonautonomous</text>
+<text x="960" y="460">§8.2 Random</text>
+
+<text x="320" y="609">§8.3 Parabolic</text>
+<text x="500" y="609">§8.4 Delay</text>
+<text x="680" y="609">§8.5 Quasilinear</text>
+<text x="860" y="609">§8.6 Boundary</text>
+<text x="1040" y="609">Core §§3–5</text>
+</g>
+    <text x="640" y="680" font-family="Georgia, 'Times New Roman', serif" font-size="15" fill="#333333" text-anchor="middle">
+      Figure 8.1: Extension setting selector flowchart.
+    </text>
+  </svg>
+</div></body>
+</html>
